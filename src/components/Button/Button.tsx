@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 
-interface ButtonProps {};
+interface ButtonProps {}
 
 export const Button = styled.button<ButtonProps>`
-  ${({theme}) => css`
+  ${({ theme }) => css`
     padding: 14px 52px;
 
     border: 2px solid ${theme.color.secondary};

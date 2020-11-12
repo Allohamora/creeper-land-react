@@ -1,9 +1,9 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Logo = styled.img`
   display: block;
 
-  ${({theme}) => css`
+  ${({ theme }) => css`
     width: ${theme.pxToRem(34)};
     height: ${theme.pxToRem(34)};
   `}
@@ -11,5 +11,5 @@ export const Logo = styled.img`
 
 Logo.defaultProps = {
   alt: 'creeper land',
-  src: '/img/logo.png'
+  src: '/img/logo.png',
 };

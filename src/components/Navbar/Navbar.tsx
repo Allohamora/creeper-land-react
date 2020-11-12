@@ -1,59 +1,42 @@
 import React from 'react';
 import { DivProps } from 'types';
-import { Root } from './styles';
-import { LeftComponent } from './LeftComponent';
-import { RightComponent } from './RightComponent';
 import { Discord } from 'components/ui/Icons/Discord';
 import { Vk } from 'components/ui/Icons/Vk';
+import { Root } from './styles';
+import { LeftComponent } from './LeftComponent';
+import { IconsType, LinksType, RightComponent } from './RightComponent';
 
-interface NavbarProps extends DivProps {};
+interface NavbarProps extends DivProps {}
 
-interface Link {
-  to: string,
-  text: string
-};
-
-export type Links = Link[];
-
-interface Icon {
-  href: string,
-  icon: JSX.Element
-};
-
-export type Icons = Icon[];
-
-const links: Links = [
+const links: LinksType = [
   {
     to: '/',
-    text: 'Донат'
+    text: 'Донат',
   },
   {
     to: '/',
-    text: 'Правила'
+    text: 'Правила',
   },
   {
     to: '/',
-    text: 'Контакты'
-  }
+    text: 'Контакты',
+  },
 ];
 
-const icons: Icons = [
+const icons: IconsType = [
   {
     href: 'https://vk.com',
-    icon: <Vk />
+    icon: <Vk />,
   },
   {
     href: 'https://discord.com',
-    icon: <Discord />
-  }
+    icon: <Discord />,
+  },
 ];
 
-export const Navbar: React.FC<NavbarProps> = (props) => {
-
-  return (
-    <Root {...props} >
-      <LeftComponent />
-      <RightComponent links={links} icons={icons} />
-    </Root>
-  );
-};
+export const Navbar: React.FC<NavbarProps> = (props) => (
+  <Root {...props}>
+    <LeftComponent />
+    <RightComponent links={links} icons={icons} />
+  </Root>
+);

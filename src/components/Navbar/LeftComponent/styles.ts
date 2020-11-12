@@ -5,5 +5,5 @@ export const Left = styled.div`
 `;
 
 export const LeftText = styled.div`
-  margin-left: ${({theme}) => theme.pxToRem(10)};
+  margin-left: ${({ theme }) => theme.pxToRem(10)};
 `;

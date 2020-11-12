@@ -1,10 +1,7 @@
 import React from 'react';
 
-interface CaseProps {};
+interface CaseProps {}
 
-export const Case: React.FC<CaseProps> = (props) => {
-
-  return (
-    <div>Case</div>
-  );
-};
+export const Case: React.FC<CaseProps> = () => (
+  <div>Case</div>
+);

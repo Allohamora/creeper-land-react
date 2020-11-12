@@ -7,7 +7,7 @@ export const Right = styled.div`
   flex-wrap: wrap;
 
   ${Button} {
-    margin-left: ${({theme}) => theme.pxToRem(54)}
+    margin-left: ${({ theme }) => theme.pxToRem(54)}
   }
 `;
 
@@ -15,7 +15,7 @@ export const List = styled.ul`
   display: flex;
 
   & > *:not(:first-child) {
-    margin-left: ${({theme}) => theme.pxToRem(31)};
+    margin-left: ${({ theme }) => theme.pxToRem(31)};
   }
 `;
 
@@ -23,7 +23,7 @@ export const Item = styled.li`
   display: flex;
   align-items: center;
 
-  ${({theme}) => css`
+  ${({ theme }) => css`
     a ${Normal} {
       color: ${theme.color.primary};
 
@@ -37,7 +37,7 @@ export const Item = styled.li`
 `;
 
 export const Icons = styled.div`
-  ${({theme}) => css`
+  ${({ theme }) => css`
     display: flex;
     align-items: center;
 

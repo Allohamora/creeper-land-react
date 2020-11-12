@@ -3,10 +3,10 @@ import styled, { css } from 'styled-components';
 interface TextProps {
   weight?: boolean,
   secondary?: boolean
-};
+}
 
 export const Text = styled.p<TextProps>`
-  ${({theme, weight, secondary}) => css`
+  ${({ theme, weight, secondary }) => css`
     margin: 0;
     padding: 0;
 
@@ -19,7 +19,7 @@ export const Text = styled.p<TextProps>`
 `;
 
 export const Normal = styled(Text)`
-  ${({theme}) => css`
+  ${({ theme }) => css`
     font-size: ${theme.pxToRem(16)};
     line-height: ${theme.pxToRem(19)};
 
@@ -31,14 +31,14 @@ export const Normal = styled(Text)`
 `;
 
 export const Big = styled(Normal)`
-  ${({theme}) => css`
+  ${({ theme }) => css`
     font-size: ${theme.pxToRem(18)};
     line-height: ${theme.pxToRem(21)};
   `}
 `;
 
 export const Small = styled(Text)`
-  ${({theme}) => css`
+  ${({ theme }) => css`
     font-size: ${theme.pxToRem(14)};
     line-height: ${theme.pxToRem(17)};
 

@@ -2,16 +2,15 @@
   "name": "creeper-land-react",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
+  },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.5",
-    "@testing-library/react": "^11.1.2",
-    "@testing-library/user-event": "^12.2.2",
-    "@types/jest": "^26.0.15",
-    "@types/node": "^12.19.4",
-    "@types/react": "^16.9.56",
-    "@types/react-dom": "^16.9.9",
-    "@types/styled-components": "^5.1.4",
-    "@types/react-router-dom": "^5.1.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -20,16 +19,45 @@
     "typescript": "^4.0.5",
     "web-vitals": "^0.2.4"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.2",
+    "@testing-library/user-event": "^12.2.2",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.19.4",
+    "@types/react": "^16.9.56",
+    "@types/react-dom": "^16.9.9",
+    "@types/react-router-dom": "^5.1.6",
+    "@types/styled-components": "^5.1.4",
+    "eslint-config-airbnb-typescript": "^12.0.0"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "airbnb-typescript"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "overrides": [
+      {
+        "files": [
+          "**/*.ts",
+          "**/*.tsx"
+        ],
+        "rules": {
+          "semi": ["error", "always"],
+          "@typescript-eslint/semi": ["error", "always"],
+          "@typescript-eslint/no-unused-vars": "warn",
+          "no-unused-vars": "warn",
+          "import/prefer-default-export": 0,
+          "import/no-extraneous-dependencies": 0,
+          "react/prop-types": 0,
+          "react/jsx-props-no-spreading": 0,
+          "react/no-array-index-key": 0
+        }
+      }
     ]
   },
   "browserslist": {

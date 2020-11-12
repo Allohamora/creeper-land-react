@@ -1,8 +1,8 @@
-import { createGlobalStyle, css } from "styled-components";
-import { REM } from "./theme";
+import { createGlobalStyle, css } from 'styled-components';
+import { REM } from './theme';
 
 export const GlobalStyles = createGlobalStyle`
-  ${({theme}) => css`
+  ${({ theme }) => css`
     *, *::after, *::before {
       box-sizing: border-box;
     }
