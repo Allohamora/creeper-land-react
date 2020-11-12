@@ -1,10 +1,14 @@
 import React from 'react';
+import { Header } from './Header';
 
 interface MainProps {};
 
 export const Main: React.FC<MainProps> = (props) => {
 
   return (
-    <div>Main</div>
+    <>
+      <Header />
+      <div>Main</div>
+    </>
   );
 };
