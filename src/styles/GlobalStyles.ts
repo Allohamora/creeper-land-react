@@ -1,5 +1,4 @@
 import { createGlobalStyle, css } from 'styled-components';
-import { REM } from './theme';
 
 export const GlobalStyles = createGlobalStyle`
   ${({ theme }) => css`
@@ -8,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     html {
-      font-size: ${REM}px;
+      font-size: 62.5%;
     }
 
     body {
@@ -16,6 +15,10 @@ export const GlobalStyles = createGlobalStyle`
       
       font-family: ${theme.font.primary};
       font-size: ${theme.pxToRem(16)};
+      font-style: normal;
+      font-weight: normal;
+
+      color: ${theme.palette.white};
 
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -24,7 +27,7 @@ export const GlobalStyles = createGlobalStyle`
     a {
       text-decoration: none;
 
-      color: ${theme.color.primary};
+      color: ${theme.palette.white};
 
       &:visited {
         color: inherit;

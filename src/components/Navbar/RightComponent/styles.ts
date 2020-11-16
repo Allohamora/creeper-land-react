@@ -25,12 +25,12 @@ export const Item = styled.li`
 
   ${({ theme }) => css`
     a ${Normal} {
-      color: ${theme.color.primary};
+      color: ${theme.palette.white};
 
       ${theme.transition.button}
 
       &:hover {
-        color: ${theme.color.secondary};
+        color: ${theme.palette.lime};
       }
     }
   `}
@@ -49,11 +49,11 @@ export const Icons = styled.div`
       &:hover path {
         ${theme.transition.button}
 
-        fill: ${theme.color.secondary};
+        fill: ${theme.palette.lime};
       }
 
       &:hover path {
-        fill: ${theme.color.primary};
+        fill: ${theme.palette.white};
       }
 
       &:not(:first-child) {

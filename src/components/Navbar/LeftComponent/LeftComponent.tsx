@@ -12,7 +12,7 @@ export const LeftComponent: React.FC<{}> = () => (
 
         <LeftText>
           <Normal weight>CREEPER LAND</Normal>
-          <Small secondary>mc.creeperland.ru</Small>
+          <Small primary>mc.creeperland.ru</Small>
         </LeftText>
       </Left>
     </Link>

@@ -1,4 +1,4 @@
-export const REM = 10;
+const REM = 10;
 
 const pxToRem = (px: number) => `${px / REM}rem`;
 
@@ -16,15 +16,22 @@ const font = {
   primary: '\'Rubik\', sans-serif',
 };
 
-const color = {
-  primary: '#FFFFFF',
-  secondary: '#5BF74F',
+const palette = {
+  white: '#FFFFFF',
+
+  black: '#2E2E2E',
+
+  purple: '#D941FF',
+
+  lime: '#4AD73F',
+  lime_2: '#5BF74F',
+  lime_3: '#52F64F',
 };
 
 export const theme = {
   pxToRem,
   media,
   font,
-  color,
+  palette,
   transition,
 };
