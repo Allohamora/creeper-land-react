@@ -3,7 +3,7 @@ const REM = 10;
 const pxToRem = (px: number) => `${px / REM}rem`;
 
 const transition = {
-  button: 'transition: .5s;',
+  default: 'transition: .5s;',
 };
 
 const media = {

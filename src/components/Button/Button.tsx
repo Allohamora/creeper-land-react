@@ -16,7 +16,7 @@ export const Button = styled.button<ButtonProps>`
 
     color: ${theme.palette.white};
 
-    ${theme.transition.button}
+    ${theme.transition.default}
 
     &:hover {
       color: ${theme.palette.lime};
