@@ -7,6 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     html {
+      /* 62.5% === 10px */
       font-size: 62.5%;
     }
 
