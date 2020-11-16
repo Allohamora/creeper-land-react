@@ -2,7 +2,9 @@ import { createGlobalStyle, css } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   ${({ theme }) => css`
-    *, *::after, *::before {
+    *,
+    *::after,
+    *::before {
       box-sizing: border-box;
     }
 
@@ -13,7 +15,7 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
       margin: 0;
-      
+
       font-family: ${theme.font.primary};
       font-size: ${theme.pxToRem(16)};
       font-style: normal;

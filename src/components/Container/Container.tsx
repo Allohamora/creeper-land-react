@@ -19,10 +19,11 @@ export const Container = styled.div`
 
 const ContainerWrap = styled.div``;
 
-export const ContainerWithWrap = ({ children, ...rest }: DivProps) => (
+export const ContainerWithWrap = ({
+  children,
+  ...rest
+}: DivProps) => (
   <ContainerWrap {...rest}>
-    <Container>
-      {children}
-    </Container>
+    <Container>{children}</Container>
   </ContainerWrap>
 );

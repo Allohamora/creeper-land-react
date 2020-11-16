@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Modal } from 'types/navbar';
 
-export const Icons = styled.div<{modal?: Modal}>`
+export const Icons = styled.div<{ modal?: Modal }>`
   ${({ theme, modal }) => css`
     display: flex;
     align-items: center;

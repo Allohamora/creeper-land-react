@@ -7,14 +7,17 @@ import { NavLinks } from '../NavLinks';
 import { IconLinks } from '../IconLinks';
 
 interface ContentProps {
-  links: LinksType,
-  icons: IconsType,
-  openModal: ToggleModal,
-  userState: JSX.Element,
+  links: LinksType;
+  icons: IconsType;
+  openModal: ToggleModal;
+  userState: JSX.Element;
 }
 
 export const Content: React.FC<ContentProps> = ({
-  links, icons, openModal, userState,
+  links,
+  icons,
+  openModal,
+  userState,
 }) => (
   <Root>
     <Inner>

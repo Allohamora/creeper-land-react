@@ -6,21 +6,19 @@ export const List = styled.ul<{ modal?: Modal }>`
   ${({ theme, modal }) => css`
     display: flex;
 
-    ${
-  modal
-    ? css`
-            flex-flow: column;
+    ${modal
+      ? css`
+          flex-flow: column;
 
-            > *:not(:last-child) {
-              margin-bottom: ${theme.pxToRem(10)};
-            }
-          `
-    : css`
-            & > *:not(:first-child) {
-              margin-left: ${theme.pxToRem(31)};
-            }
-          `
-}
+          > *:not(:last-child) {
+            margin-bottom: ${theme.pxToRem(10)};
+          }
+        `
+      : css`
+          & > *:not(:first-child) {
+            margin-left: ${theme.pxToRem(31)};
+          }
+        `}
   `}
 `;
 

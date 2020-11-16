@@ -13,7 +13,7 @@ const media = {
 };
 
 const font = {
-  primary: '\'Rubik\', sans-serif',
+  primary: "'Rubik', sans-serif",
 };
 
 const palette = {

@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
 interface TextProps {
-  weight?: boolean,
-  primary?: boolean
+  weight?: boolean;
+  primary?: boolean;
 }
 
 export const Text = styled.p<TextProps>`
@@ -15,7 +15,7 @@ export const Text = styled.p<TextProps>`
     font-weight: ${weight ? '500' : 'normal'};
 
     color: ${theme.palette.white};
-    
+
     ${primary && `color: ${theme.palette.lime};`}
   `}
 `;

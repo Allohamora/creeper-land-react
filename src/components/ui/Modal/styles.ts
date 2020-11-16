@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 interface Show {
-  show?: boolean,
+  show?: boolean;
 }
 
 export const Content = styled.div`
@@ -50,9 +50,10 @@ export const Backdrop = styled.div<Show>`
     ${theme.transition.default}
 
     background-color: ${theme.palette.black};
-    opacity: .5;
+    opacity: 0.5;
 
-    ${show && css`
+    ${show &&
+    css`
       left: 0;
     `}
   `}

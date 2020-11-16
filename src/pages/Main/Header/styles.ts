@@ -7,12 +7,12 @@ export const Root = styled(ContainerWithWrap)`
 
   position: relative;
 
-  background-color: #2E2E2E;
+  background-color: #2e2e2e;
 
   min-height: 100vh;
 
   &::after {
-    content: "";
+    content: '';
 
     position: absolute;
     z-index: 1;
@@ -24,7 +24,7 @@ export const Root = styled(ContainerWithWrap)`
 
     transform: translate(-50%, -50%);
 
-    background-image: url("${MAIN_IMG_PATH}/lines.svg");
+    background-image: url('${MAIN_IMG_PATH}/lines.svg');
     background-size: cover;
     background-repeat: no-repeat;
   }

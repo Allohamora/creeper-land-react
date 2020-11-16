@@ -4,9 +4,7 @@ import { Logo } from 'components/ui/Logo';
 import { Normal, Small } from 'components/ui/Text';
 import { Container, Text } from './styles';
 
-interface BrandProps {}
-
-export const Brand: React.FC<BrandProps> = () => (
+export const Brand: React.FC = () => (
   <Link to="/">
     <Container>
       <Logo />

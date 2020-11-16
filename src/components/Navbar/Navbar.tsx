@@ -9,7 +9,7 @@ import { Content } from './Content';
 import { Brand } from './Brand';
 import { Modal } from './Modal';
 
-interface NavbarProps extends DivProps {}
+type NavbarProps = DivProps;
 
 const links: LinksType = [
   {
@@ -43,7 +43,7 @@ export const Navbar: React.FC<NavbarProps> = (props) => {
   const openModal = () => setShow(true);
   const closeModal = () => setShow(false);
 
-  const userState = (<Button>Войти</Button>);
+  const userState = <Button>Войти</Button>;
 
   return (
     <>

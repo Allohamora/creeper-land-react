@@ -5,20 +5,21 @@ import { LinksType, Modal } from 'types/navbar';
 import { Item, List } from './styles';
 
 interface NavLinksProps {
-  links: LinksType,
-  modal?: Modal
+  links: LinksType;
+  modal?: Modal;
 }
 
-export const NavLinks: React.FC<NavLinksProps> = ({ links, modal }) => (
+export const NavLinks: React.FC<NavLinksProps> = ({
+  links,
+  modal,
+}) => (
   <List modal={modal}>
-    {
-      links.map(({ to, text }, i) => (
-        <Item key={i}>
-          <Link to={to}>
-            <Normal>{text}</Normal>
-          </Link>
-        </Item>
-      ))
-    }
+    {links.map(({ to, text }, i) => (
+      <Item key={i}>
+        <Link to={to}>
+          <Normal>{text}</Normal>
+        </Link>
+      </Item>
+    ))}
   </List>
 );
