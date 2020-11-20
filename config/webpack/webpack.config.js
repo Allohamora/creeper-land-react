@@ -70,6 +70,7 @@ module.exports = {
             options: {
               // sass, postcss
               importLoaders: 2,
+              url: false,
             }
           },
           // postprocess css

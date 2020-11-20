@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Burger: React.FC = () => (
+const Burger: React.FC = () => (
   <svg
     width="18"
     height="14"
@@ -17,3 +17,5 @@ export const Burger: React.FC = () => (
     />
   </svg>
 );
+
+export default Burger;

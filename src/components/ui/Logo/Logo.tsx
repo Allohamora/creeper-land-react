@@ -1,15 +1,19 @@
-import styled, { css } from 'styled-components';
+import React from 'react';
+import clsx from 'clsx';
+import './Logo.scss';
 
-export const Logo = styled.img`
-  display: block;
+type LogoProps = React.DetailedHTMLProps<
+  React.ImgHTMLAttributes<HTMLImageElement>,
+  HTMLImageElement
+>;
 
-  ${({ theme }) => css`
-    width: ${theme.pxToRem(34)};
-    height: ${theme.pxToRem(34)};
-  `}
-`;
+const Logo: React.FC<LogoProps> = ({ className, ...rest }) => (
+  <img
+    className={clsx('logo', className)}
+    alt="creeper land"
+    src="/img/logo.png"
+    {...rest}
+  />
+);
 
-Logo.defaultProps = {
-  alt: 'creeper land',
-  src: '/img/logo.png',
-};
+export default Logo;

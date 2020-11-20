@@ -1,9 +1,11 @@
 import React from 'react';
 import { Navbar } from 'components/Navbar';
-import { Root } from './styles';
+import Header from 'components/Header';
 
-export const Header: React.FC = () => (
-  <Root>
+const MainHeader: React.FC = () => (
+  <Header lines>
     <Navbar />
-  </Root>
+  </Header>
 );
+
+export default MainHeader;

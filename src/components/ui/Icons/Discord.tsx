@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Discord: React.FC = () => (
+const Discord: React.FC = () => (
   <svg
     width="17"
     height="19"
@@ -18,3 +18,5 @@ export const Discord: React.FC = () => (
     />
   </svg>
 );
+
+export default Discord;

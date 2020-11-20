@@ -9,6 +9,30 @@
   ],
   "rules": {
     "color-named": null,
+    "max-nesting-depth": [3],
+    "scss/dollar-variable-pattern": null,
+    "declaration-property-value-disallowed-list": {},
+    "order/properties-alphabetical-order": null,
+		"order/order": [
+			[
+				"dollar-variables",
+				"custom-properties",
+				"at-rules",
+				"declarations",
+				{
+					"type": "at-rule",
+					"name": "supports"
+				},
+				{
+					"type": "at-rule",
+					"name": "media"
+				},
+				"rules"
+			],
+			{
+        "severity": "error"
+      }
+		],
     "order/properties-order": [
       [
         "content",
@@ -241,7 +265,7 @@
       {
 				"unspecified": "bottom",
 				"severity": "error"
-      }
+			}
     ]
   }
 }

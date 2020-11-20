@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Vk: React.FC = () => (
+const Vk: React.FC = () => (
   <svg
     width="21"
     height="12"
@@ -14,3 +14,5 @@ export const Vk: React.FC = () => (
     />
   </svg>
 );
+
+export default Vk;

@@ -1,0 +1,30 @@
+@import 'styles/transition';
+@import 'styles/vars';
+
+.icon-links {
+  display: flex;
+  align-items: center;
+  margin-left: 27px;
+
+  > a {
+    display: flex;
+
+    path {
+      @include transition();
+
+      fill: $lime;
+    }
+
+    &:hover path {
+      fill: $white;
+    }
+
+    &:not(:first-child) {
+      margin-left: 17px;
+    }
+  }
+
+  &_modal {
+    margin-left: 0;
+  }
+}

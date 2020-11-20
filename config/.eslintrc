@@ -39,11 +39,13 @@
     // base
     "@typescript-eslint/no-empty-interface": 1,
     "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/indent": 0, // remove typescript-eslint style fix
 
     // react
     "react/prop-types": 0,
     "react/no-array-index-key": 0,
     "react/jsx-props-no-spreading": 0,
+    "react/button-has-type": 0,
 
     // prettier
     "prettier/prettier": [

@@ -1,0 +1,18 @@
+@import 'styles/vars';
+@import 'styles/transition';
+
+.button {
+  @include transition();
+
+  padding: 14px 52px;
+  border: 2px solid $lime;
+  border-radius: 5px;
+  color: $white;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+
+  &:hover {
+    color: $lime;
+  }
+}

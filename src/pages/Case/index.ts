@@ -1,1 +1,1 @@
-export * from './Case';
+export { default } from './Case';

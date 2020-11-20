@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const XIcon: React.FC = () => (
+const XIcon: React.FC = () => (
   <svg
     width="18"
     height="18"
@@ -14,3 +14,5 @@ export const XIcon: React.FC = () => (
     />
   </svg>
 );
+
+export default XIcon;

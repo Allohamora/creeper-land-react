@@ -1,0 +1,33 @@
+// breakpoints
+$mobile: 576px;
+$tablet: 768px;
+$laptop: 992px;
+
+$breakpoints: (
+  mobile: $mobile,
+  tablet: $tablet,
+  laptop: $laptop
+);
+
+// palette
+$white: #fff;
+
+$black: #2e2e2e;
+
+$purple: #d941ff;
+
+$lime: #4ad73f;
+$lime_2: #5bf74f;
+$lime_3: #52f64f;
+
+// font
+$font: 'Rubik', sans-serif;
+
+// transition
+$transition: 0.5s;
+
+// path
+$public_path: '';
+$img_path: 'img';
+$main-img_path: '#{$img_path}/main';
+$header_img_path: '#{$img_path}/header';

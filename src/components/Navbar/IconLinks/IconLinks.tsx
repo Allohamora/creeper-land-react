@@ -1,21 +1,32 @@
+import clsx from 'clsx';
 import React from 'react';
 import { IconsType, Modal } from 'types/navbar';
-import { Icons } from './styles';
+import './IconLinks.scss';
 
 interface IconLinksProps {
   icons: IconsType;
   modal?: Modal;
+  className?: string;
 }
 
-export const IconLinks: React.FC<IconLinksProps> = ({
+const IconLinks: React.FC<IconLinksProps> = ({
   icons,
   modal,
+  className,
 }) => (
-  <Icons modal={modal}>
+  <div
+    className={clsx(
+      'icon-links',
+      { 'icon-links_modal': modal },
+      className,
+    )}
+  >
     {icons.map(({ href, icon }, i) => (
       <a key={i} href={href}>
         {icon}
       </a>
     ))}
-  </Icons>
+  </div>
 );
+
+export default IconLinks;

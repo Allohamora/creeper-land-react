@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import { Case } from './Case';
-import { Main } from './Main';
+import Case from './Case';
+import Main from './Main';
 
-export const Routes: React.FC = () => (
+const Routes: React.FC = () => (
   <Switch>
     <Route component={Main} path="/" exact />
     <Route component={Case} path="/case/:id" exact />
@@ -11,3 +11,5 @@ export const Routes: React.FC = () => (
     <Redirect to="/" />
   </Switch>
 );
+
+export default Routes;

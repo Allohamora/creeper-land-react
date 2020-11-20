@@ -1,1 +1,1 @@
-export * from './Modal';
+export { default as Backdrop } from './Backdrop';

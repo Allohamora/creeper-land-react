@@ -1,0 +1,41 @@
+@import 'styles/vars';
+@import 'styles/transition';
+
+$navbar-breakpoint: 850px;
+
+.nav-content {
+  display: flex;
+  flex-wrap: wrap;
+
+  .button {
+    margin-left: 54px;
+  }
+
+  &__burger-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: $navbar-breakpoint) {
+      display: none;
+    }
+
+    button {
+      path {
+        @include transition();
+      }
+
+      &:hover path {
+        stroke: $lime;
+      }
+    }
+  }
+
+  &__inner {
+    display: flex;
+
+    @media (max-width: $navbar-breakpoint) {
+      display: none;
+    }
+  }
+}

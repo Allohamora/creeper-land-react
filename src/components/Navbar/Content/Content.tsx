@@ -1,10 +1,11 @@
 import React from 'react';
-import { Burger } from 'components/ui/Icons/Burger';
+import IconButton from 'components/ui/IconButton';
+import Burger from 'components/ui/Icons/Burger';
 import { IconsType, LinksType } from 'types/navbar';
-import { ToggleModal } from 'types';
-import { BurgerWrap, Root, Inner } from './styles';
-import { NavLinks } from '../NavLinks';
-import { IconLinks } from '../IconLinks';
+import { ToggleModal } from 'types/props';
+import NavLinks from '../NavLinks';
+import IconLinks from '../IconLinks';
+import './Content.scss';
 
 interface ContentProps {
   links: LinksType;
@@ -13,23 +14,23 @@ interface ContentProps {
   userState: JSX.Element;
 }
 
-export const Content: React.FC<ContentProps> = ({
+const Content: React.FC<ContentProps> = ({
   links,
   icons,
   openModal,
   userState,
 }) => (
-  <Root>
-    <Inner>
+  <div className="nav-content">
+    <div className="nav-content__inner">
       <NavLinks links={links} />
       <IconLinks icons={icons} />
       {userState}
-    </Inner>
+    </div>
 
-    <BurgerWrap>
-      <button type="button" onClick={openModal}>
-        <Burger />
-      </button>
-    </BurgerWrap>
-  </Root>
+    <div className="nav-content__burger-wrap">
+      <IconButton icon={<Burger />} onClick={openModal} />
+    </div>
+  </div>
 );
+
+export default Content;

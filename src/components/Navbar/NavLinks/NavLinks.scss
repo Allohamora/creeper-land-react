@@ -1,0 +1,37 @@
+@import 'styles/vars';
+@import 'styles/transition';
+
+.nav-links {
+  display: flex;
+
+  > *:not(:first-child) {
+    margin-left: 31px;
+  }
+
+  &_modal {
+    flex-flow: column;
+
+    > *:not(:first-child) {
+      margin-left: 0;
+    }
+
+    > *:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    a p {
+      @include transition();
+
+      color: $white;
+
+      &:hover {
+        color: $lime;
+      }
+    }
+  }
+}

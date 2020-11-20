@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
-import { DivProps } from 'types';
-import { Discord } from 'components/ui/Icons/Discord';
-import { Vk } from 'components/ui/Icons/Vk';
+import clsx from 'clsx';
+import Discord from 'components/ui/Icons/Discord';
+import Vk from 'components/ui/Icons/Vk';
+import Button from 'components/ui/Button';
 import { IconsType, LinksType } from 'types/navbar';
-import { Button } from 'components/Button';
-import { Root } from './styles';
-import { Content } from './Content';
-import { Brand } from './Brand';
-import { Modal } from './Modal';
-
-type NavbarProps = DivProps;
+import { DivProps } from 'types/props';
+import Brand from './Brand';
+import Content from './Content';
+import Menu from './Menu';
+import './Navbar.scss';
 
 const links: LinksType = [
   {
@@ -37,30 +36,33 @@ const icons: IconsType = [
   },
 ];
 
-export const Navbar: React.FC<NavbarProps> = (props) => {
+export const Navbar: React.FC<DivProps> = ({
+  className,
+  ...rest
+}) => {
   const [show, setShow] = useState(false);
 
-  const openModal = () => setShow(true);
-  const closeModal = () => setShow(false);
+  const openMenu = () => setShow(true);
+  const closeMenu = () => setShow(false);
 
   const userState = <Button>Войти</Button>;
 
   return (
     <>
-      <Root {...props}>
+      <div className={clsx('navbar', className)} {...rest}>
         <Brand />
 
         <Content
-          openModal={openModal}
+          openModal={openMenu}
           links={links}
           icons={icons}
           userState={userState}
         />
-      </Root>
+      </div>
 
-      <Modal
+      <Menu
         show={show}
-        closeModal={closeModal}
+        closeMenu={closeMenu}
         links={links}
         icons={icons}
         userState={userState}

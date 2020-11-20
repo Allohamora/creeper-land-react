@@ -1,18 +1,22 @@
 import React from 'react';
+import Logo from 'components/ui/Logo';
+import Paragraph from 'components/ui/Paragraph';
 import { Link } from 'react-router-dom';
-import { Logo } from 'components/ui/Logo';
-import { Normal, Small } from 'components/ui/Text';
-import { Container, Text } from './styles';
+import './Brand.scss';
 
-export const Brand: React.FC = () => (
+const Brand: React.FC = () => (
   <Link to="/">
-    <Container>
+    <div className="brand">
       <Logo />
 
-      <Text>
-        <Normal weight>CREEPER LAND</Normal>
-        <Small primary>mc.creeperland.ru</Small>
-      </Text>
-    </Container>
+      <div className="brand__text">
+        <Paragraph weight>CREEPER LAND</Paragraph>
+        <Paragraph small primary>
+          mc.creeperland.ru
+        </Paragraph>
+      </div>
+    </div>
   </Link>
 );
+
+export default Brand;
