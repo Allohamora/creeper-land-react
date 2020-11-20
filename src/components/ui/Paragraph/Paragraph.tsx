@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import './Paragraph.scss';
 
-interface ParagraphProps
+export interface ParagraphProps
   extends React.HTMLAttributes<HTMLParagraphElement> {
   weight?: boolean;
   primary?: boolean;

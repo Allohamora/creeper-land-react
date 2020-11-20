@@ -36,10 +36,7 @@ const icons: IconsType = [
   },
 ];
 
-export const Navbar: React.FC<DivProps> = ({
-  className,
-  ...rest
-}) => {
+const Navbar: React.FC<DivProps> = ({ className, ...rest }) => {
   const [show, setShow] = useState(false);
 
   const openMenu = () => setShow(true);
@@ -70,3 +67,5 @@ export const Navbar: React.FC<DivProps> = ({
     </>
   );
 };
+
+export default Navbar;

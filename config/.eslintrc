@@ -12,7 +12,10 @@
     "react",
 
     // import
-    "import"
+    "import",
+
+    // prettier
+    "prettier"
   ],
   "extends": [
     // base
@@ -28,32 +31,40 @@
     "plugin:import/warnings",
     "plugin:import/typescript",
 
-    // prettier
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
-
     // else
-    "airbnb-typescript"
+    "airbnb-typescript",
+
+    // prettier
+    "prettier",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
   ],
   "rules": {
     // base
     "@typescript-eslint/no-empty-interface": 1,
     "@typescript-eslint/explicit-module-boundary-types": 0,
-    "@typescript-eslint/indent": 0, // remove typescript-eslint style fix
+
+    // remove typescript-eslint style fix
+    "@typescript-eslint/indent": 0, 
+    "@typescript-eslint/comma-dangle": 0,
+    "@typescript-eslint/quotes": 0,
 
     // react
     "react/prop-types": 0,
     "react/no-array-index-key": 0,
     "react/jsx-props-no-spreading": 0,
     "react/button-has-type": 0,
+    "react/no-children-prop": 0,
 
     // prettier
     "prettier/prettier": [
       "error",
       {
         "parser": "typescript",
+        "tabWidth": 2,
         "semi": true,
         "trailingComma": "all",
+        "jsxBracketSameLine": false,
         "singleQuote": true,
         "printWidth": 70
       }

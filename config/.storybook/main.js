@@ -1,7 +1,15 @@
 /* it is a storybook config */
 
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const webpackConfig = require('../webpack/webpack.config');
 const { src } = require('../paths');
+
+const scssRule = webpackConfig.module.rules.find(({ test }) => {
+  const isRegex = test instanceof RegExp;
+
+  if( !isRegex ) return false;
+  return test.test('.scss');
+});
 
 module.exports = {
   stories: [
@@ -15,6 +23,7 @@ module.exports = {
   webpackFinal: async (config) => {
     // adds baseUrl feature to storybook
     config.resolve.plugins.push(new TsconfigPathsPlugin());
+    config.module.rules.push(scssRule);
 
     return config;
   }
