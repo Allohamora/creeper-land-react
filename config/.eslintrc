@@ -1,0 +1,64 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    // base
+    "@typescript-eslint",
+
+    // react
+    "jsx-a11y",
+    "react",
+
+    // import
+    "import"
+  ],
+  "extends": [
+    // base
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+
+    // react
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/recommended",
+
+    // imports
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+
+    // prettier
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended",
+
+    // else
+    "airbnb-typescript"
+  ],
+  "rules": {
+    // base
+    "@typescript-eslint/no-empty-interface": 1,
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+
+    // react
+    "react/prop-types": 0,
+    "react/no-array-index-key": 0,
+    "react/jsx-props-no-spreading": 0,
+
+    // prettier
+    "prettier/prettier": [
+      "error",
+      {
+        "parser": "typescript",
+        "semi": true,
+        "trailingComma": "all",
+        "singleQuote": true,
+        "printWidth": 70
+      }
+    ],
+
+    // import
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": 0
+  }
+}
