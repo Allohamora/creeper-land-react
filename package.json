@@ -84,14 +84,8 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "npm run lint -- --fix",
-      "git add"
-    ],
-    "*.scss": [
-      "npm run lint:css -- --fix",
-      "git add"
-    ]
+    "*.{ts,tsx}": "npm run lint -- --fix",
+    "*.scss": "npm run lint:css -- --fix"
   },
   "browserslist": [
     ">0.2%",

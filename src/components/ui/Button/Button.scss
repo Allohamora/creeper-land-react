@@ -7,12 +7,19 @@
   padding: 14px 52px;
   border: 2px solid $lime;
   border-radius: 5px;
+  background-color: transparent;
   color: $white;
+  outline: none;
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
+  cursor: pointer;
 
   &:hover {
     color: $lime;
+  }
+
+  &_dark {
+    color: $black;
   }
 }

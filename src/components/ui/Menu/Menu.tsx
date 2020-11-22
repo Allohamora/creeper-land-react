@@ -5,7 +5,7 @@ import XIcon from '../Icons/XIcon';
 import { Backdrop } from '../Modal';
 import './Menu.scss';
 
-interface ModalProps {
+export interface ModalProps {
   onClose?: () => void;
   show: boolean;
   className?: string;

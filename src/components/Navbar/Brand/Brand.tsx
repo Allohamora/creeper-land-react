@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from 'components/ui/Logo';
+import Logo from 'components/Logo';
 import Paragraph from 'components/ui/Paragraph';
 import { Link } from 'react-router-dom';
 import './Brand.scss';
