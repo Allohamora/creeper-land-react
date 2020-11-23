@@ -1,0 +1,11 @@
+@import 'styles/media';
+
+@mixin fontsize ($fs, $ln, $mfs, $mln) {
+  @include media(mobile) {
+    font-size: $mfs;
+    line-height: $mln;
+  }
+
+  font-size: $fs;
+  line-height: $ln;
+}
