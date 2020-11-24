@@ -1,10 +1,16 @@
-export const getVariants = (
+export const getModifiers = (
   base: string,
-  variants: readonly string[],
+  rawModifiers: readonly string[],
 ) =>
-  variants.reduce<{ [variant: string]: string }>((state, variant) => {
-    // eslint-disable-next-line
-  state[variant] = `${base}_${variant}`;
+  rawModifiers.reduce<{ [modifier: string]: string }>(
+    (state, modifier) => {
+      // eslint-disable-next-line
+    state[modifier] = `${base}_${modifier}`;
 
-    return state;
-  }, {});
+      return state;
+    },
+    {},
+  );
+
+export const getText = (base: string, modifier: string) =>
+  `${base} ${modifier}`;

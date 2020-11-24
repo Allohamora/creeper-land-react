@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from 'components/Logo';
-import Paragraph from 'components/ui/Paragraph';
+import Typography from 'components/ui/Typography';
 import { Link } from 'react-router-dom';
 import './Brand.scss';
 
@@ -10,10 +10,12 @@ const Brand: React.FC = () => (
       <Logo />
 
       <div className="brand__text">
-        <Paragraph weight>CREEPER LAND</Paragraph>
-        <Paragraph small primary>
+        <Typography variant="p2" weight="500" color="white">
+          CREEPER LAND
+        </Typography>
+        <Typography variant="p3" color="lime">
           mc.creeperland.ru
-        </Paragraph>
+        </Typography>
       </div>
     </div>
   </Link>
