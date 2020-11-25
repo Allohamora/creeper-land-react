@@ -1,0 +1,40 @@
+@import 'styles/vars';
+@import 'styles/transition';
+
+.button {
+
+  $this: &;
+
+  @include transition();
+
+  padding: 14px 52px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  line-height: 19px;
+  cursor: pointer;
+
+  &_outlined {
+    border: 2px solid $lime;
+  }
+
+  &_outlined#{$this}_lime {
+    border-color: $lime;
+    background-color: transparent;
+    color: $white;
+
+    &:hover {
+      color: $lime;
+    }
+  }
+
+  &_contained#{$this}_lime {
+    background-color: $lime;
+    color: $white;
+
+    &:hover {
+      color: $black;
+    }
+  }
+}

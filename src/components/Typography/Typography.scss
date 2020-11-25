@@ -13,7 +13,13 @@
   color: inherit;
   font-weight: normal;
   font-style: normal;
+  font-size: inherit;
   font-family: $font;
+  line-height: inherit;
+
+  &_inherit {
+    color: inherit;
+  }
 
   &_h1,
   &_h2,

@@ -1,15 +1,24 @@
 import React from 'react';
 import clsx from 'clsx';
-import Container from 'components/Container';
+import Container, { ContainerProps } from 'components/Container';
 import './Header.scss';
 
 interface HeaderProps {
   lines?: boolean;
+  className?: string;
+  containerProps?: ContainerProps;
 }
 
-const Header: React.FC<HeaderProps> = ({ children, lines }) => (
-  <header className={clsx('header', { header_lines: lines })}>
-    <Container>{children}</Container>
+const base = 'header';
+
+const Header: React.FC<HeaderProps> = ({
+  children,
+  lines,
+  className,
+  containerProps = {},
+}) => (
+  <header className={clsx(base, lines && `${base}_lines`, className)}>
+    <Container {...containerProps}>{children}</Container>
   </header>
 );
 

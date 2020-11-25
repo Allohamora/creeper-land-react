@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import IconButton from 'components/ui/IconButton';
+import IconButton from 'components/IconButton';
 import React from 'react';
 import XIcon from '../Icons/XIcon';
 import { Backdrop } from '../Modal';

@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from 'components/ui/Typography';
+import Typography from 'components/Typography';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { LinksType, Modal } from 'types/navbar';

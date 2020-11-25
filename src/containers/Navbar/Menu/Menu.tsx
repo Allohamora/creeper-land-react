@@ -5,8 +5,8 @@ import {
   Modal as ShowType,
 } from 'types/navbar';
 import { ToggleModal } from 'types/props';
-import UiMenu from 'components/ui/Menu';
-import Brand from '../Brand';
+import UiMenu from 'components/Menu';
+import Brand from '../../Brand';
 import IconLinks from '../IconLinks';
 import NavLinks from '../NavLinks';
 import './Menu.scss';

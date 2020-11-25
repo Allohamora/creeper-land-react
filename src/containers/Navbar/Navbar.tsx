@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
-import Discord from 'components/ui/Icons/Discord';
-import Vk from 'components/ui/Icons/Vk';
-import Button from 'components/ui/Button';
+import Discord from 'components/Icons/Discord';
+import Vk from 'components/Icons/Vk';
+import Button from 'components/Button';
 import { IconsType, LinksType } from 'types/navbar';
 import { DivProps } from 'types/props';
-import Brand from './Brand';
+import Brand from '../Brand';
 import Content from './Content';
 import Menu from './Menu';
 import './Navbar.scss';

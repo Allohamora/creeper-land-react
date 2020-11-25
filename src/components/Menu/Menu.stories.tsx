@@ -1,4 +1,5 @@
 import { Meta, Story } from '@storybook/react';
+import Typography from 'components/Typography';
 import React, { useState } from 'react';
 import Button from '../Button';
 import Menu, { ModalProps } from './Menu';
@@ -23,8 +24,10 @@ const Template: Story<ModalProps> = ({
 
   return (
     <>
-      <Button dark onClick={openHandler}>
-        toggle
+      <Button onClick={openHandler}>
+        <Typography component="span" color="black">
+          toggle
+        </Typography>
       </Button>
       <Menu
         children="Menu"

@@ -1,6 +1,6 @@
 import React from 'react';
-import IconButton from 'components/ui/IconButton';
-import Burger from 'components/ui/Icons/Burger';
+import IconButton from 'components/IconButton';
+import Burger from 'components/Icons/Burger';
 import { IconsType, LinksType } from 'types/navbar';
 import { ToggleModal } from 'types/props';
 import NavLinks from '../NavLinks';

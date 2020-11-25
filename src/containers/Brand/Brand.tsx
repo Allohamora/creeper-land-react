@@ -1,6 +1,6 @@
 import React from 'react';
 import Logo from 'components/Logo';
-import Typography from 'components/ui/Typography';
+import Typography from 'components/Typography';
 import { Link } from 'react-router-dom';
 import './Brand.scss';
 

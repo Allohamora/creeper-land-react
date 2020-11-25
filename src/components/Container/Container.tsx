@@ -3,7 +3,9 @@ import clsx from 'clsx';
 import { DivProps } from 'types/props';
 import './Container.scss';
 
-const Container: React.FC<DivProps> = ({
+export type ContainerProps = DivProps;
+
+const Container: React.FC<ContainerProps> = ({
   children,
   className,
   ...rest
