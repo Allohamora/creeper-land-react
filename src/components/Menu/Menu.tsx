@@ -11,30 +11,39 @@ export interface ModalProps {
   className?: string;
 }
 
+const block = 'menu';
+
 const Menu: React.FC<ModalProps> = ({
   onClose,
   children,
   show,
   className,
 }) => {
-  document.documentElement.style.overflow = show ? 'hidden' : '';
+  document.documentElement.style.overflow = show
+    ? 'hidden'
+    : '';
 
   return (
     <div>
       <Backdrop show={show} onClick={onClose} />
 
       <div
-        className={clsx('menu__inner', { menu__inner_show: show })}
+        className={clsx(
+          `${block}__inner`,
+          show && `${block}__inner_show`,
+        )}
       >
         <div>
           <IconButton
-            className="menu__x"
+            className={`${block}__x`}
             onClick={onClose}
             icon={<XIcon />}
           />
         </div>
 
-        <div className={clsx('menu__content', className)}>
+        <div
+          className={clsx(`${block}__content`, className)}
+        >
           {children}
         </div>
       </div>

@@ -1,7 +1,23 @@
+@import 'styles/media';
+
 .brand {
   display: flex;
 
   &__text {
     margin-left: 10px;
+  }
+
+  &__title {
+    @include media(mobile) {
+      font-size: 12px;
+      line-height: 13px;
+    }
+  }
+
+  &__ip {
+    @include media(mobile) {
+      font-size: 10px;
+      line-height: 12px;
+    }
   }
 }

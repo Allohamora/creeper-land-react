@@ -1,16 +1,16 @@
 export const getModifiers = (
-  base: string,
+  block: string,
   rawModifiers: readonly string[],
 ) =>
   rawModifiers.reduce<{ [modifier: string]: string }>(
     (state, modifier) => {
       // eslint-disable-next-line
-    state[modifier] = `${base}_${modifier}`;
+      state[modifier] = `${block}_${modifier}`;
 
       return state;
     },
     {},
   );
 
-export const getText = (base: string, modifier: string) =>
-  `${base} ${modifier}`;
+export const getText = (block: string, modifier: string) =>
+  `${block} ${modifier}`;

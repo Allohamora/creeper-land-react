@@ -14,20 +14,22 @@ interface ContentProps {
   userState: JSX.Element;
 }
 
+const block = 'nav-content';
+
 const Content: React.FC<ContentProps> = ({
   links,
   icons,
   openModal,
   userState,
 }) => (
-  <div className="nav-content">
-    <div className="nav-content__inner">
+  <div className={block}>
+    <div className={`${block}__inner`}>
       <NavLinks links={links} />
       <IconLinks icons={icons} />
       {userState}
     </div>
 
-    <div className="nav-content__burger-wrap">
+    <div className={`${block}__burger-wrap`}>
       <IconButton icon={<Burger />} onClick={openModal} />
     </div>
   </div>

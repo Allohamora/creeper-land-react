@@ -1,6 +1,8 @@
 import React from 'react';
 import clsx from 'clsx';
-import Container, { ContainerProps } from 'components/Container';
+import Container, {
+  ContainerProps,
+} from 'components/Container';
 import './Header.scss';
 
 interface HeaderProps {
@@ -9,7 +11,7 @@ interface HeaderProps {
   containerProps?: ContainerProps;
 }
 
-const base = 'header';
+const block = 'header';
 
 const Header: React.FC<HeaderProps> = ({
   children,
@@ -17,7 +19,13 @@ const Header: React.FC<HeaderProps> = ({
   className,
   containerProps = {},
 }) => (
-  <header className={clsx(base, lines && `${base}_lines`, className)}>
+  <header
+    className={clsx(
+      block,
+      lines && `${block}_lines`,
+      className,
+    )}
+  >
     <Container {...containerProps}>{children}</Container>
   </header>
 );

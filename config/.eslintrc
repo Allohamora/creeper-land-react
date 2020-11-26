@@ -66,7 +66,7 @@
         "trailingComma": "all",
         "jsxBracketSameLine": false,
         "singleQuote": true,
-        "printWidth": 70
+        "printWidth": 60
       }
     ],
 

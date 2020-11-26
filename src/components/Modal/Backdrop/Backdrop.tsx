@@ -6,13 +6,19 @@ import './Backdrop.scss';
 
 interface BackdropProps extends DivProps, Show {}
 
+const block = 'backdrop';
+
 const Backdrop: React.FC<BackdropProps> = ({
   className,
   show,
   ...rest
 }) => (
   <div
-    className={clsx('backdrop', { backdrop_show: show }, className)}
+    className={clsx(
+      block,
+      show && `${block}_show`,
+      className,
+    )}
     {...rest}
   />
 );

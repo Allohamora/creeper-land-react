@@ -1,5 +1,4 @@
 import React from 'react';
-import Typography from 'components/Typography';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { LinksType, Modal } from 'types/navbar';
@@ -10,14 +9,17 @@ interface NavLinksProps {
   modal?: Modal;
 }
 
-const NavLinks: React.FC<NavLinksProps> = ({ links, modal }) => (
-  <div className={clsx('nav-links', { 'nav-links_modal': modal })}>
+const block = 'nav-links';
+
+const NavLinks: React.FC<NavLinksProps> = ({
+  links,
+  modal,
+}) => (
+  <div className={clsx(block, modal && `${block}_modal`)}>
     {links.map(({ to, text }, i) => (
-      <div key={i} className="nav-links__item">
+      <div key={i} className={`${block}__item`}>
         <Link to={to}>
-          <Typography variant="p2" color="white">
-            {text}
-          </Typography>
+          <p>{text}</p>
         </Link>
       </div>
     ))}

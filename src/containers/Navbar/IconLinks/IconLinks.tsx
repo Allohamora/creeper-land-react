@@ -9,6 +9,8 @@ interface IconLinksProps {
   className?: string;
 }
 
+const block = 'icon-links';
+
 const IconLinks: React.FC<IconLinksProps> = ({
   icons,
   modal,
@@ -16,8 +18,8 @@ const IconLinks: React.FC<IconLinksProps> = ({
 }) => (
   <div
     className={clsx(
-      'icon-links',
-      { 'icon-links_modal': modal },
+      block,
+      modal && `${block}_modal`,
       className,
     )}
   >

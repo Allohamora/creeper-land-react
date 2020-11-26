@@ -1,4 +1,11 @@
+@import 'styles/media';
+
 .logo {
+  @include media(mobile) {
+    width: 24px;
+    height: 24px;
+  }
+
   display: block;
   width: 34px;
   height: 34px;

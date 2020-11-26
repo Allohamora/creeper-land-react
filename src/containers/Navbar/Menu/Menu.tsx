@@ -19,6 +19,8 @@ interface ModalProps {
   userState: JSX.Element;
 }
 
+const block = 'nav-menu';
+
 const Menu: React.FC<ModalProps> = ({
   show,
   closeMenu,
@@ -26,14 +28,14 @@ const Menu: React.FC<ModalProps> = ({
   icons,
   userState,
 }) => (
-  <UiMenu className="nav-menu" show={show} onClose={closeMenu}>
-    <div className="nav-menu__top">
-      <h2 className="nav-menu__list-title">Меню</h2>
+  <UiMenu className={block} show={show} onClose={closeMenu}>
+    <div className={`${block}__top`}>
+      <h2 className={`${block}__list-title`}>Меню</h2>
       <NavLinks links={links} modal />
       {userState}
     </div>
 
-    <div className="nav-menu__bottom">
+    <div className={`${block}__bottom`}>
       <Brand />
       <IconLinks icons={icons} modal />
     </div>

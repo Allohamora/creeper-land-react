@@ -4,13 +4,13 @@ import { ButtonProps as BaseButtonProps } from 'types/props';
 import { getModifiers } from 'utils/ui';
 import './Button.scss';
 
-const base = 'button';
+const block = 'button';
 
 const rawVariants = ['outlined', 'contained'] as const;
-const variants = getModifiers(base, rawVariants);
+const variants = getModifiers(block, rawVariants);
 
 const rawColors = ['lime'] as const;
-const colors = getModifiers(base, rawColors);
+const colors = getModifiers(block, rawColors);
 
 export interface ButtonProps extends BaseButtonProps {
   variant?: typeof rawVariants[number];
@@ -24,7 +24,12 @@ const Button: React.FC<ButtonProps> = ({
   ...rest
 }) => (
   <button
-    className={clsx(base, variants[variant], colors[color])}
+    className={clsx(
+      block,
+      variants[variant],
+      colors[color],
+      className,
+    )}
     {...rest}
   />
 );

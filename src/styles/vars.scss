@@ -2,11 +2,13 @@
 $mobile: 576px;
 $tablet: 768px;
 $laptop: 992px;
+$pc: 1250px;
 
 $breakpoints: (
   mobile: $mobile,
   tablet: $tablet,
-  laptop: $laptop
+  laptop: $laptop,
+  pc: $pc,
 );
 
 // palette
