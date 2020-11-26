@@ -31,7 +31,7 @@ const MainHeader: React.FC = () => (
           <Typography variant="p1" color="lime_2">
             IP:mc.creeperland.ru
           </Typography>
-          <Typography variant="p2" color="lime_2">
+          <Typography variant="p1" color="lime_2">
             Версия: 1.16.2
           </Typography>
         </div>
