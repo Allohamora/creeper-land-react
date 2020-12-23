@@ -1,0 +1,18 @@
+.main-shop-block {
+  &__tab-title {
+    padding-bottom: 19px;
+  }
+
+  &__tab-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: -18px;
+    margin-bottom: -18px;
+
+    > * {
+      margin-right: 18px;
+      margin-bottom: 18px;
+    }
+  }
+}

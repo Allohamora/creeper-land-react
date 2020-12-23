@@ -13,6 +13,8 @@ $breakpoints: (
 
 // palette
 $white: #fff;
+$white_2: #f8f9fa;
+$white_3: #e7e8e9;
 
 $black: #2e2e2e;
 
@@ -24,6 +26,8 @@ $lime_3: #52f64f;
 
 $colors: (
   'white': $white,
+  'white_2': $white_2,
+  'white_3': $white_3,
   'black': $black,
   'purple': $purple,
   'lime': $lime,
@@ -41,4 +45,5 @@ $transition: 0.5s;
 $public_path: '';
 $img_path: 'img';
 $main-img_path: '#{$img_path}/main';
+$main-shop-img_path: '#{$main-img_path}/shop';
 $header_img_path: '#{$img_path}/header';

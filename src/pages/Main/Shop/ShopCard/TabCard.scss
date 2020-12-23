@@ -1,0 +1,62 @@
+@import 'styles/vars';
+@import 'styles/transition';
+@import 'styles/media';
+
+.main-shop-tab-card {
+  @include transition();
+
+  @include media (mobile) {
+    width: 130px;
+    height: 114px;
+    background-size: cover;
+
+    &__top {
+      padding-top: 10px;
+      padding-bottom: 8px;
+    }
+
+    &__icon {
+      width: 44px;
+      height: 44px;
+    }
+
+    &__bottom {
+      padding-top: 8px;
+      padding-bottom: 10px;
+    }
+  }
+
+  position: relative;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  width: 220px;
+  border-radius: 5px;
+  background-color: $white_3;
+  color: $black;
+  cursor: pointer;
+
+  &:hover {
+    top: -2px;
+    background-color: $black;
+    background-image: url('#{$main-shop-img_path}/card_lights.png');
+    color: $white;
+    box-shadow: -2px -3px 6px rgba(91, 246, 79, 0.5), 2px 3px 7px rgba(91, 246, 79, 0.5);
+  }
+
+  &__top {
+    padding-top: 19px;
+    padding-bottom: 19px;
+  }
+
+  &__icon {
+    display: block;
+    width: 75px;
+    height: 75px;
+  }
+
+  &__bottom {
+    padding-top: 19px;
+    padding-bottom: 19px;
+  }
+}

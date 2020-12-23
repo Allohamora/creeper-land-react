@@ -1,0 +1,23 @@
+@import 'styles/vars';
+@import 'styles/mixins';
+@import 'styles/media';
+
+.tab {
+  @include fontsize(16px, 19px, 11px, 12px);
+
+  @include media(mobile) {
+    padding: 8px 10px;
+  }
+
+  padding: 10px 17px;
+  border-radius: 5px;
+  background: $white_3;
+  color: $black;
+  font-weight: normal;
+
+  &_active {
+    background: $black;
+    color: $white;
+    font-weight: 500;
+  }
+}

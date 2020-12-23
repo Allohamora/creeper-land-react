@@ -11,12 +11,6 @@
   background-color: $black;
 
   &_lines {
-    @include media(pc) {
-      &::after {
-        background-image: none;
-      }
-    }
-
     &::after {
       content: '';
       position: absolute;
@@ -30,6 +24,14 @@
       background-repeat: no-repeat;
       transform: translate(-50%, -50%);
     }
+
+    /* stylelint-disable */
+    @media (max-width: $pc) {
+      &::after {
+        background-image: none;
+      }
+    }
+    /* stylelint-enable */
 
     > div {
       position: relative;

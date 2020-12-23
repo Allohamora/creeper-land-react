@@ -1,0 +1,20 @@
+.main-shop-cases {
+  margin-top: 27px;
+
+  &__title {
+    padding-bottom: 12px;
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: -20px;
+    margin-bottom: -20px;
+
+    > * {
+      margin-right: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}

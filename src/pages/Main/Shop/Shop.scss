@@ -1,0 +1,10 @@
+@import 'styles/vars';
+
+.main-shop {
+  padding-top: 34px;
+  padding-bottom: 51px;
+
+  &__bg {
+    background: $white_2;
+  }
+}

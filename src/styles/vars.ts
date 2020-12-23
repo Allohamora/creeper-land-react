@@ -1,5 +1,7 @@
 export const colors = [
   'white',
+  'white_2',
+  'white_3',
   'black',
   'purple',
   'lime',
@@ -9,4 +11,5 @@ export const colors = [
 
 export const IMG_PATH = '/img';
 export const MAIN_IMG_PATH = `${IMG_PATH}/main`;
+export const MAIN_SHOP_IMG_PATH = `${MAIN_IMG_PATH}/shop`;
 export const HEADER_IMG_PATH = `${IMG_PATH}/header`;
