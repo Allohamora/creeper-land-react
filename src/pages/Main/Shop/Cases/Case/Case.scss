@@ -2,29 +2,9 @@
 @import 'styles/transition';
 @import 'styles/media';
 
+/* stylelint-disable */
 .main-shop-cases-case {
   @include transition();
-
-  @include media (mobile) {
-    width: 130px;
-    height: 114px;
-    background-size: cover;
-
-    &__top {
-      padding-top: 10px;
-      padding-bottom: 8px;
-    }
-
-    &__icon {
-      width: 44px;
-      height: 44px;
-    }
-
-    &__bottom {
-      padding-top: 8px;
-      padding-bottom: 10px;
-    }
-  }
 
   display: flex;
   flex-flow: column wrap;
@@ -54,4 +34,26 @@
     padding-top: 9px;
     padding-bottom: 15px;
   }
+
+  @include media (mobile) {
+    width: 130px;
+    height: 114px;
+    background-size: cover;
+
+    &__top {
+      padding-top: 10px;
+      padding-bottom: 8px;
+    }
+
+    &__icon {
+      width: 44px;
+      height: 44px;
+    }
+
+    &__bottom {
+      padding-top: 8px;
+      padding-bottom: 10px;
+    }
+  }
 }
+/* stylelint-enable */

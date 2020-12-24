@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Content } from 'types/props';
+import clsx from 'clsx';
 import Tab from './Tab';
 import './Tabs.scss';
 
@@ -32,7 +33,18 @@ const Tabs: React.FC<TabsProps> = ({ tabs, content }) => {
       </div>
 
       <div className={`${block}__content`}>
-        {content[activeIndex]}
+        {content.map((value, i) => (
+          <div
+            key={i}
+            className={clsx(
+              `${block}__content-item`,
+              i === activeIndex &&
+                `${block}__content-item_active`,
+            )}
+          >
+            {value}
+          </div>
+        ))}
       </div>
     </div>
   );

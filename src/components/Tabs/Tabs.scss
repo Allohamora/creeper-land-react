@@ -1,17 +1,9 @@
 @import 'styles/media';
+@import 'styles/transition';
 
+/* stylelint-disable */
 .tabs {
   &__buttons {
-    @include media(mobile) {
-      margin-right: -12px;
-      margin-bottom: -12px;
-
-      > * {
-        margin-right: 12px;
-        margin-bottom: 12px;
-      }
-    }
-
     display: flex;
     flex-wrap: wrap;
     margin-right: -20px;
@@ -21,9 +13,33 @@
       margin-right: 20px;
       margin-bottom: 20px;
     }
+
+    @include media(mobile) {
+      margin-right: -12px;
+      margin-bottom: -12px;
+
+      > * {
+        margin-right: 12px;
+        margin-bottom: 12px;
+      }
+    }
   }
 
   &__content {
     padding-top: 26px;
+
+    &-item {
+      @include transition();
+
+      overflow: hidden;
+      opacity: 0;
+      height: 0;
+
+      &_active {
+        opacity: 1;
+        height: auto;
+      }
+    }
   }
 }
+/* stylelint-enable */
