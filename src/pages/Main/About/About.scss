@@ -1,0 +1,10 @@
+@import 'styles/vars';
+
+.main-about {
+  position: relative;
+  height: 700px;
+  background-color: $black;
+  background-image: url('#{$main-img_path}/about__lines.svg');
+  background-size: 100% 100%;
+  background-repeat: repeat;
+}

@@ -1,0 +1,84 @@
+@import 'styles/vars';
+
+/* stylelint-disable */
+.main-about-top {
+  display: flex;
+  justify-content: space-between;
+
+  &__left {
+    padding-top: 45px;
+
+    max-width: 411px;
+
+    &-title {
+      padding-bottom: 9px;
+    }
+
+    &-ip {
+      padding-top: 10px;
+
+      display: flex;
+
+      > *:first-child {
+        margin-right: 37px;
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+
+    padding-top: 90px;
+    margin-right: -26px;
+
+    &-item {
+      margin-right: 26px;
+
+      &:last-child {
+        padding-right: 19px;
+      }
+    }
+
+    &-text {
+      padding: 9px 0 0;
+      margin: 0;
+
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 24px;
+
+      &-white {
+        color: $white;
+      }
+
+      &-green {
+        color: $lime_3;
+      }
+    }
+
+    &-icon {
+      &-white {
+        path {
+          fill: $white;
+        }
+
+        circle {
+          fill: $gray;
+          stroke: $white;
+        }
+      }
+
+      &-green {
+        path {
+          fill: $lime_3;
+        }
+
+        circle {
+          fill: $green;
+          stroke: $lime_3;
+        }
+      }
+    }
+  }
+}
+/* stylelint-enable */

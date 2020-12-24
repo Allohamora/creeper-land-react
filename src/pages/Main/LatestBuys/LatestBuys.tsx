@@ -1,6 +1,7 @@
-import Typography from 'components/Typography';
 import React from 'react';
+import Typography from 'components/Typography';
 import latestBuysMock from 'mock/latestBuys.json';
+import Container from 'components/Container';
 import Card from './Card';
 import { IconType } from '../Shop/ShopBlock/TabCard';
 import './LatestBuys.scss';
@@ -9,22 +10,24 @@ const block = 'main-latest-buys';
 const LatestBuys: React.FC = () => {
   return (
     <div className={block}>
-      <Typography
-        variant="h2"
-        weight="500"
-        color="white"
-        className={`${block}__title`}
-      >
-        Последние покупки
-      </Typography>
+      <Container className={`${block}__container`}>
+        <Typography
+          variant="h2"
+          weight="500"
+          color="white"
+          className={`${block}__title`}
+        >
+          Последние покупки
+        </Typography>
 
-      <div className={`${block}__cards`}>
-        <div className={`${block}__cards-inner`}>
-          {latestBuysMock.map(({ icon }, i) => (
-            <Card key={i} icon={icon as IconType} />
-          ))}
+        <div className={`${block}__cards`}>
+          <div className={`${block}__cards-inner`}>
+            {latestBuysMock.map(({ icon }, i) => (
+              <Card key={i} icon={icon as IconType} />
+            ))}
+          </div>
         </div>
-      </div>
+      </Container>
     </div>
   );
 };

@@ -7,6 +7,8 @@ export const colors = [
   'lime',
   'lime_2',
   'lime_3',
+  'green',
+  'gray',
 ] as const;
 
 export const IMG_PATH = '/img';
