@@ -3,7 +3,7 @@ import Typography from 'components/Typography';
 import { MAIN_SHOP_IMG_PATH } from 'styles/vars';
 import './TabCard.scss';
 
-const icons = {
+export const icons = {
   creeper: {
     src: `${MAIN_SHOP_IMG_PATH}/creeper.png`,
     alt: 'creeper icon',

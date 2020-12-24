@@ -1,58 +1,31 @@
 import Tabs from 'components/Tabs';
 import Typography from 'components/Typography';
 import React from 'react';
-import ShopCard, { IconType } from '../ShopCard';
+import shopBlockTabsMock from 'mock/shopBlock.json';
+import TabCard, { IconType } from './TabCard';
 import './ShopBlock.scss';
-
-const rawTabContent: {
-  top: string;
-  bottom: string;
-  icon: IconType;
-}[][] = [
-  [
-    { top: 'Creeper', bottom: '123 руб.', icon: 'creeper' },
-    { top: 'Ender', bottom: '123 руб.', icon: 'enderman' },
-    { top: 'Blaze', bottom: '123 руб.', icon: 'blaze' },
-    { top: 'Wither', bottom: '123 руб.', icon: 'wither' },
-  ],
-  [
-    { top: 'Creeper', bottom: '123 руб.', icon: 'creeper' },
-    { top: 'Ender', bottom: '123 руб.', icon: 'enderman' },
-    { top: 'Blaze', bottom: '123 руб.', icon: 'blaze' },
-    { top: 'Wither', bottom: '123 руб.', icon: 'wither' },
-    { top: 'Creeper', bottom: '123 руб.', icon: 'creeper' },
-    { top: 'Ender', bottom: '123 руб.', icon: 'enderman' },
-    { top: 'Blaze', bottom: '123 руб.', icon: 'blaze' },
-    { top: 'Wither', bottom: '123 руб.', icon: 'wither' },
-  ],
-  [
-    { top: 'Creeper', bottom: '123 руб.', icon: 'creeper' },
-    { top: 'Ender', bottom: '123 руб.', icon: 'enderman' },
-    { top: 'Blaze', bottom: '123 руб.', icon: 'blaze' },
-    { top: 'Wither', bottom: '123 руб.', icon: 'wither' },
-    { top: 'Creeper', bottom: '123 руб.', icon: 'creeper' },
-    { top: 'Ender', bottom: '123 руб.', icon: 'enderman' },
-    { top: 'Blaze', bottom: '123 руб.', icon: 'blaze' },
-    { top: 'Wither', bottom: '123 руб.', icon: 'wither' },
-    { top: 'Creeper', bottom: '123 руб.', icon: 'creeper' },
-    { top: 'Ender', bottom: '123 руб.', icon: 'enderman' },
-    { top: 'Blaze', bottom: '123 руб.', icon: 'blaze' },
-    { top: 'Wither', bottom: '123 руб.', icon: 'wither' },
-  ],
-];
 
 const block = 'main-shop-block';
 
 const ShopBlock: React.FC = () => {
   const tabsButtons = ['Привилегии', 'Кейсы', 'Разбан'];
 
-  const tabsContent = rawTabContent.map((arr, arrIndex) => (
-    <div key={arrIndex} className={`${block}__tab-content`}>
-      {arr.map((props, i) => (
-        <ShopCard key={i} {...props} />
-      ))}
-    </div>
-  ));
+  const tabsContent = shopBlockTabsMock.map(
+    (arr, arrIndex) => (
+      <div
+        key={arrIndex}
+        className={`${block}__tab-content`}
+      >
+        {arr.map(({ icon, ...rest }, i) => (
+          <TabCard
+            key={i}
+            icon={icon as IconType}
+            {...rest}
+          />
+        ))}
+      </div>
+    ),
+  );
 
   return (
     <div className={block}>

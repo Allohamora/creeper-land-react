@@ -1,55 +1,9 @@
 import Typography from 'components/Typography';
 import React from 'react';
+import shopCasesMock from 'mock/shopCases.json';
 import Case from './Case';
 import { IconType } from './Case/Case';
 import './Cases.scss';
-
-const rawCases: {
-  top: string;
-  bottom: string;
-  icon: IconType;
-}[] = [
-  {
-    top: 'Кейс #1',
-    bottom: '123 руб.',
-    icon: '1',
-  },
-  {
-    top: 'Кейс #2',
-    bottom: '123 руб.',
-    icon: '2',
-  },
-  {
-    top: 'Кейс #3',
-    bottom: '123 руб.',
-    icon: '3',
-  },
-  {
-    top: 'Кейс #4',
-    bottom: '123 руб.',
-    icon: '4',
-  },
-  {
-    top: 'Кейс #1',
-    bottom: '123 руб.',
-    icon: '1',
-  },
-  {
-    top: 'Кейс #2',
-    bottom: '123 руб.',
-    icon: '2',
-  },
-  {
-    top: 'Кейс #3',
-    bottom: '123 руб.',
-    icon: '3',
-  },
-  {
-    top: 'Кейс #4',
-    bottom: '123 руб.',
-    icon: '4',
-  },
-];
 
 const block = 'main-shop-cases';
 
@@ -65,8 +19,8 @@ const Cases: React.FC = () => {
       </Typography>
 
       <div className={`${block}__items`}>
-        {rawCases.map((props, i) => (
-          <Case key={i} {...props} />
+        {shopCasesMock.map(({ icon, ...rest }, i) => (
+          <Case key={i} icon={icon as IconType} {...rest} />
         ))}
       </div>
     </div>

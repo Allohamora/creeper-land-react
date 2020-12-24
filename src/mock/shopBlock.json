@@ -1,0 +1,24 @@
+[
+  [
+    { "top": "Creeper", "bottom": "123 руб.", "icon": "creeper" },
+    { "top": "Ender", "bottom": "123 руб.", "icon": "enderman" },
+    { "top": "Blaze", "bottom": "123 руб.", "icon": "blaze" },
+    { "top": "Wither", "bottom": "123 руб.", "icon": "wither" }
+  ],
+  [
+    { "top": "Creeper", "bottom": "123 руб.", "icon": "creeper" },
+    { "top": "Ender", "bottom": "123 руб.", "icon": "enderman" },
+    { "top": "Blaze", "bottom": "123 руб.", "icon": "blaze" },
+    { "top": "Wither", "bottom": "123 руб.", "icon": "wither" },
+    { "top": "Creeper", "bottom": "123 руб.", "icon": "creeper" },
+    { "top": "Ender", "bottom": "123 руб.", "icon": "enderman" },
+    { "top": "Blaze", "bottom": "123 руб.", "icon": "blaze" },
+    { "top": "Wither", "bottom": "123 руб.", "icon": "wither" }
+  ],
+  [
+    { "top": "Creeper", "bottom": "123 руб.", "icon": "creeper" },
+    { "top": "Ender", "bottom": "123 руб.", "icon": "enderman" },
+    { "top": "Blaze", "bottom": "123 руб.", "icon": "blaze" },
+    { "top": "Wither", "bottom": "123 руб.", "icon": "wither" }
+  ]
+]
