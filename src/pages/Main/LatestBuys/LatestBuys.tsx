@@ -5,7 +5,7 @@ import Card from './Card';
 import { IconType } from '../Shop/ShopBlock/TabCard';
 import './LatestBuys.scss';
 
-const block = 'main-shop-latest-buys';
+const block = 'main-latest-buys';
 const LatestBuys: React.FC = () => {
   return (
     <div className={block}>

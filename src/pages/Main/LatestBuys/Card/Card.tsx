@@ -9,7 +9,7 @@ interface CardProps {
   icon: IconType;
 }
 
-const block = 'main-shop-latest-buys-card';
+const block = 'main-latest-buys-card';
 
 const Card: React.FC<CardProps> = ({ icon }) => {
   return (
