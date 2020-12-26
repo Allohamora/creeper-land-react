@@ -1,10 +1,19 @@
 @import 'styles/vars';
+@import 'styles/media';
 
 .main-about {
-  position: relative;
-  height: 700px;
   background-color: $black;
-  background-image: url('#{$main-img_path}/about__lines.svg');
-  background-size: 100% 100%;
-  background-repeat: repeat;
+  box-shadow: 0 4px 4px $aboutShadow;
+  position: relative;
+
+  @include media(laptop) {
+    &__container {
+      background-image: none;
+    }
+  }
+
+  &__container {
+    background-image: url('#{$main-img_path}/about__lines.svg');
+    background-repeat: repeat;
+  }
 }

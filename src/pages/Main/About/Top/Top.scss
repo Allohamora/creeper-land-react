@@ -1,4 +1,5 @@
 @import 'styles/vars';
+@import 'styles/media';
 
 /* stylelint-disable */
 .main-about-top {
@@ -11,11 +12,11 @@
     max-width: 411px;
 
     &-title {
-      padding-bottom: 9px;
+      padding-bottom: 12px;
     }
 
     &-ip {
-      padding-top: 10px;
+      padding-top: 15px;
 
       display: flex;
 
@@ -57,6 +58,10 @@
     }
 
     &-icon {
+      width: 81px;
+      height: 81px;
+
+
       &-white {
         path {
           fill: $white;
@@ -77,6 +82,47 @@
           fill: $green;
           stroke: $lime_3;
         }
+      }
+    }
+  }
+
+  @include media(tablet) {
+    flex-flow: column wrap;
+    align-items: center;
+
+    &__left {
+      padding-top: 24px;
+
+      &-ip {
+        justify-content: center;
+      }
+    }
+
+    &__right {
+      padding-top: 25px;
+      margin-right: 0;
+
+      width: 100%;
+      justify-content: space-around;
+
+      &-item {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+
+        margin-right: 0;
+      }
+
+      &-icon {
+        width: 54px;
+        height: 54px;
+      }
+
+      &-text {
+        padding-top: 12px;
+
+        font-size: 14px;
+        line-height: 17px;
       }
     }
   }

@@ -1,0 +1,17 @@
+@import 'styles/vars';
+@import 'styles/media';
+
+.main-about-chart {
+  background-image: url('#{$main-img_path}/chart__placeholder.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  height: 204px;
+  margin-top: 10px;
+  width: 100%;
+
+  @include media(tablet) {
+    background-image: url('#{$main-img_path}/chart__placeholder-mobile.png');
+    height: 101px;
+  }
+}

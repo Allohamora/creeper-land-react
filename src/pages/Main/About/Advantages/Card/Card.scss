@@ -1,0 +1,42 @@
+@import 'styles/vars';
+@import 'styles/media';
+
+.main-about-advantages-card {
+  align-items: center;
+  background-color: $gray;
+  background-image: url('#{$main-img_path}/advantages__lines.png');
+  border-radius: 5px;
+  display: flex;
+  flex-flow: column wrap;
+  height: 194px;
+  width: 218px;
+
+  @include media(mobile) {
+    background-size: cover;
+    height: 116px;
+    width: 130px;
+
+    &__icon {
+      transform: scale(0.6);
+    }
+
+    &__title {
+      font-size: 10px;
+      line-height: 11px;
+      margin-bottom: 14px;
+      margin-top: 11px;
+      max-width: 70px;
+    }
+  }
+
+  &__icon {
+    margin-top: auto;
+  }
+
+  &__title {
+    margin-bottom: 22px;
+    margin-top: 18px;
+    max-width: 129px;
+    text-align: center;
+  }
+}

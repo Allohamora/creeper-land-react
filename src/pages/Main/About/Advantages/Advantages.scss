@@ -1,0 +1,35 @@
+@import 'styles/media';
+
+.main-about-advantages {
+  margin-top: 47px;
+
+  @include media(mobile) {
+    margin-top: 29px;
+
+    &__cards {
+      margin-bottom: -12px;
+      margin-right: -12px;
+      margin-top: 20px;
+      transform: translateY(0);
+
+      > * {
+        margin-bottom: 12px;
+        margin-right: 12px;
+      }
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: -20px;
+    margin-right: -20px;
+    transform: translateY(30px);
+
+    > * {
+      margin-bottom: 20px;
+      margin-right: 20px;
+    }
+  }
+}
