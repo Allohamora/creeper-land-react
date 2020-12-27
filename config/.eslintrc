@@ -43,6 +43,8 @@
     // base
     "@typescript-eslint/no-empty-interface": 1,
     "@typescript-eslint/explicit-module-boundary-types": 0,
+
+    // disable re-export *
     "import/export": 0,
 
     // remove typescript-eslint style fix
