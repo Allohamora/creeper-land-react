@@ -1,16 +1,18 @@
 import React from 'react';
-import clsx from 'clsx';
 import { DivProps } from 'types/props';
+import { cn } from 'utils/bem';
 import './Container.scss';
 
 export type ContainerProps = DivProps;
+
+const container = cn('Container');
 
 const Container: React.FC<ContainerProps> = ({
   children,
   className,
   ...rest
 }) => (
-  <div className={clsx('container', className)} {...rest}>
+  <div className={container(null, [className])} {...rest}>
     {children}
   </div>
 );

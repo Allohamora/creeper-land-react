@@ -1,13 +1,13 @@
+import Header from 'components/Header';
 import React from 'react';
 import About from './About';
-import Header from './Header';
 import LatestBuys from './LatestBuys';
 import Shop from './Shop';
 
 const Main: React.FC = () => (
   <>
     {/* header */}
-    <Header />
+    <Header content lines />
 
     {/* block 2 (shop, promo, cases) */}
     <Shop />

@@ -1,32 +1,39 @@
 import React from 'react';
-import clsx from 'clsx';
+import Navbar from 'containers/Navbar';
 import Container, {
   ContainerProps,
 } from 'components/Container';
+import Content from './Content';
+import { header } from './shared';
 import './Header.scss';
 
 interface HeaderProps {
   lines?: boolean;
+  content?: boolean;
   className?: string;
   containerProps?: ContainerProps;
 }
 
-const block = 'header';
-
 const Header: React.FC<HeaderProps> = ({
   children,
   lines,
+  content,
   className,
   containerProps = {},
 }) => (
-  <header
-    className={clsx(
-      block,
-      lines && `${block}_lines`,
-      className,
-    )}
-  >
-    <Container {...containerProps}>{children}</Container>
+  <header className={header({ lines }, [className])}>
+    <Container
+      className={header('container', [
+        containerProps.className,
+      ])}
+      {...containerProps}
+    >
+      <Navbar />
+
+      {content && <Content />}
+
+      {children}
+    </Container>
   </header>
 );
 
