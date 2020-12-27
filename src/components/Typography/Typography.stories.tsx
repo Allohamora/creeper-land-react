@@ -11,7 +11,8 @@ export default {
   },
 } as Meta;
 
-const text = (second: string) => getText('Typography', second);
+const text = (second: string) =>
+  getText('Typography', second);
 
 const Template: Story<TypographyProps> = (args) => (
   <Typography {...args} />

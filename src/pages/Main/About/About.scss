@@ -2,9 +2,10 @@
 @import 'styles/media';
 
 .main-about {
+  position: relative;
+
   background-color: $black;
   box-shadow: 0 4px 4px $aboutShadow;
-  position: relative;
 
   @include media(laptop) {
     &__container {

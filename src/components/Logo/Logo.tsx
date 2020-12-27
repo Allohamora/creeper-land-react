@@ -7,7 +7,10 @@ type LogoProps = React.DetailedHTMLProps<
   HTMLImageElement
 >;
 
-const Logo: React.FC<LogoProps> = ({ className, ...rest }) => (
+const Logo: React.FC<LogoProps> = ({
+  className,
+  ...rest
+}) => (
   <img
     className={clsx('logo', className)}
     alt="creeper land"

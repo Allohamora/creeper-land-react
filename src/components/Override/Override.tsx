@@ -3,6 +3,7 @@ import { BaseProps, DivProps } from 'types/props';
 
 export interface OverrideProps extends BaseProps, DivProps {
   component?: React.ElementType<DivProps>;
+  // eslint-disable-next-line
   [prop: string]: any;
 }
 

@@ -17,7 +17,9 @@ export default {
 
 const text = (secondary: string) => `Button ${secondary}`;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+const Template: Story<ButtonProps> = (args) => (
+  <Button {...args} />
+);
 
 export const Base = Template.bind({});
 Base.args = {

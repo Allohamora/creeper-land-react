@@ -36,7 +36,10 @@ const icons: IconsType = [
   },
 ];
 
-const Navbar: React.FC<DivProps> = ({ className, ...rest }) => {
+const Navbar: React.FC<DivProps> = ({
+  className,
+  ...rest
+}) => {
   const [show, setShow] = useState(false);
 
   const openMenu = () => setShow(true);

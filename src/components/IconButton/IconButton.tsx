@@ -14,7 +14,10 @@ const IconButton: React.FC<IconButtonProps> = ({
   menuX,
   ...rest
 }) => (
-  <button className={clsx('icon-button', className)} {...rest}>
+  <button
+    className={clsx('icon-button', className)}
+    {...rest}
+  >
     {icon}
   </button>
 );

@@ -2,17 +2,18 @@
 @import 'styles/transition';
 
 .button {
-
   $this: &;
 
   @include transition();
 
   padding: 14px 52px;
+
+  font-size: 16px;
+  line-height: 19px;
+
   border: none;
   border-radius: 5px;
   outline: none;
-  font-size: 16px;
-  line-height: 19px;
   cursor: pointer;
 
   &_outlined {
@@ -20,9 +21,10 @@
   }
 
   &_outlined#{$this}_lime {
-    border-color: $lime;
-    background-color: transparent;
     color: $white;
+
+    background-color: transparent;
+    border-color: $lime;
 
     &:hover {
       color: $lime;
@@ -30,8 +32,9 @@
   }
 
   &_contained#{$this}_lime {
-    background-color: $lime;
     color: $white;
+
+    background-color: $lime;
 
     &:hover {
       color: $black;
