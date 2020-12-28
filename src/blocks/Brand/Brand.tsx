@@ -2,18 +2,19 @@ import React from 'react';
 import Logo from 'components/Logo';
 import Typography from 'components/Typography';
 import { Link } from 'react-router-dom';
+import { cn } from 'utils/bem';
 import './Brand.scss';
 
-const block = 'brand';
+const brand = cn('Brand');
 
 const Brand: React.FC = () => (
   <Link to="/">
-    <div className={block}>
+    <div className={brand()}>
       <Logo />
 
-      <div className={`${block}__text`}>
+      <div className={brand('data')}>
         <Typography
-          className={`${block}__title`}
+          className={brand('title')}
           variant="p2"
           weight="500"
           color="white"
@@ -21,7 +22,7 @@ const Brand: React.FC = () => (
           CREEPER LAND
         </Typography>
         <Typography
-          className={`${block}__ip`}
+          className={brand('ip')}
           variant="p3"
           color="lime"
         >

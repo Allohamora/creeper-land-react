@@ -1,8 +1,8 @@
-import clsx from 'clsx';
 import IconButton from 'components/IconButton';
 import React from 'react';
-import XIcon from '../Icons/XIcon';
-import { Backdrop } from '../Modal';
+import { cn } from 'utils/bem';
+import { ReactComponent as XIcon } from 'assets/x.svg';
+import Backdrop from '../Backdrop';
 import './Menu.scss';
 
 export interface ModalProps {
@@ -11,7 +11,7 @@ export interface ModalProps {
   className?: string;
 }
 
-const block = 'menu';
+const menu = cn('Menu');
 
 const Menu: React.FC<ModalProps> = ({
   onClose,
@@ -24,26 +24,19 @@ const Menu: React.FC<ModalProps> = ({
     : '';
 
   return (
-    <div>
+    <div className={menu()}>
       <Backdrop show={show} onClick={onClose} />
 
-      <div
-        className={clsx(
-          `${block}__inner`,
-          show && `${block}__inner_show`,
-        )}
-      >
+      <div className={menu('inner', { show })}>
         <div>
           <IconButton
-            className={`${block}__x`}
+            className={menu('x')}
             onClick={onClose}
             icon={<XIcon />}
           />
         </div>
 
-        <div
-          className={clsx(`${block}__content`, className)}
-        >
+        <div className={menu('content', [className])}>
           {children}
         </div>
       </div>

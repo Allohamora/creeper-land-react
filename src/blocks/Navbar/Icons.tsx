@@ -1,7 +1,5 @@
-import clsx from 'clsx';
 import React from 'react';
-import { IconsType, Modal } from 'types/navbar';
-import './IconLinks.scss';
+import { navbar, IconsType, Modal } from './shared';
 
 interface IconLinksProps {
   icons: IconsType;
@@ -9,22 +7,14 @@ interface IconLinksProps {
   className?: string;
 }
 
-const block = 'icon-links';
-
 const IconLinks: React.FC<IconLinksProps> = ({
   icons,
   modal,
   className,
 }) => (
-  <div
-    className={clsx(
-      block,
-      modal && `${block}_modal`,
-      className,
-    )}
-  >
+  <div className={navbar('icons', { modal }, [className])}>
     {icons.map(({ href, icon }, i) => (
-      <a key={i} href={href}>
+      <a key={i} href={href} className={navbar('icon')}>
         {icon}
       </a>
     ))}

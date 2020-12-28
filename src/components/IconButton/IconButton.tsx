@@ -1,12 +1,14 @@
 import React from 'react';
-import clsx from 'clsx';
 import { ButtonProps } from 'types/props';
+import { cn } from 'utils/bem';
 import './IconButton.scss';
 
 interface IconButtonProps extends ButtonProps {
   icon?: JSX.Element;
   menuX?: boolean;
 }
+
+const iconButton = cn('IconButton');
 
 const IconButton: React.FC<IconButtonProps> = ({
   className,
@@ -15,7 +17,7 @@ const IconButton: React.FC<IconButtonProps> = ({
   ...rest
 }) => (
   <button
-    className={clsx('icon-button', className)}
+    className={iconButton(null, [className])}
     {...rest}
   >
     {icon}

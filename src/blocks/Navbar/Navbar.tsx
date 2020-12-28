@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import clsx from 'clsx';
-import Discord from 'components/Icons/Discord';
-import Vk from 'components/Icons/Vk';
+import { ReactComponent as Discord } from 'assets/discord.svg';
+import { ReactComponent as Vk } from 'assets/vk.svg';
 import Button from 'components/Button';
-import { IconsType, LinksType } from 'types/navbar';
 import { DivProps } from 'types/props';
 import Brand from '../Brand';
 import Content from './Content';
 import Menu from './Menu';
+import { navbar, IconsType, LinksType } from './shared';
 import './Navbar.scss';
 
 const links: LinksType = [
@@ -45,11 +44,13 @@ const Navbar: React.FC<DivProps> = ({
   const openMenu = () => setShow(true);
   const closeMenu = () => setShow(false);
 
-  const userState = <Button>Войти</Button>;
+  const userState = (
+    <Button className={navbar('button')}>Войти</Button>
+  );
 
   return (
     <>
-      <div className={clsx('navbar', className)} {...rest}>
+      <div className={navbar(null, [className])} {...rest}>
         <Brand />
 
         <Content

@@ -1,25 +1,21 @@
 import React from 'react';
-import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import { LinksType, Modal } from 'types/navbar';
-import './NavLinks.scss';
+import { navbar, LinksType, Modal } from './shared';
 
 interface NavLinksProps {
   links: LinksType;
   modal?: Modal;
 }
 
-const block = 'nav-links';
-
 const NavLinks: React.FC<NavLinksProps> = ({
   links,
   modal,
 }) => (
-  <div className={clsx(block, modal && `${block}_modal`)}>
+  <div className={navbar('links', { modal })}>
     {links.map(({ to, text }, i) => (
-      <div key={i} className={`${block}__item`}>
+      <div key={i} className={navbar('link')}>
         <Link to={to}>
-          <p>{text}</p>
+          <p className={navbar('link-text')}>{text}</p>
         </Link>
       </div>
     ))}

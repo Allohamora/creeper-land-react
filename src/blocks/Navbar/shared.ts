@@ -1,3 +1,5 @@
+import { cn } from 'utils/bem';
+
 interface LinkType {
   to: string;
   text: string;
@@ -12,3 +14,5 @@ interface IconType {
 export type IconsType = IconType[];
 
 export type Modal = boolean;
+
+export const navbar = cn('Navbar');

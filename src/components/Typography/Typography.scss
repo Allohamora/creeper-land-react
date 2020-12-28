@@ -1,13 +1,7 @@
 @import 'styles/vars';
 @import 'styles/mixins';
 
-.typography {
-  @each $color, $value in $colors {
-    &_#{$color} {
-      color: $value;
-    }
-  }
-
+.Typography {
   margin: 0;
   padding: 0;
 
@@ -69,5 +63,11 @@
   &_bold,
   &_700 {
     font-weight: bold;
+  }
+
+  @each $color, $value in $colors {
+    &_#{$color} {
+      color: $value;
+    }
   }
 }

@@ -1,15 +1,15 @@
 import React from 'react';
+import { ToggleModal } from 'types/props';
+import UiMenu from 'components/Menu';
+import Brand from '../Brand';
+import IconLinks from './Icons';
+import NavLinks from './Links';
 import {
+  navbar,
   IconsType,
   LinksType,
   Modal as ShowType,
-} from 'types/navbar';
-import { ToggleModal } from 'types/props';
-import UiMenu from 'components/Menu';
-import Brand from '../../Brand';
-import IconLinks from '../IconLinks';
-import NavLinks from '../NavLinks';
-import './Menu.scss';
+} from './shared';
 
 interface ModalProps {
   show: ShowType;
@@ -19,8 +19,6 @@ interface ModalProps {
   userState: JSX.Element;
 }
 
-const block = 'nav-menu';
-
 const Menu: React.FC<ModalProps> = ({
   show,
   closeMenu,
@@ -28,14 +26,18 @@ const Menu: React.FC<ModalProps> = ({
   icons,
   userState,
 }) => (
-  <UiMenu className={block} show={show} onClose={closeMenu}>
-    <div className={`${block}__top`}>
-      <h2 className={`${block}__list-title`}>Меню</h2>
+  <UiMenu
+    className={navbar('menu')}
+    show={show}
+    onClose={closeMenu}
+  >
+    <div className={navbar('menu-top')}>
+      <h2 className={navbar('list-title')}>Меню</h2>
       <NavLinks links={links} modal />
       {userState}
     </div>
 
-    <div className={`${block}__bottom`}>
+    <div className={navbar('menu-bottom')}>
       <Brand />
       <IconLinks icons={icons} modal />
     </div>

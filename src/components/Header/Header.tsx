@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from 'containers/Navbar';
+import Navbar from 'blocks/Navbar';
 import Container, {
   ContainerProps,
 } from 'components/Container';

@@ -2,10 +2,11 @@ import React from 'react';
 import clsx from 'clsx';
 import { getModifiers } from 'utils/ui';
 import { colors as colorsVar } from 'styles/vars';
+import { cn } from 'utils/bem';
 import Override, { OverrideProps } from '../Override';
 import './Typography.scss';
 
-const block = 'typography';
+const typography = cn('Typography');
 
 const rawVariants = [
   'h1',
@@ -25,9 +26,9 @@ const rawWeights = [
 ] as const;
 const rawColors = [...colorsVar, 'inherit'] as const;
 
-const variants = getModifiers(block, rawVariants);
-const colors = getModifiers(block, rawColors);
-const weights = getModifiers(block, rawWeights);
+const variants = getModifiers(typography(), rawVariants);
+const colors = getModifiers(typography(), rawColors);
+const weights = getModifiers(typography(), rawWeights);
 
 export interface TypographyProps extends OverrideProps {
   variant?: typeof rawVariants[number];
@@ -44,7 +45,7 @@ const Typography: React.FC<TypographyProps> = ({
 }) => (
   <Override
     className={clsx(
-      block,
+      typography(),
       variant && variants[variant],
       colors[color],
       weight && weights[weight],

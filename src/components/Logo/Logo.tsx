@@ -1,18 +1,20 @@
 import React from 'react';
-import clsx from 'clsx';
 import './Logo.scss';
+import { cn } from 'utils/bem';
 
 type LogoProps = React.DetailedHTMLProps<
   React.ImgHTMLAttributes<HTMLImageElement>,
   HTMLImageElement
 >;
 
+const logo = cn('Logo');
+
 const Logo: React.FC<LogoProps> = ({
   className,
   ...rest
 }) => (
   <img
-    className={clsx('logo', className)}
+    className={logo(null, [className])}
     alt="creeper land"
     src="/img/logo.png"
     {...rest}

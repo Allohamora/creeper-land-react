@@ -3,14 +3,15 @@ import clsx from 'clsx';
 import { ButtonProps as BaseButtonProps } from 'types/props';
 import { getModifiers } from 'utils/ui';
 import './Button.scss';
+import { cn } from 'utils/bem';
 
-const block = 'button';
+const button = cn('Button');
 
 const rawVariants = ['outlined', 'contained'] as const;
-const variants = getModifiers(block, rawVariants);
+const variants = getModifiers(button(), rawVariants);
 
 const rawColors = ['lime'] as const;
-const colors = getModifiers(block, rawColors);
+const colors = getModifiers(button(), rawColors);
 
 export interface ButtonProps extends BaseButtonProps {
   variant?: typeof rawVariants[number];
@@ -25,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => (
   <button
     className={clsx(
-      block,
+      button(),
       variants[variant],
       colors[color],
       className,
