@@ -1,0 +1,45 @@
+@import 'styles/vars';
+@import 'styles/transition';
+
+@mixin Links {
+  &__links {
+    display: flex;
+
+    > *:not(:first-child) {
+      margin-left: 31px;
+    }
+
+    &_modal {
+      flex-flow: column;
+
+      > *:not(:first-child) {
+        margin-left: 0;
+      }
+
+      > *:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+
+    &-text {
+      @include transition();
+
+      margin: 0;
+      padding: 0;
+
+      color: $white;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+
+      &:hover {
+        color: $lime;
+      }
+    }
+  }
+}

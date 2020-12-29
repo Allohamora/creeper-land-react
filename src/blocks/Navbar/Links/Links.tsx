@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { navbar, LinksType, Modal } from './shared';
+import { navbar, LinksType, Modal } from '../shared';
 
 interface NavLinksProps {
   links: LinksType;

@@ -2,9 +2,9 @@ import React from 'react';
 import IconButton from 'components/IconButton';
 import { ToggleModal } from 'types/props';
 import { ReactComponent as Burger } from 'assets/burger.svg';
-import Links from './Links';
-import Icons from './Icons';
-import { navbar, IconsType, LinksType } from './shared';
+import Links from '../Links';
+import Icons from '../Icons';
+import { navbar, IconsType, LinksType } from '../shared';
 
 interface ContentProps {
   links: LinksType;

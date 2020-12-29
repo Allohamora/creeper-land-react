@@ -1,15 +1,15 @@
 import React from 'react';
 import { ToggleModal } from 'types/props';
 import UiMenu from 'components/Menu';
-import Brand from '../Brand';
-import IconLinks from './Icons';
-import NavLinks from './Links';
+import Brand from '../../Brand';
+import IconLinks from '../Icons';
+import NavLinks from '../Links';
 import {
   navbar,
   IconsType,
   LinksType,
   Modal as ShowType,
-} from './shared';
+} from '../shared';
 
 interface ModalProps {
   show: ShowType;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { navbar, IconsType, Modal } from './shared';
+import { navbar, IconsType, Modal } from '../shared';
 
 interface IconLinksProps {
   icons: IconsType;
