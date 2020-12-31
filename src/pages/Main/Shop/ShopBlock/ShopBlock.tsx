@@ -1,6 +1,6 @@
+import React from 'react';
 import Tabs from 'components/Tabs';
 import Typography from 'components/Typography';
-import React from 'react';
 import shopBlockTabsMock from 'mock/shopBlock.json';
 import TabCard, { IconType } from './TabCard';
 import './ShopBlock.scss';

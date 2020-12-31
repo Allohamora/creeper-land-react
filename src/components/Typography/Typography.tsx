@@ -1,9 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
+import Override, { OverrideProps } from '../Override';
 import { getModifiers } from 'utils/ui';
 import { colors as colorsVar } from 'styles/vars';
 import { cn } from 'utils/bem';
-import Override, { OverrideProps } from '../Override';
 import './Typography.scss';
 
 const typography = cn('Typography');

@@ -1,5 +1,5 @@
-import Container from 'components/Container';
 import React from 'react';
+import Container from 'components/Container';
 import Advantages from './Advantages';
 import Chart from './Chart';
 import Top from './Top';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Content } from 'types/props';
 import clsx from 'clsx';
 import Tab from './Tab';
+import { Content } from 'types/props';
 import './Tabs.scss';
 
 interface TabsProps {

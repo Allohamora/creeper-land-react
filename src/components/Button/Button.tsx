@@ -2,8 +2,8 @@ import React from 'react';
 import clsx from 'clsx';
 import { ButtonProps as BaseButtonProps } from 'types/props';
 import { getModifiers } from 'utils/ui';
-import './Button.scss';
 import { cn } from 'utils/bem';
+import './Button.scss';
 
 const button = cn('Button');
 

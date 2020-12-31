@@ -1,6 +1,6 @@
 import React from 'react';
-import './Logo.scss';
 import { cn } from 'utils/bem';
+import './Logo.scss';
 
 type LogoProps = React.DetailedHTMLProps<
   React.ImgHTMLAttributes<HTMLImageElement>,

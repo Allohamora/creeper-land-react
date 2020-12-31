@@ -1,5 +1,5 @@
-import Typography from 'components/Typography';
 import React from 'react';
+import Typography from 'components/Typography';
 import shopCasesMock from 'mock/shopCases.json';
 import Case from './Case';
 import { IconType } from './Case/Case';

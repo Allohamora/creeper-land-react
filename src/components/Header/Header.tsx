@@ -1,9 +1,9 @@
 import React from 'react';
 import Navbar from 'blocks/Navbar';
+import Content from './Content';
 import Container, {
   ContainerProps,
 } from 'components/Container';
-import Content from './Content';
 import { header } from './shared';
 import './Header.scss';
 

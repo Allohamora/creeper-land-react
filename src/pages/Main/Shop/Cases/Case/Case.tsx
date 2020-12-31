@@ -1,5 +1,5 @@
-import Typography from 'components/Typography';
 import React from 'react';
+import Typography from 'components/Typography';
 import { MAIN_SHOP_IMG_PATH } from 'styles/vars';
 import './Case.scss';
 

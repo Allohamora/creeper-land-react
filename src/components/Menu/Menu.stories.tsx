@@ -1,8 +1,8 @@
-import { Meta, Story } from '@storybook/react';
-import Typography from 'components/Typography';
 import React, { useState } from 'react';
+import Typography from 'components/Typography';
 import Button from '../Button';
 import Menu, { ModalProps } from './Menu';
+import { Meta, Story } from '@storybook/react';
 
 export default {
   title: 'Menu',

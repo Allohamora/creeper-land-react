@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getModifiers = (
   block: string,
   rawModifiers: readonly string[],
@@ -12,5 +13,6 @@ export const getModifiers = (
     {},
   );
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const getText = (block: string, modifier: string) =>
   `${block} ${modifier}`;

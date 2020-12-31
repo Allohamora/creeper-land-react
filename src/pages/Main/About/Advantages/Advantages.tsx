@@ -1,8 +1,8 @@
-import Typography from 'components/Typography';
 import React from 'react';
-import './Advantages.scss';
+import Typography from 'components/Typography';
 import advantagesMockData from 'mock/advantages.json';
 import Card, { IconType } from './Card';
+import './Advantages.scss';
 
 const block = 'main-about-advantages';
 const Advantages: React.FC = () => {

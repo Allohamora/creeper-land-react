@@ -1,7 +1,7 @@
-import Typography from 'components/Typography';
 import React from 'react';
-import { ReactComponent as PeopleRounded } from 'assets/people-rounded.svg';
+import Typography from 'components/Typography';
 import clsx from 'clsx';
+import { ReactComponent as PeopleRounded } from 'assets/people-rounded.svg';
 import './Top.scss';
 
 const block = 'main-about-top';

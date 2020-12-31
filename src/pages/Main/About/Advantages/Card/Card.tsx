@@ -1,10 +1,10 @@
 import React from 'react';
-import './Card.scss';
+import Typography from 'components/Typography';
 import { ReactComponent as Gamepad } from 'assets/gamepad.svg';
 import { ReactComponent as People } from 'assets/people.svg';
 import { ReactComponent as King } from 'assets/king.svg';
 import { ReactComponent as Server } from 'assets/server.svg';
-import Typography from 'components/Typography';
+import './Card.scss';
 
 const icons = {
   gamepad: Gamepad,

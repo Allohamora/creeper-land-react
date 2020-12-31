@@ -1,8 +1,8 @@
-import IconButton from 'components/IconButton';
 import React from 'react';
+import IconButton from 'components/IconButton';
+import Backdrop from '../Backdrop';
 import { cn } from 'utils/bem';
 import { ReactComponent as XIcon } from 'assets/x.svg';
-import Backdrop from '../Backdrop';
 import './Menu.scss';
 
 export interface ModalProps {

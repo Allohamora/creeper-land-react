@@ -1,7 +1,7 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
 import Case from './Case';
 import Main from './Main';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
 const Routes: React.FC = () => (
   <Switch>

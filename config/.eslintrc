@@ -13,6 +13,7 @@
 
     // import
     "import",
+    "beautiful-sort",
 
     // prettier
     "prettier"
@@ -31,7 +32,7 @@
     "plugin:import/warnings",
     "plugin:import/typescript",
 
-    // else
+    // rest
     "airbnb-typescript",
 
     // prettier
@@ -40,28 +41,28 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
-    // base
-    "@typescript-eslint/no-empty-interface": 1,
-    "@typescript-eslint/explicit-module-boundary-types": 0,
+    // typescript
+    "@typescript-eslint/explicit-module-boundary-types": "warn",
 
-    // disable re-export *
-    "import/export": 0,
-
-    // remove typescript-eslint style fix
-    "@typescript-eslint/indent": 0, 
-    "@typescript-eslint/comma-dangle": 0,
-    "@typescript-eslint/quotes": 0,
+    // import
+    "import/no-extraneous-dependencies": "warn",
+    "import/prefer-default-export": "off",
+    "import/order": 0,
+    "beautiful-sort/import": [2, {
+      "special": ["react"], 
+      "order": ["special", "default", "defaultObj", "obj", "none"]
+    }],
 
     // react
-    "react/prop-types": 0,
+    "react/no-children-prop": 1,
+    "react/button-has-type": 0,
     "react/no-array-index-key": 0,
     "react/jsx-props-no-spreading": 0,
-    "react/button-has-type": 0,
-    "react/no-children-prop": 0,
+    "react/prop-types": 0,
 
     // prettier
     "prettier/prettier": [
-      "error",
+      2,
       {
         "parser": "typescript",
         "tabWidth": 2,
@@ -71,10 +72,21 @@
         "singleQuote": true,
         "printWidth": 60
       }
-    ],
-
-    // import
-    "import/prefer-default-export": 0,
-    "import/no-extraneous-dependencies": 0
-  }
+    ]
+  },
+  "overrides": [
+    {
+      "files": "index.ts",
+      "rules": {
+        "import/export": 0
+      }
+    },
+    {
+      "files": "*.stories.tsx",
+      "rules": {
+        "import/no-extraneous-dependencies": 0,
+        "react/no-children-prop": 0
+      }
+    }
+  ]
 }

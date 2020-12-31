@@ -1,7 +1,7 @@
 import React from 'react';
+import Typography, { TypographyProps } from './Typography';
 import { Meta, Story } from '@storybook/react';
 import { getText } from 'utils/ui';
-import Typography, { TypographyProps } from './Typography';
 
 export default {
   title: 'Typography',

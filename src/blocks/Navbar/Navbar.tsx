@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { ReactComponent as Discord } from 'assets/discord.svg';
-import { ReactComponent as Vk } from 'assets/vk.svg';
 import Button from 'components/Button';
-import { DivProps } from 'types/props';
 import Brand from '../Brand';
 import Content from './Content';
 import Menu from './Menu';
+import { ReactComponent as Discord } from 'assets/discord.svg';
+import { ReactComponent as Vk } from 'assets/vk.svg';
+import { DivProps } from 'types/props';
 import { navbar, IconsType, LinksType } from './shared';
 import './Navbar.scss';
 
