@@ -47,22 +47,22 @@
     // import
     "import/no-extraneous-dependencies": "warn",
     "import/prefer-default-export": "off",
-    "import/order": 0,
-    "beautiful-sort/import": [2, {
+    "import/order": "off",
+    "beautiful-sort/import": ["error", {
       "special": ["react"], 
       "order": ["special", "default", "defaultObj", "obj", "none"]
     }],
 
     // react
-    "react/no-children-prop": 1,
-    "react/button-has-type": 0,
-    "react/no-array-index-key": 0,
-    "react/jsx-props-no-spreading": 0,
-    "react/prop-types": 0,
+    "react/no-children-prop": "warn",
+    "react/button-has-type": "off",
+    "react/no-array-index-key": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
 
     // prettier
     "prettier/prettier": [
-      2,
+      "error",
       {
         "parser": "typescript",
         "tabWidth": 2,
@@ -78,14 +78,14 @@
     {
       "files": "index.ts",
       "rules": {
-        "import/export": 0
+        "import/export": "off"
       }
     },
     {
       "files": "*.stories.tsx",
       "rules": {
-        "import/no-extraneous-dependencies": 0,
-        "react/no-children-prop": 0
+        "import/no-extraneous-dependencies": "off",
+        "react/no-children-prop": "off"
       }
     }
   ]
