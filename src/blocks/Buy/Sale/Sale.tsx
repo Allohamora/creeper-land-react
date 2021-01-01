@@ -1,24 +1,19 @@
 import React from 'react';
 import Typography from 'components/Typography';
-import './Promo.scss';
+import { buy } from '../shared';
 
-const block = 'main-shop-promo';
-
-const Promo: React.FC = () => {
+const Sale: React.FC = () => {
   return (
-    <div className={block}>
+    <div className={buy('sale')}>
       <Typography variant="h3" color="white" weight="500">
         Статус Dragon со скидкой 20%
       </Typography>
 
-      <Typography
-        className={`${block}__bottom`}
-        color="purple"
-      >
+      <Typography className={buy('price')} color="purple">
         ВСЕГО за 999 руб.
       </Typography>
     </div>
   );
 };
 
-export default Promo;
+export default Sale;

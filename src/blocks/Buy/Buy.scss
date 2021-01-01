@@ -1,0 +1,19 @@
+@import 'styles/vars';
+@import './Title/Title.scss';
+@import './Cases/Cases.scss';
+@import './Sale/Sale.scss';
+@import './Shop/Shop.scss';
+
+.Buy {
+  padding-top: 34px;
+  padding-bottom: 51px;
+
+  &__bg {
+    background: $white_2;
+  }
+
+  @include Title();
+  @include Cases();
+  @include Sale();
+  @include Shop();
+}

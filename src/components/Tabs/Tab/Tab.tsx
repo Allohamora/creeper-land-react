@@ -1,13 +1,10 @@
 import React from 'react';
-import clsx from 'clsx';
-import './Tab.scss';
+import { tabs } from '../shared';
 
 interface TabProps {
   active?: boolean;
   onClick: () => void;
 }
-
-const block = 'tab';
 
 const Tab: React.FC<TabProps> = ({
   children,
@@ -16,7 +13,7 @@ const Tab: React.FC<TabProps> = ({
 }) => {
   return (
     <button
-      className={clsx(block, active && `${block}_active`)}
+      className={tabs('tab', { active })}
       onClick={onClick}
     >
       {children}

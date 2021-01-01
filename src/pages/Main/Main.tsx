@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from 'components/Header';
+import Header from 'blocks/Header';
 import About from './About';
 import LatestBuys from './LatestBuys';
-import Shop from './Shop';
+import Buy from 'blocks/Buy';
 
 const Main: React.FC = () => (
   <>
@@ -10,7 +10,7 @@ const Main: React.FC = () => (
     <Header content lines />
 
     {/* block 2 (shop, promo, cases) */}
-    <Shop />
+    <Buy />
 
     {/* block 3 (latest buys) */}
     <LatestBuys />

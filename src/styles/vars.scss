@@ -52,6 +52,7 @@ $transition: 0.5s;
 // path
 $public_path: '';
 $img_path: 'img';
+$card-img_path: '#{$img_path}/card';
+$buy-img_path: '#{$img_path}/buy';
 $main-img_path: '#{$img_path}/main';
-$main-shop-img_path: '#{$main-img_path}/shop';
 $header_img_path: '#{$img_path}/header';

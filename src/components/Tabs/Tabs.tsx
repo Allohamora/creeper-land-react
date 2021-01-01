@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
-import clsx from 'clsx';
 import Tab from './Tab';
 import { Content } from 'types/props';
+import { tabs as tabsBem } from './shared';
 import './Tabs.scss';
 
 interface TabsProps {
   tabs: Content[];
   content: Content[];
 }
-
-const block = 'tabs';
 
 const Tabs: React.FC<TabsProps> = ({ tabs, content }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -19,8 +17,8 @@ const Tabs: React.FC<TabsProps> = ({ tabs, content }) => {
   };
 
   return (
-    <div className={block}>
-      <div className={`${block}__buttons`}>
+    <div className={tabsBem()}>
+      <div className={tabsBem('buttons')}>
         {tabs.map((title, i) => (
           <Tab
             key={i}
@@ -32,15 +30,13 @@ const Tabs: React.FC<TabsProps> = ({ tabs, content }) => {
         ))}
       </div>
 
-      <div className={`${block}__content`}>
+      <div className={tabsBem('content-wrap')}>
         {content.map((value, i) => (
           <div
             key={i}
-            className={clsx(
-              `${block}__content-item`,
-              i === activeIndex &&
-                `${block}__content-item_active`,
-            )}
+            className={tabsBem('content', {
+              active: i === activeIndex,
+            })}
           >
             {value}
           </div>

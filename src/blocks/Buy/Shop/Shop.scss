@@ -1,9 +1,5 @@
-.main-shop-block {
-  &__tab-title {
-    padding-bottom: 19px;
-  }
-
-  &__tab-content {
+@mixin Shop {
+  &__tab {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

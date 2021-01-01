@@ -3,7 +3,7 @@ import Typography from 'components/Typography';
 import latestBuysMock from 'mock/latestBuys.json';
 import Container from 'components/Container';
 import Card from './Card';
-import { IconType } from '../Shop/ShopBlock/TabCard';
+import { IconType } from 'components/Card/icons';
 import './LatestBuys.scss';
 
 const block = 'main-latest-buys';

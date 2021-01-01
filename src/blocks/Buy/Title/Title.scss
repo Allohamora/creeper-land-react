@@ -1,0 +1,11 @@
+@mixin Title {
+  &__title_variant {
+    &_case {
+      padding-bottom: 12px;
+    }
+
+    &_shop {
+      padding-bottom: 19px;
+    }
+  }
+}

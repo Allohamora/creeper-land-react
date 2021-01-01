@@ -1,0 +1,65 @@
+@import 'styles/vars';
+@import 'styles/transition';
+@import 'styles/media';
+
+@mixin CaseVariant {
+  $card: &;
+
+  &_variant_case {
+    @include transition();
+
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    width: 218px;
+    height: 194px;
+
+    background-color: $white_3;
+    background-image: url('#{$card-img_path}/case_lights.png');
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $white;
+    }
+
+    #{$card}__title {
+      padding-top: 22px;
+      padding-bottom: 13px;
+    }
+
+    #{$card}__value {
+      padding-top: 9px;
+      padding-bottom: 15px;
+    }
+
+    #{$card}__icon {
+      width: 94px;
+      height: 94px;
+    }
+  }
+
+  @include media(mobile) {
+    &_variant_case {
+      width: 130px;
+      height: 114px;
+
+      background-size: cover;
+
+      #{$card}__title {
+        padding-top: 10px;
+        padding-bottom: 8px;
+      }
+
+      #{$card}__value {
+        padding-top: 8px;
+        padding-bottom: 10px;
+      }
+
+      #{$card}__icon {
+        width: 44px;
+        height: 44px;
+      }
+    }
+  }
+}

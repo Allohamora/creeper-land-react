@@ -1,11 +1,9 @@
-.main-shop-cases {
-  margin-top: 27px;
-
-  &__title {
-    padding-bottom: 12px;
+@mixin Cases {
+  &__cases-wrap {
+    margin-top: 27px;
   }
 
-  &__items {
+  &__cases {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

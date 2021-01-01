@@ -1,8 +1,8 @@
 @import 'styles/media';
 @import 'styles/transition';
+@import './Tab/Tab.scss';
 
-/* stylelint-disable */
-.tabs {
+.Tabs {
   &__buttons {
     display: flex;
     flex-wrap: wrap;
@@ -25,21 +25,24 @@
     }
   }
 
-  &__content {
+  &__content-wrap {
     padding-top: 26px;
+  }
 
-    &-item {
-      @include transition();
+  &__content {
+    @include transition();
+    height: 0;
 
-      overflow: hidden;
-      opacity: 0;
-      height: 0;
+    overflow: hidden;
 
-      &_active {
-        opacity: 1;
-        height: auto;
-      }
+    opacity: 0;
+
+    &_active {
+      height: auto;
+
+      opacity: 1;
     }
   }
+
+  @include Tab();
 }
-/* stylelint-enable */

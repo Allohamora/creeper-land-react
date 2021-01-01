@@ -1,8 +1,5 @@
 import React from 'react';
-import {
-  icons,
-  IconType,
-} from 'pages/Main/Shop/ShopBlock/TabCard';
+import { icons, IconType } from 'components/Card/icons';
 import './Card.scss';
 
 interface CardProps {

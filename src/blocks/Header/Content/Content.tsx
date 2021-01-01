@@ -2,7 +2,7 @@ import React from 'react';
 import Typography from 'components/Typography';
 import Button from 'components/Button';
 import { HEADER_IMG_PATH } from 'styles/vars';
-import { header } from './shared';
+import { header } from '../shared';
 
 const Content: React.FC = () => (
   <div className={header('content')}>
