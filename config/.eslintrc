@@ -50,7 +50,7 @@
     "import/order": "off",
     "beautiful-sort/import": ["error", {
       "special": ["react"], 
-      "order": ["special", "default", "defaultObj", "obj", "none"]
+      "order": ["special", "namespace", "default", "defaultObj", "obj", "none"]
     }],
 
     // react
