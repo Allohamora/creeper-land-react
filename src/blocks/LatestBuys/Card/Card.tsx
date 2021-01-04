@@ -1,19 +1,17 @@
 import React from 'react';
 import { icons, IconType } from 'components/Card/icons';
-import './Card.scss';
+import { latestBuys } from '../shared';
 
 interface CardProps {
   icon: IconType;
 }
 
-const block = 'main-latest-buys-card';
-
 const Card: React.FC<CardProps> = ({ icon }) => {
   return (
-    <div className={block}>
+    <div className={latestBuys('card')}>
       {
         // eslint-disable-next-line
-      }<img className={`${block}__icon`} {...icons[icon]} />
+      }<img className={latestBuys('card-icon')} {...icons[icon]} />
     </div>
   );
 };

@@ -26,9 +26,8 @@ const Card: React.FC<CardProps> = ({
       {title}
     </Typography>
     {
-      // eslint-disable-next-line jsx-a11y/alt-text
-    }
-    <img className={card('icon')} {...icons[icon]} />
+      // eslint-disable-next-line
+    }<img className={card('icon')} {...icons[icon]} />
     <Typography variant="h4" className={card('value')}>
       {value}
     </Typography>

@@ -1,0 +1,50 @@
+@import 'styles/vars';
+@import 'styles/media';
+
+@mixin Card {
+  &__card {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    width: 218px;
+    height: 194px;
+
+    background-color: $gray;
+    background-image: url('#{$about-img_path}/card__lines.png');
+    border-radius: 5px;
+
+    &-icon {
+      margin-top: auto;
+    }
+
+    &-title {
+      max-width: 129px;
+      margin-top: 18px;
+      margin-bottom: 22px;
+
+      text-align: center;
+    }
+  }
+
+  @include media(mobile) {
+    &__card {
+      width: 130px;
+      height: 116px;
+
+      background-size: cover;
+
+      &-icon {
+        transform: scale(0.6);
+      }
+
+      &-title {
+        max-width: 70px;
+        margin-top: 11px;
+        margin-bottom: 14px;
+
+        font-size: 10px;
+        line-height: 11px;
+      }
+    }
+  }
+}

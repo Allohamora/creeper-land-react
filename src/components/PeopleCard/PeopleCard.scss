@@ -1,0 +1,66 @@
+@import 'styles/vars';
+@import 'styles/media';
+
+.PeopleCard {
+  &__icon {
+    width: 81px;
+    height: 81px;
+
+    &_variant_white {
+      path {
+        fill: $white;
+      }
+
+      circle {
+        fill: $gray;
+        stroke: $white;
+      }
+    }
+
+    &_variant_green {
+      path {
+        fill: $lime_3;
+      }
+
+      circle {
+        fill: $green;
+        stroke: $lime_3;
+      }
+    }
+  }
+
+  &__text {
+    margin: 0;
+    padding: 9px 0 0;
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+
+    &_variant_white {
+      color: $white;
+    }
+
+    &_variant_green {
+      color: $lime_3;
+    }
+  }
+
+  @include media(tablet) {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+
+    &__icon {
+      width: 54px;
+      height: 54px;
+    }
+
+    &__text {
+      padding-top: 12px;
+
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+}

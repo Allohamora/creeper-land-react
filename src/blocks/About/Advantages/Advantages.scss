@@ -1,7 +1,9 @@
 @import 'styles/media';
 
-.main-about-advantages {
-  margin-top: 47px;
+@mixin Advantages {
+  &__advantages {
+    margin-top: 47px;
+  }
 
   &__cards {
     display: flex;
@@ -19,7 +21,9 @@
   }
 
   @include media(mobile) {
-    margin-top: 29px;
+    &__advantages {
+      margin-top: 29px;
+    }
 
     &__cards {
       margin-top: 20px;

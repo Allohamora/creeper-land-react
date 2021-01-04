@@ -1,10 +1,11 @@
 import React from 'react';
+import { cn } from 'utils/bem';
 import './Chart.scss';
 
-const block = 'main-about-chart';
+const chart = cn('Chart');
 
 const Chart: React.FC = () => {
-  return <div className={block} />;
+  return <div className={chart()} />;
 };
 
 export default Chart;

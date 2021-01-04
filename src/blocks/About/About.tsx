@@ -1,15 +1,15 @@
 import React from 'react';
 import Container from 'components/Container';
 import Advantages from './Advantages';
-import Chart from './Chart';
+import Chart from 'components/Chart';
 import Top from './Top';
+import { about } from './shared';
 import './About.scss';
 
-const block = 'main-about';
 const About: React.FC = () => {
   return (
-    <div className={block}>
-      <Container className={`${block}__container`}>
+    <div className={about()}>
+      <Container className={about('container')}>
         <Top />
         <Chart />
         <Advantages />

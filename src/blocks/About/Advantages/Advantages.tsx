@@ -1,18 +1,17 @@
 import React from 'react';
 import Typography from 'components/Typography';
 import advantagesMockData from 'mock/advantages.json';
-import Card, { IconType } from './Card';
-import './Advantages.scss';
+import Card, { IconType } from '../Card';
+import { about } from '../shared';
 
-const block = 'main-about-advantages';
 const Advantages: React.FC = () => {
   return (
-    <div className={block}>
+    <div className={about('advantages')}>
       <Typography variant="h2" color="white" weight="500">
         Преимущества
       </Typography>
 
-      <div className={`${block}__cards`}>
+      <div className={about('cards')}>
         {advantagesMockData.map(({ icon, ...rest }, i) => (
           <Card key={i} icon={icon as IconType} {...rest} />
         ))}

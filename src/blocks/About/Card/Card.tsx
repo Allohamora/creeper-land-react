@@ -4,7 +4,7 @@ import { ReactComponent as Gamepad } from 'assets/gamepad.svg';
 import { ReactComponent as People } from 'assets/people.svg';
 import { ReactComponent as King } from 'assets/king.svg';
 import { ReactComponent as Server } from 'assets/server.svg';
-import './Card.scss';
+import { about } from '../shared';
 
 const icons = {
   gamepad: Gamepad,
@@ -20,15 +20,14 @@ interface CardProps {
   icon: IconType;
 }
 
-const block = 'main-about-advantages-card';
 const Card: React.FC<CardProps> = ({ title, icon }) => {
   const Icon = icons[icon];
 
   return (
-    <div className={block}>
-      <Icon className={`${block}__icon`} />
+    <div className={about('card')}>
+      <Icon className={about('card-icon')} />
       <Typography
-        className={`${block}__title`}
+        className={about('card-title')}
         variant="h4"
         weight="500"
         color="white"

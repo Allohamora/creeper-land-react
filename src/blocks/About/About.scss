@@ -1,0 +1,27 @@
+@import 'styles/vars';
+@import 'styles/media';
+@import './Top/Top.scss';
+@import './Card/Card.scss';
+@import './Advantages/Advantages.scss';
+
+.About {
+  position: relative;
+
+  background-color: $black;
+  box-shadow: 0 4px 4px $aboutShadow;
+
+  &__container {
+    background-image: url('#{$about-img_path}/about__lines.svg');
+    background-repeat: repeat;
+  }
+
+  @include media(laptop) {
+    &__container {
+      background-image: none;
+    }
+  }
+
+  @include Top();
+  @include Advantages();
+  @include Card();
+}
