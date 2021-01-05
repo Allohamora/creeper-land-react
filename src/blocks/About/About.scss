@@ -7,6 +7,8 @@
 .About {
   position: relative;
 
+  margin-bottom: 20px;
+
   background-color: $black;
   box-shadow: 0 4px 4px $aboutShadow;
 
@@ -16,6 +18,8 @@
   }
 
   @include media(laptop) {
+    margin-bottom: 0;
+
     &__container {
       background-image: none;
     }

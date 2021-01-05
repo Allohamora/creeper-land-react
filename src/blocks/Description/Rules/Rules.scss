@@ -1,0 +1,17 @@
+@import 'styles/media';
+
+@mixin Rules {
+  &__rules {
+    padding-top: 41px;
+  }
+
+  &__rules-title {
+    padding-bottom: 17px;
+  }
+
+  @include media(mobile) {
+    &__rules {
+      padding-top: 25px;
+    }
+  }
+}

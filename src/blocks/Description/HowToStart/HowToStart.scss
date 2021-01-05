@@ -1,0 +1,37 @@
+@import 'styles/media';
+
+@mixin HowToStart {
+  $description: &;
+
+  &__points {
+    margin-top: 31px;
+    margin-bottom: -27px;
+
+    #{$description}__point {
+      margin-bottom: 27px;
+    }
+  }
+
+  &__point {
+    &-title {
+      margin-bottom: 7px;
+    }
+  }
+
+  @include media(mobile) {
+    &__points {
+      margin-top: 14px;
+      margin-bottom: -14px;
+
+      #{$description}__point {
+        margin-bottom: 14px;
+      }
+    }
+
+    &__point {
+      &-title {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

@@ -34,8 +34,6 @@
   @include Card();
 
   @include media(mobile) {
-    padding-left: 24px;
-
     &__title {
       padding-top: 17px;
       padding-bottom: 8px;

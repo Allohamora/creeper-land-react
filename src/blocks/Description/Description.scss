@@ -1,0 +1,27 @@
+@import 'styles/vars';
+@import 'styles/media';
+@import './HowToStart/HowToStart.scss';
+@import './Rules/Rules.scss';
+@import './Privilege/Privilege.scss';
+
+.Description {
+  padding-top: 78px;
+  padding-bottom: 65px;
+
+  background-color: $white_2;
+
+  &__dropdown {
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+
+  @include media(mobile) {
+    padding-top: 21px;
+    padding-bottom: 32px;
+  }
+
+  @include HowToStart();
+  @include Rules();
+  @include Privilege();
+}
