@@ -35,8 +35,13 @@ const icons: IconsType = [
   },
 ];
 
-const Navbar: React.FC<DivProps> = ({
+interface NavbarProps extends DivProps {
+  footer?: boolean;
+}
+
+const Navbar: React.FC<NavbarProps> = ({
   className,
+  footer,
   ...rest
 }) => {
   const [show, setShow] = useState(false);
@@ -50,10 +55,14 @@ const Navbar: React.FC<DivProps> = ({
 
   return (
     <>
-      <div className={navbar(null, [className])} {...rest}>
+      <div
+        className={navbar({ footer }, [className])}
+        {...rest}
+      >
         <Brand />
 
         <Content
+          footer={footer}
           openModal={openMenu}
           links={links}
           icons={icons}
@@ -61,13 +70,15 @@ const Navbar: React.FC<DivProps> = ({
         />
       </div>
 
-      <Menu
-        show={show}
-        closeMenu={closeMenu}
-        links={links}
-        icons={icons}
-        userState={userState}
-      />
+      {!footer && (
+        <Menu
+          show={show}
+          closeMenu={closeMenu}
+          links={links}
+          icons={icons}
+          userState={userState}
+        />
+      )}
     </>
   );
 };

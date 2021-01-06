@@ -1,3 +1,4 @@
+@import 'styles/media';
 @import './Content/Content.scss';
 @import './Icons/Icons.scss';
 @import './Links/Links.scss';
@@ -6,12 +7,25 @@
 $navbar-breakpoint: 850px;
 
 .Navbar {
+  $navbar: &;
+
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
 
   &__button {
     margin-left: 54px;
+  }
+
+  &_footer {
+    @include media(mobile) {
+      flex-flow: column wrap;
+
+      #{$navbar}__content {
+        margin-top: 25px;
+      }
+    }
   }
 
   @include Content();

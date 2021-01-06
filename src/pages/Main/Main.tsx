@@ -4,6 +4,7 @@ import About from 'blocks/About';
 import LatestBuys from 'blocks/LatestBuys';
 import Buy from 'blocks/Buy';
 import Description from 'blocks/Description';
+import Footer from 'blocks/Footer';
 
 const Main: React.FC = () => (
   <>
@@ -12,6 +13,7 @@ const Main: React.FC = () => (
     <LatestBuys />
     <About />
     <Description />
+    <Footer />
   </>
 );
 

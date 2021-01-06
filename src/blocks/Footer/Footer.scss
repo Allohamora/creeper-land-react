@@ -1,0 +1,36 @@
+@import 'styles/vars';
+@import 'styles/media';
+
+.Footer {
+  background-color: $black;
+
+  &__container {
+    padding-top: 36px;
+    padding-bottom: 33px;
+
+    @include media(mobile) {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+  }
+
+  &__hidden {
+    @include media(mobile) {
+      display: none;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 17px;
+  }
+
+  &__design {
+    display: flex;
+
+    svg {
+      margin-right: 10px;
+    }
+  }
+}

@@ -11,6 +11,7 @@ interface ContentProps {
   icons: IconsType;
   openModal: ToggleModal;
   userState: JSX.Element;
+  footer?: boolean;
 }
 
 const Content: React.FC<ContentProps> = ({
@@ -18,6 +19,7 @@ const Content: React.FC<ContentProps> = ({
   icons,
   openModal,
   userState,
+  footer,
 }) => (
   <div className={navbar('content')}>
     <nav className={navbar('nav')}>
@@ -27,11 +29,15 @@ const Content: React.FC<ContentProps> = ({
     </nav>
 
     <div className={navbar('hidden')}>
-      <IconButton
-        className={navbar('burger')}
-        icon={<Burger />}
-        onClick={openModal}
-      />
+      {footer ? (
+        <Icons modal icons={icons} />
+      ) : (
+        <IconButton
+          className={navbar('burger')}
+          icon={<Burger />}
+          onClick={openModal}
+        />
+      )}
     </div>
   </div>
 );
