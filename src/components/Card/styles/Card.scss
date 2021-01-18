@@ -1,7 +1,0 @@
-@import './ShopVariant.scss';
-@import './CaseVariant.scss';
-
-.Card {
-  @include ShopVariant();
-  @include CaseVariant();
-}

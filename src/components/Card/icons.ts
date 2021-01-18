@@ -1,7 +1,6 @@
-import { CARD_IMG_PATH } from 'styles/vars';
-
 const getCaseIcon = (num: number) => ({
-  src: `${CARD_IMG_PATH}/case${num}.png`,
+  // eslint-disable-next-line import/no-dynamic-require, global-require
+  src: require(`../../assets/img/case${num}.png`),
   alt: 'case icon',
 });
 
@@ -13,7 +12,8 @@ const caseIcons = {
 };
 
 const getShopIcon = (name: string) => ({
-  src: `${CARD_IMG_PATH}/${name}.png`,
+  // eslint-disable-next-line import/no-dynamic-require, global-require
+  src: require(`../../assets/img/${name}.png`),
   alt: `${name} icon`,
 });
 

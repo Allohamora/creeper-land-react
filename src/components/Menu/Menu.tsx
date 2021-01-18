@@ -1,9 +1,7 @@
 import React from 'react';
-import IconButton from 'components/IconButton';
 import Backdrop from '../Backdrop';
-import { cn } from 'utils/bem';
-import { ReactComponent as XIcon } from 'assets/x.svg';
-import './Menu.scss';
+import { ReactComponent as XIcon } from 'assets/svg/x.svg';
+import { Content, Inner, XButton } from './styles';
 
 export interface ModalProps {
   onClose?: () => void;
@@ -11,35 +9,29 @@ export interface ModalProps {
   className?: string;
 }
 
-const menu = cn('Menu');
-
 const Menu: React.FC<ModalProps> = ({
   onClose,
   children,
-  show,
   className,
+  show,
 }) => {
   document.documentElement.style.overflow = show
     ? 'hidden'
     : '';
 
   return (
-    <div className={menu()}>
+    <div className={className}>
       <Backdrop show={show} onClick={onClose} />
 
-      <div className={menu('inner', { show })}>
+      <Inner show={show}>
         <div>
-          <IconButton
-            className={menu('x')}
-            onClick={onClose}
-            icon={<XIcon />}
-          />
+          <XButton onClick={onClose}>
+            <XIcon />
+          </XButton>
         </div>
 
-        <div className={menu('content', [className])}>
-          {children}
-        </div>
-      </div>
+        <Content>{children}</Content>
+      </Inner>
     </div>
   );
 };

@@ -1,37 +1,24 @@
 import React from 'react';
-import Typography from 'components/Typography';
-import { DivProps } from 'types/props';
-import { cn } from 'utils/bem';
-import { IconType, icons } from './icons';
-import './styles/Card.scss';
+import Shop from './Shop';
+import Case from './Case';
+import { CardProps } from './shared';
 
-const card = cn('Card');
-
-interface CardProps extends DivProps {
+interface Props extends CardProps {
   variant?: 'shop' | 'case';
-  title: string;
-  value: string;
-  icon: IconType;
 }
 
-const Card: React.FC<CardProps> = ({
-  className,
+const Card: React.FC<Props> = ({
   variant = 'shop',
-  icon,
-  title,
-  value,
-}) => (
-  <div className={card({ variant }, [className])}>
-    <Typography variant="h4" className={card('title')}>
-      {title}
-    </Typography>
-    {
-      // eslint-disable-next-line
-    }<img className={card('icon')} {...icons[icon]} />
-    <Typography variant="h4" className={card('value')}>
-      {value}
-    </Typography>
-  </div>
-);
+  ...props
+  // eslint-disable-next-line consistent-return
+}) => {
+  // eslint-disable-next-line default-case
+  switch (variant) {
+    case 'shop':
+      return <Shop {...props} />;
+    case 'case':
+      return <Case {...props} />;
+  }
+};
 
 export default Card;

@@ -23,7 +23,9 @@ module.exports = {
   webpackFinal: async (config) => {
     // adds baseUrl feature to storybook
     config.resolve.plugins.push(new TsconfigPathsPlugin());
-    config.module.rules.push(scssRule);
+
+    // replace storybook css rule to own
+    config.module.rules[7] = scssRule;
 
     return config;
   }

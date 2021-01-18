@@ -11,7 +11,7 @@
     "test": "jest --config config/jest.config.js",
     "lint": "eslint --config config/.eslintrc",
     "lint:css": "stylelint --config config/.stylelintrc.json",
-    "lint:fix": "npm run lint src -- --fix && npm run lint:css \"**/*.scss\" -- --fix",
+    "lint:fix": "npm run lint src -- --fix && npm run lint:css './src/**/*.{ts,tsx,scss,css}' -- --fix",
     "storybook": "start-storybook -p 6006 -c config/.storybook",
     "build-storybook": "build-storybook -c config/.storybook"
   },
@@ -22,21 +22,24 @@
     "@types/react": "^16.9.56",
     "@types/react-dom": "^16.9.9",
     "@types/react-router-dom": "^5.1.6",
+    "@types/styled-components": "^5.1.7",
     "clsx": "^1.1.1",
     "normalize.css": "^8.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
+    "styled-components": "^5.2.1",
+    "styled-normalize": "^8.0.7",
     "typescript": "^4.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.3",
-    "@storybook/addon-actions": "^6.1.0",
-    "@storybook/addon-essentials": "^6.1.0",
-    "@storybook/addon-links": "^6.1.0",
-    "@storybook/react": "^6.1.0",
+    "@storybook/addon-actions": "^6.1.14",
+    "@storybook/addon-essentials": "^6.1.14",
+    "@storybook/addon-links": "^6.1.14",
+    "@storybook/react": "^6.1.14",
     "@svgr/webpack": "^5.5.0",
     "@types/jest": "^26.0.15",
     "@typescript-eslint/eslint-plugin": "^4.8.1",
@@ -60,9 +63,11 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "lint-staged": "^10.5.1",
+    "mini-css-extract-plugin": "^1.3.3",
     "node-sass": "^5.0.0",
+    "postcss": "^8.2.4",
+    "postcss-loader": "^4.1.0",
     "postcss-preset-env": "^6.7.0",
-    "postcss-pxtorem": "^5.1.1",
     "prettier": "^2.1.2",
     "react-refresh": "^0.9.0",
     "sass-loader": "^10.1.0",
@@ -70,10 +75,11 @@
     "stylelint": "^13.8.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-recommended": "^3.0.0",
     "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
     "stylelint-order": "^4.1.0",
     "stylelint-prettier": "^1.1.2",
-    "stylelint-scss": "^3.18.0",
     "ts-jest": "^26.4.4",
     "ts-loader": "^8.0.11",
     "tsconfig-paths-webpack-plugin": "^3.3.0",
@@ -90,8 +96,11 @@
     }
   },
   "lint-staged": {
-    "*.{ts,tsx}": "npm run lint -- --fix",
-    "*.scss": "npm run lint:css -- --fix"
+    "*.{ts,tsx}": [
+      "npm run lint -- --fix",
+      "npm run lint:css -- --fix"
+    ],
+    "*.{scss,css}": "npm run lint:css -- --fix"
   },
   "browserslist": [
     ">0.2%",

@@ -7,6 +7,7 @@ const src = path.join(ROOT_PATH, 'src');
 const public = path.join(ROOT_PATH, 'public');
 const nodeModules = path.join(ROOT_PATH, 'node_modules');
 const config = __dirname;
+const jest = path.join(config, 'jest');
 
 const tsconfig = path.join(ROOT_PATH, 'tsconfig.json');
 const package = path.join(ROOT_PATH, 'package.json');
@@ -18,6 +19,7 @@ module.exports = {
   public,
   nodeModules,
   config,
+  jest,
 
   tsconfig,
   postcss,

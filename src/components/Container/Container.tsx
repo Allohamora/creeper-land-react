@@ -1,20 +1,17 @@
-import React from 'react';
-import { DivProps } from 'types/props';
-import { cn } from 'utils/bem';
-import './Container.scss';
+import styled from 'styled-components';
 
-export type ContainerProps = DivProps;
+const Container = styled.div`
+  width: 100%;
+  max-width: 934px;
+  margin-right: auto;
+  margin-left: auto;
 
-const container = cn('Container');
-
-const Container: React.FC<ContainerProps> = ({
-  children,
-  className,
-  ...rest
-}) => (
-  <div className={container(null, [className])} {...rest}>
-    {children}
-  </div>
-);
+  @media (max-width: 958px) {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+`;
 
 export default Container;

@@ -1,22 +1,19 @@
-import React from 'react';
-import { DivProps } from 'types/props';
+import styled from 'styled-components';
 import { Show } from 'types/modal';
-import { cn } from 'utils/bem';
-import './Backdrop.scss';
 
-interface BackdropProps extends DivProps, Show {}
+export const Backdrop = styled.div<Show>`
+  position: fixed;
+  top: 0;
+  left: 100%;
+  z-index: 9;
 
-const backdrop = cn('Backdrop');
+  width: 100%;
+  height: 100%;
 
-const Backdrop: React.FC<BackdropProps> = ({
-  className,
-  show,
-  ...rest
-}) => (
-  <div
-    className={backdrop({ show }, [className])}
-    {...rest}
-  />
-);
+  background-color: ${(p) => p.theme.palette.black};
+  opacity: 0.5;
+
+  ${(p) => p.show && 'left: 0;'}
+`;
 
 export default Backdrop;

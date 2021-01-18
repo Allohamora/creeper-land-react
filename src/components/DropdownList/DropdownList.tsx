@@ -4,12 +4,15 @@ import React, {
   useState,
 } from 'react';
 import Typography from 'components/Typography';
-import { ReactComponent as V } from 'assets/V.svg';
-import { cn } from 'utils/bem';
+import {
+  Wrap,
+  Button,
+  V,
+  List,
+  Items,
+  Item,
+} from './styles';
 import { mapIndexToTitleNumber } from './shared';
-import './DropdownList.scss';
-
-const dropdownList = cn('DropdownList');
 
 interface DropdownListProps {
   beforeTitleIndex?: number;
@@ -45,11 +48,8 @@ const DropdownList: React.FC<DropdownListProps> = ({
   const currentHeight = isActive ? maxHeight : 0;
 
   return (
-    <div className={dropdownList(null, [className])}>
-      <button
-        className={dropdownList('button')}
-        onClick={buttonClickHandler}
-      >
+    <Wrap className={className}>
+      <Button onClick={buttonClickHandler}>
         <Typography
           variant="h4"
           color="white"
@@ -62,24 +62,17 @@ const DropdownList: React.FC<DropdownListProps> = ({
           {title}
         </Typography>
         <span>
-          <V
-            className={dropdownList('v', {
-              active: isActive,
-            })}
-          />
+          <V $active={isActive} />
         </span>
-      </button>
+      </Button>
 
-      <div
+      <List
         ref={listRef}
-        className={dropdownList('list', {
-          active: isActive,
-        })}
         style={isReady ? { maxHeight: currentHeight } : {}}
       >
-        <ul className={dropdownList('items')}>
+        <Items>
           {items.map((value, i) => (
-            <li className={dropdownList('item')} key={i}>
+            <Item key={i}>
               <Typography variant="p2" color="black">
                 <Typography
                   variant="h4"
@@ -93,11 +86,11 @@ const DropdownList: React.FC<DropdownListProps> = ({
 
                 <span>{value}</span>
               </Typography>
-            </li>
+            </Item>
           ))}
-        </ul>
-      </div>
-    </div>
+        </Items>
+      </List>
+    </Wrap>
   );
 };
 

@@ -1,24 +1,20 @@
-import React from 'react';
-import { cn } from 'utils/bem';
-import './Logo.scss';
+import styled from 'styled-components';
+import logo from 'assets/img/logo.png';
 
-type LogoProps = React.DetailedHTMLProps<
-  React.ImgHTMLAttributes<HTMLImageElement>,
-  HTMLImageElement
->;
+const Logo = styled.img`
+  display: block;
+  width: 34px;
+  height: 34px;
 
-const logo = cn('Logo');
+  ${(p) => p.theme.media.max('mobile')} {
+    width: 24px;
+    height: 24px;
+  }
+`;
 
-const Logo: React.FC<LogoProps> = ({
-  className,
-  ...rest
-}) => (
-  <img
-    className={logo(null, [className])}
-    alt="creeper land"
-    src="/img/logo.png"
-    {...rest}
-  />
-);
+Logo.defaultProps = {
+  src: logo,
+  alt: 'creeper land',
+};
 
 export default Logo;

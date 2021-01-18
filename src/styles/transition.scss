@@ -1,7 +1,0 @@
-$transitions: (
-  default: 0.5s,
-);
-
-@mixin transition($type: default) {
-  transition: map-get($transitions, $type);
-}

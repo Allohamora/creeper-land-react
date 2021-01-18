@@ -1,5 +1,5 @@
-export type DivProps = React.HtmlHTMLAttributes<HTMLElement>;
-export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+export type Div = React.HtmlHTMLAttributes<HTMLElement>;
+export type Button = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type Content = JSX.Element | number | string;
 

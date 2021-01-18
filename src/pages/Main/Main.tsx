@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from 'blocks/Header';
-import About from 'blocks/About';
-import LatestBuys from 'blocks/LatestBuys';
-import Buy from 'blocks/Buy';
-import Description from 'blocks/Description';
-import Footer from 'blocks/Footer';
+import Header from 'sections/Header';
+import About from 'sections/About';
+import LatestBuys from 'sections/LatestBuys';
+import Buy from 'sections/Buy';
+import Description from 'sections/Description';
+import Footer from 'sections/Footer';
 
 const Main: React.FC = () => (
   <>

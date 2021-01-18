@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
-import Tab from './Tab';
-import { Content } from 'types/props';
-import { tabs as tabsBem } from './shared';
-import './Tabs.scss';
+import { Content as iContent } from 'types/props';
+import {
+  TabsWrap,
+  Tab,
+  Content,
+  ContentWrap,
+} from './styles';
 
 interface TabsProps {
-  tabs: Content[];
-  content: Content[];
+  tabs: iContent[];
+  content: iContent[];
 }
 
 const Tabs: React.FC<TabsProps> = ({ tabs, content }) => {
@@ -17,8 +20,8 @@ const Tabs: React.FC<TabsProps> = ({ tabs, content }) => {
   };
 
   return (
-    <div className={tabsBem()}>
-      <div className={tabsBem('buttons')}>
+    <div>
+      <TabsWrap>
         {tabs.map((title, i) => (
           <Tab
             key={i}
@@ -28,20 +31,15 @@ const Tabs: React.FC<TabsProps> = ({ tabs, content }) => {
             {title}
           </Tab>
         ))}
-      </div>
+      </TabsWrap>
 
-      <div className={tabsBem('content-wrap')}>
+      <ContentWrap>
         {content.map((value, i) => (
-          <div
-            key={i}
-            className={tabsBem('content', {
-              active: i === activeIndex,
-            })}
-          >
+          <Content key={i} active={i === activeIndex}>
             {value}
-          </div>
+          </Content>
         ))}
-      </div>
+      </ContentWrap>
     </div>
   );
 };

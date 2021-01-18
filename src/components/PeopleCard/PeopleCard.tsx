@@ -1,9 +1,5 @@
 import React from 'react';
-import { ReactComponent as PeopleRounded } from 'assets/people-rounded.svg';
-import { cn } from 'utils/bem';
-import './PeopleCard.scss';
-
-const peopleCard = cn('PeopleCard');
+import { Wrap, Icon, Text } from './styles';
 
 interface PeopleCardProps {
   variant?: 'green' | 'white';
@@ -17,14 +13,10 @@ const PeopleCard: React.FC<PeopleCardProps> = ({
   className,
 }) => {
   return (
-    <div className={peopleCard(null, [className])}>
-      <PeopleRounded
-        className={peopleCard('icon', { variant })}
-      />
-      <p className={peopleCard('text', { variant })}>
-        {text}
-      </p>
-    </div>
+    <Wrap className={className}>
+      <Icon variant={variant} />
+      <Text variant={variant}>{text}</Text>
+    </Wrap>
   );
 };
 

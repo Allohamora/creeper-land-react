@@ -17,7 +17,11 @@ export default {
 
 const text = (secondary: string) => `Button ${secondary}`;
 
-const Template: Story<ButtonProps> = (args) => (
+interface Props extends ButtonProps {
+  children: string;
+}
+
+const Template: Story<Props> = (args) => (
   <Button {...args} />
 );
 
@@ -36,10 +40,4 @@ export const Contained = Template.bind({});
 Contained.args = {
   children: text('Contained'),
   variant: 'contained',
-};
-
-export const Lime = Template.bind({});
-Lime.args = {
-  children: text('Lime'),
-  color: 'lime',
 };

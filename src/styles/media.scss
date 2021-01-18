@@ -1,9 +1,0 @@
-@import 'vars';
-
-@mixin media($breakpoint) {
-  $media: map-get($breakpoints, $breakpoint);
-
-  @media (max-width: $media) {
-    @content;
-  }
-}
