@@ -40,6 +40,7 @@ export const Title = styled(Typography)`
 
 Title.defaultProps = {
   variant: 'h4',
+  color: 'black',
 };
 
 export const Value = styled(Typography)`
@@ -54,6 +55,7 @@ export const Value = styled(Typography)`
 
 Value.defaultProps = {
   variant: 'h4',
+  color: 'black',
 };
 
 export const Icon = styled.img`

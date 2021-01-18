@@ -29,7 +29,8 @@ export const Tab = styled.button<Active>`
       : p.theme.palette.black};
   font-weight: ${(p) => (p.active ? '500' : 'normal')};
 
-  transition: ${(p) => p.theme.transtions.primary};
+  transition: all ${(p) => p.theme.transtions.primary},
+    font-weight 0s;
 
   background: ${(p) =>
     p.active
