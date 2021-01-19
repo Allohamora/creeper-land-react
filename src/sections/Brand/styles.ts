@@ -1,5 +1,6 @@
 import Typography from 'components/Typography';
 import styled from 'styled-components';
+import { media, rem } from 'styles/helpers';
 
 export const Wrap = styled.div`
   display: flex;
@@ -9,27 +10,23 @@ export const Data = styled.div`
   margin-left: 10px;
 `;
 
-export const Title = styled(Typography)`
-  ${(p) => p.theme.media.max('mobile')} {
-    font-size: ${(p) => p.theme.pxToRem(12)};
-    line-height: ${(p) => p.theme.pxToRem(13)};
-  }
-`;
-
-Title.defaultProps = {
+export const Title = styled(Typography).attrs({
   variant: 'p2',
   weight: '500',
   color: 'white',
-};
-
-export const Ip = styled(Typography)`
-  ${(p) => p.theme.media.max('mobile')} {
-    font-size: ${(p) => p.theme.pxToRem(10)};
-    line-height: ${(p) => p.theme.pxToRem(12)};
+})`
+  ${media.max('mobile')} {
+    font-size: ${rem(12)};
+    line-height: ${rem(13)};
   }
 `;
 
-Ip.defaultProps = {
+export const Ip = styled(Typography).attrs({
   variant: 'p3',
   color: 'lime',
-};
+})`
+  ${media.max('mobile')} {
+    font-size: ${rem(10)};
+    line-height: ${rem(12)};
+  }
+`;

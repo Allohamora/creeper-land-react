@@ -1,13 +1,14 @@
 import styled from 'styled-components';
+import { color } from 'styles/helpers';
 import { Button } from '../styles';
 
 const Contained = styled(Button)`
-  color: ${(p) => p.theme.palette.white};
+  color: ${color('white')};
 
-  background-color: ${(p) => p.theme.palette.lime};
+  background-color: ${color('lime_3')};
 
   &:hover {
-    color: ${(p) => p.theme.palette.black};
+    color: ${color('black')};
   }
 `;
 

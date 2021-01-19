@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { color, transition } from 'styles/helpers';
 import { Modal } from '../shared';
 
 export const Wrap = styled.div<{ modal?: Modal }>`
@@ -11,13 +12,13 @@ export const Icon = styled.a`
   display: flex;
 
   path {
-    transition: ${(p) => p.theme.transtions.primary};
+    transition: ${transition('primary')};
 
-    fill: ${(p) => p.theme.palette.lime};
+    fill: ${color('lime')};
   }
 
   &:hover path {
-    fill: ${(p) => p.theme.palette.white};
+    fill: ${color('white')};
   }
 
   &:not(:first-child) {

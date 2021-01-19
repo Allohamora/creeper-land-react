@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
 import { ReactComponent as PeopleRounded } from 'assets/svg/people-rounded.svg';
+import { color, media, rem } from 'styles/helpers';
 
 export const Wrap = styled.div`
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -21,12 +22,12 @@ export const Icon = styled(PeopleRounded)<Variant>`
     p.variant === 'white' &&
     css`
       path {
-        fill: ${p.theme.palette.white};
+        fill: ${color('white')};
       }
 
       circle {
-        fill: ${p.theme.palette.gray};
-        stroke: ${p.theme.palette.white};
+        fill: ${color('gray')};
+        stroke: ${color('white')};
       }
     `}
 
@@ -34,16 +35,16 @@ export const Icon = styled(PeopleRounded)<Variant>`
     p.variant === 'green' &&
     css`
       path {
-        fill: ${p.theme.palette.lime_3};
+        fill: ${color('lime_3')};
       }
 
       circle {
-        fill: ${p.theme.palette.green};
-        stroke: ${p.theme.palette.lime_3};
+        fill: ${color('green')};
+        stroke: ${color('lime_3')};
       }
     `}
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     width: 54px;
     height: 54px;
   }
@@ -53,11 +54,14 @@ export const Text = styled.p<Variant>`
   margin: 0;
   padding: 9px 0 0;
 
-  color: ${(p) =>
-    p.variant === 'white'
-      ? p.theme.palette.white
-      : p.theme.palette.lime_3};
+  color: ${color('lime_3')};
   font-weight: 500;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: ${rem(20)};
+  line-height: ${rem(24)};
+
+  ${(p) =>
+    p.variant === 'white' &&
+    css`
+      color: ${color('white')};
+    `}
 `;

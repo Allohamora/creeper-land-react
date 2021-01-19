@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { media } from 'styles/helpers';
 
 export const Wrap = styled.div`
   margin-top: 47px;
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     margin-top: 29px;
   }
 `;
@@ -22,7 +23,7 @@ export const Cards = styled.div`
     margin-bottom: 20px;
   }
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     margin-top: 20px;
     margin-right: -12px;
     margin-bottom: -12px;

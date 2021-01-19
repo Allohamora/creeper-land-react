@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ReactComponent as VRaw } from 'assets/svg/V.svg';
+import { color, media, transition } from 'styles/helpers';
 
 export const Wrap = styled.div`
   overflow: hidden;
@@ -13,15 +14,15 @@ export const Button = styled.button`
 
   text-align: left;
 
-  background-color: ${(p) => p.theme.palette.black};
+  background-color: ${color('black')};
 
-  transition: ${(p) => p.theme.transtions.primary};
+  transition: ${transition('primary')};
 
   &:hover {
-    background-color: ${(p) => p.theme.palette.gray};
+    background-color: ${color('gray')};
   }
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     padding: 16px 30px 17px 8px;
   }
 `;
@@ -34,20 +35,20 @@ export const V = styled(VRaw)<{ $active?: boolean }>`
   height: 10px;
   margin-left: 23px;
 
-  transition: ${(p) => p.theme.transtions.primary};
+  transition: ${transition('primary')};
 
   ${(p) => p.$active && 'transform: rotate(180deg);'}
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     width: 12px;
     height: 8px;
   }
 `;
 
 export const List = styled.div`
-  background-color: ${(p) => p.theme.palette.white_3};
+  background-color: ${color('white_3')};
 
-  transition: ${(p) => p.theme.transtions.primary};
+  transition: ${transition('primary')};
 `;
 
 export const Item = styled.li`
@@ -68,7 +69,7 @@ export const Item = styled.li`
 
     margin-right: 10px;
 
-    background-color: ${(p) => p.theme.palette.black};
+    background-color: ${color('black')};
     transform: rotate(45deg);
     transform-origin: 0 100%;
 
@@ -79,7 +80,7 @@ export const Item = styled.li`
 export const Items = styled.ul`
   padding: 19px 83px 49px 34px;
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     padding: 13px 17px 27px 10px;
   }
 `;

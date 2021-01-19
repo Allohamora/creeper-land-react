@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import MenuComponent from 'components/Menu';
+import { rem } from 'styles/helpers';
 
 export const Menu = styled(MenuComponent)`
   display: flex;
@@ -11,8 +12,8 @@ export const ListTitle = styled.h2`
   margin: 0 0 18px 0;
 
   font-weight: 500;
-  font-size: 22px;
-  line-height: 26px;
+  font-size: ${rem(22)};
+  line-height: ${rem(26)};
 `;
 
 export const Top = styled.div`

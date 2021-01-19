@@ -2,6 +2,7 @@ import ContainerComponent from 'components/Container';
 import lines from 'assets/img/header__lines.svg';
 import lines2 from 'assets/img/header__lines_2.svg';
 import styled, { css } from 'styled-components';
+import { color, zIndex, media } from 'styles/helpers';
 
 export interface Lines {
   lines?: '1' | '2';
@@ -12,7 +13,7 @@ export const Wrap = styled.header<Lines>`
 
   padding-top: 60px;
 
-  background-color: ${(p) => p.theme.palette.black};
+  background-color: ${color('black')};
 
   ${(p) =>
     p.lines &&
@@ -21,7 +22,7 @@ export const Wrap = styled.header<Lines>`
         position: absolute;
         top: 50%;
         left: 50%;
-        z-index: 1;
+        z-index: ${zIndex('lines')};
 
         width: 100%;
         height: 100%;
@@ -37,19 +38,19 @@ export const Wrap = styled.header<Lines>`
         content: '';
       }
 
-      ${p.theme.media.max('pc')} {
+      ${media.max('pc')} {
         &::after {
           background-image: none;
         }
       }
     `}
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     padding-top: 33px;
   }
 `;
 
 export const Container = styled(ContainerComponent)`
   position: relative;
-  z-index: 2;
+  z-index: ${zIndex('header')};
 `;

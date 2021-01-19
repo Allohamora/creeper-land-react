@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import caseLights from 'assets/img/case_lights.png';
 import Typography from 'components/Typography';
+import { color, media, transition } from 'styles/helpers';
 
 export const Wrap = styled.div`
   display: flex;
@@ -9,18 +10,18 @@ export const Wrap = styled.div`
   width: 218px;
   height: 194px;
 
-  background-color: ${(p) => p.theme.palette.white_3};
+  background-color: ${color('white_3')};
   background-image: url('${caseLights}');
   border-radius: 5px;
   cursor: pointer;
 
-  transition: ${(p) => p.theme.transtions.primary};
+  transition: ${transition('primary')};
 
   &:hover {
-    background-color: ${(p) => p.theme.palette.white};
+    background-color: ${color('white')};
   }
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     width: 130px;
     height: 114px;
 
@@ -28,41 +29,37 @@ export const Wrap = styled.div`
   }
 `;
 
-export const Title = styled(Typography)`
+export const Title = styled(Typography).attrs({
+  variant: 'h4',
+  color: 'black',
+})`
   padding-top: 22px;
   padding-bottom: 13px;
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     padding-top: 12px;
     padding-bottom: 10px;
   }
 `;
 
-Title.defaultProps = {
+export const Value = styled(Typography).attrs({
   variant: 'h4',
   color: 'black',
-};
-
-export const Value = styled(Typography)`
+})`
   padding-top: 9px;
   padding-bottom: 15px;
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     padding-top: 10px;
     padding-bottom: 10px;
   }
 `;
 
-Value.defaultProps = {
-  variant: 'h4',
-  color: 'black',
-};
-
 export const Icon = styled.img`
   width: 94px;
   height: 94px;
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     width: 38px;
     height: 38px;
   }

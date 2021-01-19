@@ -1,14 +1,15 @@
 import styled from 'styled-components';
+import { color, media } from 'styles/helpers';
 
 export const Wrap = styled.div`
   display: inline-block;
 
   padding: 27px;
 
-  background: ${(p) => p.theme.palette.$latestBuysCardBg};
+  background: ${color('$latestBuysCardBg')};
   border-radius: 5px;
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     padding: 14px;
   }
 `;
@@ -17,7 +18,7 @@ export const Icon = styled.img`
   width: 56px;
   height: 56px;
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     width: 28px;
     height: 28px;
   }

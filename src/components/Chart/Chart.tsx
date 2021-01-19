@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import chartPlaceholder from 'assets/img/chart__placeholder.png';
 import chartPlaceholderMobile from 'assets/img/chart__placeholder-mobile.png';
+import { media } from 'styles/helpers';
 
 const Chart = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ const Chart = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     height: 101px;
 
     background-image: url('${chartPlaceholderMobile}');

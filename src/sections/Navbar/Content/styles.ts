@@ -1,5 +1,6 @@
 import IconButton from 'components/IconButton';
 import styled from 'styled-components';
+import { media, transition, color } from 'styles/helpers';
 
 // for `${Wrap}` in Navbar Wrap
 export const Wrap = styled.div``;
@@ -9,25 +10,25 @@ export const Hidden = styled.div`
   align-items: center;
   justify-content: center;
 
-  ${(p) => p.theme.media.min('$navbar')} {
+  ${media.min('$navbar')} {
     display: none;
   }
 `;
 
 export const BurgerButton = styled(IconButton)`
   path {
-    transition: ${(p) => p.theme.transtions.primary};
+    transition: ${transition('primary')};
   }
 
   &:hover path {
-    stroke: ${(p) => p.theme.palette.lime};
+    stroke: ${color('lime')};
   }
 `;
 
 export const Nav = styled.nav`
   display: flex;
 
-  ${(p) => p.theme.media.max('$navbar')} {
+  ${media.max('$navbar')} {
     display: none;
   }
 `;

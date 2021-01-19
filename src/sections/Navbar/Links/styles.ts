@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import { color, rem, transition } from 'styles/helpers';
 import { Modal } from '../shared';
 
 export const Wrap = styled.div<{ modal?: Modal }>`
@@ -10,7 +11,7 @@ export const Wrap = styled.div<{ modal?: Modal }>`
 
   ${(p) =>
     p.modal &&
-    css`
+    `
       flex-flow: column;
 
       > *:not(:last-child) {
@@ -25,18 +26,17 @@ export const LinkWrap = styled.div`
 `;
 
 export const LinkText = styled.p`
-
   margin: 0;
   padding: 0;
 
-  color: ${(p) => p.theme.palette.white};
+  color: ${color('white')};
   font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: ${rem(16)};
+  line-height: ${rem(19)};
 
-  transition: ${(p) => p.theme.transtions.primary};
+  transition: ${transition('primary')};
 
   &:hover {
-    color: ${(p) => p.theme.palette.lime};
+    color: ${color('lime')};
   }
 `;

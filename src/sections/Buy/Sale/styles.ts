@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import promoBg from 'assets/img/promo_bg.png';
 import promoBgMobile from 'assets/img/promo_bg_mobile.png';
 import Typography from 'components/Typography';
-import { fontSize } from 'styles/helpers';
+import { fontSize, media } from 'styles/helpers';
 
 export const Wrap = styled.div`
   margin-top: 20px;
@@ -15,7 +15,7 @@ export const Wrap = styled.div`
   background-size: cover;
   border-radius: 5px;
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     padding: 49px 36px 64px;
 
     text-align: center;
@@ -25,14 +25,12 @@ export const Wrap = styled.div`
   }
 `;
 
-export const Price = styled(Typography)`
+export const Price = styled(Typography).attrs({
+  color: 'purple',
+})`
   ${fontSize({ fs: 32, ln: 38, mfs: 22, mln: 26 })}
 
   padding-top: 10px;
 
   font-weight: 500;
 `;
-
-Price.defaultProps = {
-  color: 'purple',
-};

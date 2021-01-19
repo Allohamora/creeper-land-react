@@ -1,5 +1,11 @@
-import styled from 'styled-components';
-import { fontSize } from 'styles/helpers';
+import styled, { css } from 'styled-components';
+import {
+  color,
+  fontSize,
+  transition,
+  media,
+  opacity,
+} from 'styles/helpers';
 
 interface Active {
   active?: boolean;
@@ -15,7 +21,7 @@ export const Content = styled.div<Active>`
 
   opacity: ${(p) => (p.active ? '1' : '0')};
 
-  transition: ${(p) => p.theme.transtions.primary};
+  transition: ${transition('primary')};
 `;
 
 export const Tab = styled.button<Active>`
@@ -23,26 +29,27 @@ export const Tab = styled.button<Active>`
 
   padding: 10px 17px;
 
-  color: ${(p) =>
-    p.active
-      ? p.theme.palette.white
-      : p.theme.palette.black};
-  font-weight: ${(p) => (p.active ? '500' : 'normal')};
+  color: ${color('black')};
+  font-weight: normal;
 
-  transition: all ${(p) => p.theme.transtions.primary},
-    font-weight 0s;
+  transition: all ${transition('primary')}, font-weight 0s;
 
-  background: ${(p) =>
-    p.active
-      ? p.theme.palette.black
-      : p.theme.palette.white_3};
+  background: ${color('white_3')};
   border-radius: 5px;
 
   &:hover {
-    opacity: 0.7;
+    opacity: ${opacity('primary')};
   }
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${(p) =>
+    p.active &&
+    css`
+      color: ${color('white')};
+      background: ${color('black')};
+      font-weight: 500;
+    `}
+
+  ${media.max('mobile')} {
     padding: 8px 10px;
   }
 `;
@@ -58,7 +65,7 @@ export const TabsWrap = styled.div`
     margin-bottom: 20px;
   }
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     margin-right: -12px;
     margin-bottom: -12px;
 

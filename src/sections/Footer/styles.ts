@@ -1,22 +1,23 @@
 import styled from 'styled-components';
 import ContainerComponent from 'components/Container';
+import { color, media } from 'styles/helpers';
 
 export const Wrap = styled.div`
-  background-color: ${(p) => p.theme.palette.black};
+  background-color: ${color('black')};
 `;
 
 export const Container = styled(ContainerComponent)`
   padding-top: 36px;
   padding-bottom: 33px;
 
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     padding-top: 30px;
     padding-bottom: 30px;
   }
 `;
 
 export const MobileHidden = styled.div`
-  ${(p) => p.theme.media.max('mobile')} {
+  ${media.max('mobile')} {
     display: none;
   }
 `;

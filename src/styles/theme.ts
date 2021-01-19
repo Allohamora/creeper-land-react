@@ -1,14 +1,6 @@
-const breakpoints = {
-  mobile: '576px',
-  tablet: '768px',
-  laptop: '992px',
-  pc: '1250px',
-  $navbar: '850px',
-};
-
-export type Breakpoint = keyof typeof breakpoints;
-
 const ROOT_FS = 10;
+
+// ---
 
 const palette = {
   white: '#fff',
@@ -33,28 +25,64 @@ const palette = {
 
 export type PaletteColor = keyof typeof palette;
 
+// ---
+
+const breakpoints = {
+  mobile: '576px',
+  tablet: '768px',
+  laptop: '992px',
+  pc: '1250px',
+  $navbar: '850px',
+};
+
+export type Breakpoint = keyof typeof breakpoints;
+
+// ---
+
 const fonts = {
   primary: "'Rubik', sans-serif",
 };
+
+export type Font = keyof typeof fonts;
+
+// ---
 
 const transtions = {
   primary: '0.5s',
 };
 
+export type Transition = keyof typeof transtions;
+
+// ---
+
+const opacities = {
+  primary: '.7',
+  secondary: '.5',
+};
+
+export type Opacity = keyof typeof opacities;
+
+// ---
+
+const zIndexes = {
+  backdrop: 9,
+  menu: 10,
+  lines: 1,
+  header: 2,
+};
+
+export type ZIndex = keyof typeof zIndexes;
+
+// ---
+
 const theme = {
   ROOT_FS,
-  breakpoints,
   palette,
+  breakpoints,
   fonts,
   transtions,
-
-  pxToRem: (px: number): string => `${px / ROOT_FS}rem`,
-  media: {
-    max: (breakpoint: Breakpoint): string =>
-      `@media (max-width: ${breakpoints[breakpoint]})`,
-    min: (breakpoint: Breakpoint): string =>
-      `@media (min-width: ${breakpoints[breakpoint]})`,
-  },
+  opacities,
+  zIndexes,
 };
 
 export default theme;

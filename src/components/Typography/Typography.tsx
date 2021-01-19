@@ -27,7 +27,7 @@ const weights = {
 const header = (
   content: ReturnType<typeof fontSize>,
 ) => css`
-  font-weight: ${weights[500]};
+  font-weight: 500;
   ${content}
 `;
 

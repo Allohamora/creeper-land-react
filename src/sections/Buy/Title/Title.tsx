@@ -5,14 +5,13 @@ interface TitleProps {
   type?: 'case' | 'shop';
 }
 
-const Title = styled(Typography)<TitleProps>`
-  padding-bottom: ${(p) =>
-    p.type === 'case' ? '12px' : '19px'};
-`;
-
-Title.defaultProps = {
+const Title = styled(Typography).attrs({
   variant: 'h2',
   color: 'black',
-};
+})<TitleProps>`
+  padding-bottom: 19px;
+
+  ${(p) => p.type === 'case' && 'padding-bottom: 12px;'}
+`;
 
 export default Title;

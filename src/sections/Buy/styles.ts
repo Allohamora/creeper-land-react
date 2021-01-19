@@ -1,5 +1,6 @@
 import Container from 'components/Container';
 import styled from 'styled-components';
+import { color } from 'styles/helpers';
 
 export const Wrap = styled(Container)`
   padding-top: 34px;
@@ -7,5 +8,5 @@ export const Wrap = styled(Container)`
 `;
 
 export const Background = styled.div`
-  background: ${(p) => p.theme.palette.white_2};
+  background: ${color('white_2')};
 `;

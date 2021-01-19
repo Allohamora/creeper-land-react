@@ -1,5 +1,6 @@
 import ButtonComponent from 'components/Button/Outlined';
 import styled, { css } from 'styled-components';
+import { media } from 'styles/helpers';
 import { Wrap as Content } from './Content/styles';
 
 export const Wrap = styled.div<{ footer?: boolean }>`
@@ -11,7 +12,7 @@ export const Wrap = styled.div<{ footer?: boolean }>`
   ${(p) =>
     p.footer &&
     css`
-      ${p.theme.media.max('mobile')} {
+      ${media.max('mobile')} {
         flex-flow: column wrap;
 
         > ${Content} {

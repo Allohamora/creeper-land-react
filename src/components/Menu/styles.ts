@@ -1,5 +1,6 @@
 import IconButton from 'components/IconButton';
 import styled from 'styled-components';
+import { color, transition, zIndex } from 'styles/helpers';
 
 export const Content = styled.div`
   display: block;
@@ -11,7 +12,7 @@ export const Inner = styled.div<{ show?: boolean }>`
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 10;
+  z-index: ${zIndex('menu')};
 
   display: flex;
   flex-direction: column;
@@ -21,23 +22,23 @@ export const Inner = styled.div<{ show?: boolean }>`
   padding: 27px 34px;
   overflow-y: auto;
 
-  color: ${(p) => p.theme.palette.white};
+  color: ${color('white')};
 
-  background-color: ${(p) => p.theme.palette.black};
+  background-color: ${color('black')};
   transform: ${(p) =>
     p.show ? 'translate(0)' : 'translate(100%)'};
 
-  transition: ${(p) => p.theme.transtions.primary};
+  transition: ${transition('primary')};
 `;
 
 export const XButton = styled(IconButton)`
   margin-left: auto;
 
   path {
-    transition: ${(p) => p.theme.transtions.primary};
+    transition: ${transition('primary')};
   }
 
   &:hover path {
-    fill: ${(p) => p.theme.palette.lime};
+    fill: ${color('lime')};
   }
 `;
