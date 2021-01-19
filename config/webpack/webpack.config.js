@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
+const outputResourcesDir = 'assets/resources';
 const outputImagesDir = 'assets/images';
 
 module.exports = {
@@ -77,7 +78,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               // sass, postcss
-              modules: { auto: true },
+              modules: { auto: true }, // if .module.s?css load as css-module
               importLoaders: 2,
               url: false,
             }
@@ -102,18 +103,21 @@ module.exports = {
           outputPath: outputImagesDir,
           name: isProduction ? '[contenthash].[ext]' : '[name].[ext]',
           inline: {
-            limit: 0
+            limit: 0 // always extract to file
           },
           compress: {
             mode: 'low', // 'lossless', 'high'
-            webp: true,
-            disableOnDevelopment: true,
+            webp: true, // always create webp from png and jpg
+            disableOnDevelopment: true, // don't compress on development mode
           }
         }
       },
       {
-        test: /\.(woff(2)?|eot|ttf|otf)$/, 
-        type: 'asset/inline'
+        test: /\.(apng|eot|otf|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/,
+        type: 'asset/resource',
+        generator: {
+          filename: isProduction ? `${outputResourcesDir}/[hash][ext][query]` : `${outputResourcesDir}/[name][ext][query]`
+        }
       },
       {
         test: /\.svg$/,
@@ -123,7 +127,7 @@ module.exports = {
             options: {
               svgoConfig: {
                 plugins: {
-                  removeViewBox: false
+                  removeViewBox: false // don't remove svg viewBox
                 }
               }
             }
@@ -135,7 +139,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', '.jsx'],
     plugins: [
       new TsconfigPathsPlugin({ configFile: tsconfig })
     ]

@@ -1,4 +1,4 @@
-import ButtonComponent from 'components/Button';
+import ButtonComponent from 'components/Button/Outlined';
 import styled, { css } from 'styled-components';
 import { Wrap as Content } from './Content/styles';
 

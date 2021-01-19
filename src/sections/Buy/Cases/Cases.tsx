@@ -1,9 +1,10 @@
 import React from 'react';
 import Title from '../Title';
 import shopCasesMock from 'mock/shopCases.json';
-import Card from 'components/Card';
+import Card from 'components/Card/Case';
 import { IconType } from 'components/Card/icons';
 import { Wrap, CasesWrap } from './styles';
+import { Link } from 'react-router-dom';
 
 const Cases: React.FC = () => (
   <Wrap>
@@ -11,12 +12,9 @@ const Cases: React.FC = () => (
 
     <CasesWrap>
       {shopCasesMock.map(({ icon, ...rest }, i) => (
-        <Card
-          variant="case"
-          key={i}
-          icon={icon as IconType}
-          {...rest}
-        />
+        <Link to="/case/123" key={i}>
+          <Card icon={icon as IconType} {...rest} />
+        </Link>
       ))}
     </CasesWrap>
   </Wrap>

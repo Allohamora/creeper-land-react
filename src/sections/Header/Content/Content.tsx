@@ -32,7 +32,7 @@ const Content: React.FC = () => (
         </Typography>
       </Data>
 
-      <Button variant="contained">Начать играть!</Button>
+      <Button>Начать играть!</Button>
     </Text>
     <div>
       <Joystick src={joystick} alt="joystick" />

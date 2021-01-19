@@ -1,5 +1,7 @@
 import React from 'react';
-import Button, { ButtonProps } from './Button';
+import Button from '.';
+import ContainedButton from './Contained';
+import OutlinedButton from './Outlined';
 import { Meta, Story } from '@storybook/react';
 
 export default {
@@ -17,27 +19,33 @@ export default {
 
 const text = (secondary: string) => `Button ${secondary}`;
 
-interface Props extends ButtonProps {
+interface Props {
   children: string;
 }
 
-const Template: Story<Props> = (args) => (
+const BaseTemplate: Story<Props> = (args) => (
   <Button {...args} />
 );
 
-export const Base = Template.bind({});
+const OutlinedTemplate: Story<Props> = (args) => (
+  <OutlinedButton {...args} />
+);
+
+const ContainedTemplate: Story<Props> = (args) => (
+  <ContainedButton {...args} />
+);
+
+export const Base = BaseTemplate.bind({});
 Base.args = {
   children: text('Base'),
 };
 
-export const Outlined = Template.bind({});
+export const Outlined = OutlinedTemplate.bind({});
 Outlined.args = {
   children: text('Outlined'),
-  variant: 'outlined',
 };
 
-export const Contained = Template.bind({});
+export const Contained = ContainedTemplate.bind({});
 Contained.args = {
   children: text('Contained'),
-  variant: 'contained',
 };

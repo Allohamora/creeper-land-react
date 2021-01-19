@@ -8,7 +8,7 @@ import Footer from 'sections/Footer';
 
 const Main: React.FC = () => (
   <>
-    <Header content lines />
+    <Header content lines="1" />
     <Buy />
     <LatestBuys />
     <About />

@@ -2,7 +2,7 @@ import React from 'react';
 import Tabs from 'components/Tabs';
 import shopBlockTabsMock from 'mock/shopBlock.json';
 import Title from '../Title';
-import Card from 'components/Card';
+import Card from 'components/Card/Shop';
 import { IconType } from 'components/Card/icons';
 import { Tab } from './styles';
 

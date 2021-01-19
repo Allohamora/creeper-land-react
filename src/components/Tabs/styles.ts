@@ -38,6 +38,10 @@ export const Tab = styled.button<Active>`
       : p.theme.palette.white_3};
   border-radius: 5px;
 
+  &:hover {
+    opacity: 0.7;
+  }
+
   ${(p) => p.theme.media.max('mobile')} {
     padding: 8px 10px;
   }

@@ -7,8 +7,9 @@ const Case: React.FC<CardProps> = ({
   title,
   icon,
   value,
+  ...rest
 }) => (
-  <Wrap>
+  <Wrap {...rest}>
     <Title>{title}</Title>
     <Icon {...icons[icon]} />
     <Value>{value}</Value>

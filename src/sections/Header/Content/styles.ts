@@ -1,5 +1,5 @@
 import Typography from 'components/Typography';
-import ButtonComponent from 'components/Button';
+import ButtonComponent from 'components/Button/Contained';
 import styled from 'styled-components';
 
 export const Wrap = styled.div`
