@@ -29,7 +29,9 @@ module.exports = {
     new CleanWebpackPlugin(),
 
     // extract css to .css file
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[contenthash].css'
+    }),
 
     // create index.html from template
     new HtmlWebpackPlugin({
@@ -45,10 +47,10 @@ module.exports = {
           globOptions: {
             dot: true,
             ignore: [
-              '*.DS_Store'
+              '*.DS_Store',
+              '**/index.html'
             ]
-          },
-          filter: (filePath) => !(/index.html/.test(filePath))
+          }
         }
       ]
     })
@@ -65,10 +67,11 @@ module.exports = {
         test: /\.(scss|sass|css)$/,
         use: [
           // css link way (file, styleTag)
-          isProduction 
-            ?  MiniCssExtractPlugin.loader
-            : 'style-loader'
-          ,
+          (
+            isProduction 
+              ?  MiniCssExtractPlugin.loader
+              : 'style-loader'
+          ),
           // bild css imports
           {
             loader: 'css-loader',
@@ -93,10 +96,19 @@ module.exports = {
         ]
       },
       {
-        test: /\.(?:ico|gif|png|jpg|jpeg)$/i, 
-        type: 'asset/resource',
-        generator: {
-          filename: isProduction ? `${outputImagesDir}/[hash][ext][query]` : `${outputImagesDir}/[name][ext][query]`
+        test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/i, 
+        loader: 'img-optimize-loader',
+        options: {
+          outputPath: outputImagesDir,
+          name: isProduction ? '[contenthash].[ext]' : '[name].[ext]',
+          inline: {
+            limit: 0
+          },
+          compress: {
+            mode: 'low', // 'lossless', 'high'
+            webp: true,
+            disableOnDevelopment: true,
+          }
         }
       },
       {
