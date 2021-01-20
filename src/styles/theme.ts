@@ -20,6 +20,7 @@ const palette = {
   green: '#355635',
 
   $latestBuysCardBg: 'rgba(57, 57, 57, 0.5)',
+  $rouletteCardBg: ' rgba(255, 255, 255, 0.1)',
   $aboutShadow: 'rgba(0, 0, 0, 0.25)',
 };
 

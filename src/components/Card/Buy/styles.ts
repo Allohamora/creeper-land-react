@@ -1,13 +1,19 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { color, media } from 'styles/helpers';
 
-export const Wrap = styled.div`
+export const Wrap = styled.div<{ roulette?: boolean }>`
   display: inline-block;
 
   padding: 27px;
 
   background: ${color('$latestBuysCardBg')};
   border-radius: 5px;
+
+  ${(p) =>
+    p.roulette &&
+    css`
+      background: ${color('$rouletteCardBg')};
+    `}
 
   ${media.max('mobile')} {
     padding: 14px;

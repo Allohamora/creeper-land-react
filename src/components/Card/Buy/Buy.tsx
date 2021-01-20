@@ -4,10 +4,11 @@ import { Wrap, Icon } from './styles';
 
 export interface BuyProps {
   icon: IconType;
+  roulette?: boolean;
 }
 
-const Buy: React.FC<BuyProps> = ({ icon }) => (
-  <Wrap>
+const Buy: React.FC<BuyProps> = ({ icon, ...props }) => (
+  <Wrap {...props}>
     <Icon {...icons[icon]} />
   </Wrap>
 );
