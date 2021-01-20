@@ -14,12 +14,12 @@ const icons = {
 
 export type IconType = keyof typeof icons;
 
-interface CardProps {
+export interface AboutProps {
   title: string;
   icon: IconType;
 }
 
-const Card: React.FC<CardProps> = ({ title, icon }) => {
+const About: React.FC<AboutProps> = ({ title, icon }) => {
   const Icon = icons[icon];
 
   return (
@@ -33,4 +33,4 @@ const Card: React.FC<CardProps> = ({ title, icon }) => {
   );
 };
 
-export default Card;
+export default About;

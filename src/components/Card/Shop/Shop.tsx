@@ -1,9 +1,9 @@
 import React from 'react';
 import { icons } from '../icons';
-import { CardProps } from '../shared';
+import { CommonCardProps } from '../shared';
 import { Wrap, Title, Icon, Value } from './styles';
 
-const Shop: React.FC<CardProps> = ({
+const Shop: React.FC<CommonCardProps> = ({
   title,
   icon,
   value,

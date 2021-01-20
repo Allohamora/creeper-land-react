@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button } from './styles';
+import Contained from './Contained';
 import { Meta, Story } from '@storybook/react';
 
 export default {
-  title: 'Button/Base',
-  component: Button,
+  title: 'Button/Contained',
+  component: Contained,
   parameters: {
     backgrounds: {
       default: 'dark',
@@ -20,10 +20,10 @@ interface Props {
 }
 
 const Template: Story<Props> = (args) => (
-  <Button {...args} />
+  <Contained {...args} />
 );
 
 export const Base = Template.bind({});
 Base.args = {
-  children: 'Outlined',
+  children: 'Contained',
 };

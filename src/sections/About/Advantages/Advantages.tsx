@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from 'components/Typography';
 import advantagesMockData from 'mock/advantages.json';
-import Card, { IconType } from '../Card';
+import Card, { IconType } from 'components/Card/About';
 import { Wrap, Cards } from './styles';
 
 const Advantages: React.FC = () => (

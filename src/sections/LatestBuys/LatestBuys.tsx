@@ -1,7 +1,7 @@
 import React from 'react';
 import latestBuysMock from 'mock/latestBuys.json';
 import Container from 'components/Container';
-import Card from './Card';
+import Card from 'components/Card/Buy';
 import { IconType } from 'components/Card/icons';
 import { Wrap, Title, Cards, CardsWrap } from './styles';
 
