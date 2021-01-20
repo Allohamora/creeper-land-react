@@ -45,7 +45,9 @@ export const V = styled(VRaw)<{ $active?: boolean }>`
   }
 `;
 
-export const List = styled.div`
+export const List = styled.div<{ maxHeight: number }>`
+  max-height: ${(p) => p.maxHeight}px;
+
   background-color: ${color('white_3')};
 
   transition: ${transition('primary')};

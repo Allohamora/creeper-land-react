@@ -27,25 +27,23 @@ const DropdownList: React.FC<DropdownListProps> = ({
   items,
   className,
 }) => {
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
   const [maxHeight, setMaxHeight] = useState(0);
-  const [isReady, setIsReady] = useState(false);
 
   const listRef = useRef<HTMLDivElement | null>(null);
 
   useLayoutEffect(() => {
     if (!listRef.current) return;
 
-    const currentHeight = listRef.current.clientHeight;
+    const currentHeight = listRef.current.scrollHeight;
+
     setMaxHeight(currentHeight);
-    setIsActive(false);
-    setIsReady(true);
   }, [listRef]);
 
   const isBeforeTitleIndexExist =
     typeof beforeTitleIndex === 'number';
+
   const buttonClickHandler = () => setIsActive(!isActive);
-  const currentHeight = isActive ? maxHeight : 0;
 
   return (
     <Wrap className={className}>
@@ -68,7 +66,7 @@ const DropdownList: React.FC<DropdownListProps> = ({
 
       <List
         ref={listRef}
-        style={isReady ? { maxHeight: currentHeight } : {}}
+        maxHeight={isActive ? maxHeight : 0}
       >
         <Items>
           {items.map((value, i) => (
