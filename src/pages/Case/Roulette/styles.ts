@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import bg from 'assets/img/roulette__bg.png';
-import { color } from 'styles/helpers';
+import { color, media } from 'styles/helpers';
 
 export const Wrap = styled.div`
-
   position: relative;
 
   overflow: hidden;
@@ -15,7 +14,6 @@ export const Wrap = styled.div`
 
   &::after,
   &::before {
-
     position: absolute;
     left: 0;
 
@@ -83,6 +81,10 @@ export const Delimiter = styled.div`
 export const ItemsWrap = styled.div`
   padding: 52px 44px;
   overflow: hidden;
+
+  ${media.max('mobile')} {
+    padding: 33px 25px;
+  }
 `;
 
 export const Items = styled.div`
@@ -91,5 +93,11 @@ export const Items = styled.div`
 
   > *:not(:last-child) {
     margin-right: 10px;
+  }
+
+  ${media.max('mobile')} {
+    > *:not(:last-child) {
+      margin-right: 5px;
+    }
   }
 `;

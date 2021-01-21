@@ -11,6 +11,12 @@ const Template: Story<BuyProps> = (args) => (
   <Buy {...args} />
 );
 
+export const Roulette = Template.bind({});
+Roulette.args = {
+  icon: 'enderman',
+  roulette: true,
+};
+
 export const Enderman = Template.bind({});
 Enderman.args = {
   icon: 'enderman',

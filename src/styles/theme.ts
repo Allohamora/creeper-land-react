@@ -12,6 +12,7 @@ const palette = {
   gray: '#454545',
 
   purple: '#d941ff',
+  purple_2: '#d54ff6',
 
   lime: '#4ad73f',
   lime_2: '#5bf74f',
