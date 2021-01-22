@@ -58,6 +58,7 @@
     "react/button-has-type": "off",
     "react/no-array-index-key": "off",
     "react/jsx-props-no-spreading": "off",
+    "react/state-in-constructor": "off",
     "react/prop-types": "off",
     "jsx-a11y/alt-text": "warn",
 

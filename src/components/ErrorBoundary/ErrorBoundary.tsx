@@ -1,5 +1,4 @@
 import React, { ErrorInfo } from 'react';
-import { AnyObject } from 'types/base';
 
 interface State {
   error: Error | null;
@@ -7,10 +6,9 @@ interface State {
 }
 
 export default class ErrorBoundary extends React.Component<
-  AnyObject,
+  Record<string, unknown>,
   State
 > {
-  // eslint-disable-next-line react/state-in-constructor
   public state: State = { error: null, errorInfo: null };
 
   componentDidCatch(
