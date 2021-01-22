@@ -76,7 +76,6 @@ export const Icon = styled.img`
   margin-top: 25px;
 
   ${media.max('mobile')} {
-
     width: 44px;
     height: 44px;
     margin-top: 16px;
