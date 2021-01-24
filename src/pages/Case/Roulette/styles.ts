@@ -87,6 +87,14 @@ export const ItemsWrap = styled.div`
   }
 `;
 
+export const ItemsOverflowWrap = styled.div<{
+  maxWidth?: null | number;
+}>`
+  margin: 0 auto;
+
+  ${(p) => p.maxWidth && `max-width: ${p.maxWidth}px;`}
+`;
+
 export const Items = styled.div`
   display: flex;
   overflow: hidden;
