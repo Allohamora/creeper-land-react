@@ -4,7 +4,13 @@ import HeaderUi from 'sections/Header';
 import { icons } from 'components/Card/icons';
 import { Wrap, Icon, Button, Title } from './styles';
 
-const Header: React.FC = () => (
+interface HeaderProps {
+  onButtonClick: () => void;
+}
+
+const Header: React.FC<HeaderProps> = ({
+  onButtonClick,
+}) => (
   <HeaderUi lines="2">
     <Wrap>
       <Title>Крутить Кейс #1</Title>
@@ -12,7 +18,7 @@ const Header: React.FC = () => (
       <Typography variant="p1" weight="500" color="lime">
         В наличии: 5
       </Typography>
-      <Button>Крутить кейс</Button>
+      <Button onClick={onButtonClick}>Крутить кейс</Button>
     </Wrap>
   </HeaderUi>
 );

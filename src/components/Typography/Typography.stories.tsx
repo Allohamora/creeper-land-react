@@ -1,7 +1,6 @@
 import React from 'react';
 import Typography, { TypographyProps } from './Typography';
 import { Meta, Story } from '@storybook/react';
-import { getText } from 'utils/ui';
 
 export default {
   title: 'Typography',
@@ -20,8 +19,7 @@ interface Props extends TypographyProps {
   children?: string;
 }
 
-const text = (second: string) =>
-  getText('Typography', second);
+const text = (second: string) => `Typography ${second}`;
 
 const Template: Story<Props> = (args) => (
   <Typography {...args} />

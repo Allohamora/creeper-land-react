@@ -95,9 +95,21 @@ export const ItemsOverflowWrap = styled.div<{
   ${(p) => p.maxWidth && `max-width: ${p.maxWidth}px;`}
 `;
 
-export const Items = styled.div`
+export const Items = styled.div<{
+  animate: null | {
+    marginLeft: number;
+    transition: string;
+  };
+}>`
   display: flex;
   overflow: hidden;
+
+  ${(p) =>
+    p.animate &&
+    `
+    margin-left: ${p.animate.marginLeft}px;
+    transition: ${p.animate.transition};
+  `}
 
   > *:not(:last-child) {
     margin-right: 10px;

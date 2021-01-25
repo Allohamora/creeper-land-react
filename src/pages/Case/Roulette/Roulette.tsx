@@ -14,12 +14,23 @@ import {
 } from './styles';
 import { useMedia } from 'react-use';
 import { ThemeContext } from 'styled-components';
+import { Dispatch, State, Types } from '../reducer';
 
 const getOdd = (num: number) =>
   num % 2 !== 0 ? num : num - 1;
 
-const Roulette: React.FC = () => {
-  const [width, setWidth] = useState<null | number>(null);
+interface RouletteProps {
+  state: State;
+  dispatch: Dispatch;
+}
+
+const Roulette: React.FC<RouletteProps> = ({
+  state,
+  dispatch,
+}) => {
+  const windowWidth = window.innerWidth;
+
+  const [width, setWidth] = useState<number>(windowWidth);
   const itemsWrapRef = useRef<null | HTMLDivElement>(null);
 
   const theme = useContext(ThemeContext);
@@ -32,7 +43,7 @@ const Roulette: React.FC = () => {
       setWidth(
         itemsWrapRef.current
           ? itemsWrapRef.current.clientWidth
-          : null,
+          : windowWidth,
       );
     };
 
@@ -46,16 +57,27 @@ const Roulette: React.FC = () => {
   const cardMarginRight = isMobile ? 5 : 10;
   const cardWidth = isMobile ? 56 : 110;
 
-  const count = width
-    ? getOdd(
-        Math.floor(width / (cardMarginRight + cardWidth)),
-      )
-    : null;
+  const count = getOdd(
+    Math.floor(width / (cardMarginRight + cardWidth)),
+  );
 
-  const maxWidth = count
-    ? (cardMarginRight + cardWidth) * count -
-      cardMarginRight
-    : null;
+  const maxWidth =
+    (cardMarginRight + cardWidth) * count - cardMarginRight;
+
+  const transitionEndHandler = () =>
+    dispatch({ type: Types.ended });
+
+  const animate =
+    state.status === 'start' || state.status === 'started'
+      ? {
+          marginLeft: -(
+            count *
+            2 *
+            (cardWidth + cardMarginRight)
+          ),
+          transition: '5s',
+        }
+      : null;
 
   return (
     <Wrap>
@@ -64,10 +86,19 @@ const Roulette: React.FC = () => {
       <ItemsWrap>
         <div ref={itemsWrapRef}>
           <ItemsOverflowWrap maxWidth={maxWidth}>
-            <Items>
-              {new Array(30).fill(null).map((_, i) => (
-                <BuyCard key={i} roulette icon="enderman" />
-              ))}
+            <Items
+              animate={animate}
+              onTransitionEnd={transitionEndHandler}
+            >
+              {new Array(count * 3)
+                .fill(null)
+                .map((_, i) => (
+                  <BuyCard
+                    key={i}
+                    roulette
+                    icon="enderman"
+                  />
+                ))}
             </Items>
           </ItemsOverflowWrap>
         </div>
