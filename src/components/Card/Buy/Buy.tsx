@@ -3,13 +3,17 @@ import { icons, IconType } from 'components/Card/icons';
 import { Wrap, Icon } from './styles';
 
 export interface BuyProps {
-  icon: IconType;
+  icon: IconType | 'loader';
   roulette?: boolean;
 }
 
 const Buy: React.FC<BuyProps> = ({ icon, ...props }) => (
   <Wrap {...props}>
-    <Icon {...icons[icon]} />
+    {icon !== 'loader' ? (
+      <Icon {...icons[icon]} />
+    ) : (
+      <Icon as="div" />
+    )}
   </Wrap>
 );
 

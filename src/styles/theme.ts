@@ -14,6 +14,10 @@ const palette = {
   purple: '#d941ff',
   purple_2: '#d54ff6',
 
+  red: '#F94040',
+
+  blue: '#4053F9',
+
   lime: '#4ad73f',
   lime_2: '#5bf74f',
   lime_3: '#52f64f',

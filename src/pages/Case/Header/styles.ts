@@ -3,13 +3,19 @@ import ButtonComponent from 'components/Button/Contained';
 import Typography from 'components/Typography';
 import { fontSize, media, rem } from 'styles/helpers';
 
-export const Wrap = styled.div`
+export const Wrap = styled.div<{ loader?: boolean }>`
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+
+  min-height: 383px;
   padding-top: 55px;
 
+  ${(p) =>
+    p.loader && 'justify-content: center; padding-top: 0;'}
+
   ${media.max('mobile')} {
+    min-height: 245px;
     padding-top: 34px;
   }
 `;

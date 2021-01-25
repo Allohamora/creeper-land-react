@@ -1,4 +1,6 @@
 import { Reducer, Dispatch as ReactDispatch } from 'react';
+import { IconType } from 'components/Card/icons';
+import { PaletteColor } from 'styles/theme';
 import { ValueOf } from 'types/base';
 
 export enum Types {
@@ -6,20 +8,47 @@ export enum Types {
   start = 'CASE_START',
   started = 'CASE_STARTED',
   ended = 'CASE_ENDED',
+
+  loading = 'CASE_LOADING',
+
+  setCase = 'CASE_SET_CASE',
+}
+
+export interface Item {
+  id: number;
+  title: string;
+  icon: IconType;
+  loader?: boolean;
+  value: string;
+  lines: PaletteColor;
 }
 
 export interface State {
-  status: keyof typeof Types;
+  status:
+    | 'wait'
+    | 'start'
+    | 'started'
+    | 'ended'
+    | 'loading';
+  result?: Item;
+  stateCase?: {
+    title: string;
+    icon: IconType;
+    stock: 5;
+    items: Item[];
+  };
 }
 
-interface Action {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+interface Action<T = any> {
   type: ValueOf<typeof Types>;
+  payload?: T;
 }
 
 export type Dispatch = ReactDispatch<Action>;
 
 export const initialState: State = {
-  status: 'wait',
+  status: 'loading',
 };
 
 export const reducer: Reducer<State, Action> = (
@@ -27,6 +56,8 @@ export const reducer: Reducer<State, Action> = (
   action,
 ) => {
   switch (action.type) {
+    case Types.loading:
+      return { ...state, status: 'loading' };
     case Types.wait:
       return { ...state, status: 'wait' };
     case Types.ended:
@@ -35,6 +66,8 @@ export const reducer: Reducer<State, Action> = (
       return { ...state, status: 'started' };
     case Types.start:
       return { ...state, status: 'start' };
+    case Types.setCase:
+      return { ...state, stateCase: action.payload };
     default:
       return state;
   }

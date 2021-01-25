@@ -5,6 +5,7 @@ import React, {
   useState,
 } from 'react';
 import BuyCard from 'components/Card/Buy';
+import _ from 'lodash';
 import {
   Items,
   Wrap,
@@ -14,17 +15,28 @@ import {
 } from './styles';
 import { useMedia } from 'react-use';
 import { ThemeContext } from 'styled-components';
-import { Dispatch, State, Types } from '../reducer';
+import { Item, Types } from '../reducer';
+import { BaseProps } from '../shared';
 
 const getOdd = (num: number) =>
   num % 2 !== 0 ? num : num - 1;
 
-interface RouletteProps {
-  state: State;
-  dispatch: Dispatch;
-}
+const getCasesGenerator = (
+  count: number,
+  items: Item[] = [
+    {
+      id: 1,
+      title: 'loader',
+      value: '123',
+      lines: 'black',
+      icon: 'enderman',
+      loader: true,
+    },
+  ],
+) => () =>
+  new Array(count).fill(null).map(() => _.sample(items));
 
-const Roulette: React.FC<RouletteProps> = ({
+const Roulette: React.FC<BaseProps> = ({
   state,
   dispatch,
 }) => {
@@ -79,6 +91,24 @@ const Roulette: React.FC<RouletteProps> = ({
         }
       : null;
 
+  const generator = getCasesGenerator(
+    count,
+    state.stateCase?.items,
+  );
+  const items = new Array(count)
+    .fill(null)
+    .map(() => generator())
+    .reduce<Item[]>(
+      (result, current) => [
+        ...result,
+        ...(current as Item[]),
+      ],
+      [],
+    )
+    .map(({ icon, loader }, i) => (
+      <BuyCard key={i} icon={loader ? 'loader' : icon} />
+    ));
+
   return (
     <Wrap>
       <Delimiter />
@@ -90,15 +120,7 @@ const Roulette: React.FC<RouletteProps> = ({
               animate={animate}
               onTransitionEnd={transitionEndHandler}
             >
-              {new Array(count * 3)
-                .fill(null)
-                .map((_, i) => (
-                  <BuyCard
-                    key={i}
-                    roulette
-                    icon="enderman"
-                  />
-                ))}
+              {items}
             </Items>
           </ItemsOverflowWrap>
         </div>
