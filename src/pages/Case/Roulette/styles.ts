@@ -95,11 +95,14 @@ export const ItemsOverflowWrap = styled.div<{
   ${(p) => p.maxWidth && `max-width: ${p.maxWidth}px;`}
 `;
 
+export type Animate = null | {
+  marginLeft: number;
+  transition: string;
+};
+
 export const Items = styled.div<{
-  animate: null | {
-    marginLeft: number;
-    transition: string;
-  };
+  animate: Animate;
+  cardMarginRight: number;
 }>`
   display: flex;
   overflow: hidden;
@@ -112,12 +115,6 @@ export const Items = styled.div<{
   `}
 
   > *:not(:last-child) {
-    margin-right: 10px;
-  }
-
-  ${media.max('mobile')} {
-    > *:not(:last-child) {
-      margin-right: 5px;
-    }
+    margin-right: ${(p) => p.cardMarginRight}px;
   }
 `;

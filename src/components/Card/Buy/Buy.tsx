@@ -5,6 +5,7 @@ import { Wrap, Icon } from './styles';
 export interface BuyProps {
   icon: IconType | 'loader';
   roulette?: boolean;
+  width?: number;
 }
 
 const Buy: React.FC<BuyProps> = ({ icon, ...props }) => (

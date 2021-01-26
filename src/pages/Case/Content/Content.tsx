@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Chance from 'components/Card/Chance';
 import Container from 'components/Container';
 import Loader from 'components/Loader';
 import { Wrap, Title, Cases } from './styles';
-import { BaseProps } from '../shared';
+import { CaseContext } from '../shared';
 
-const Content: React.FC<BaseProps> = ({ state }) => {
+const Content: React.FC = () => {
+  const { status, item } = useContext(CaseContext);
+
   const content =
-    state.status === 'loading' ? (
+    status === 'loading' ? (
       <Loader color="black" />
     ) : (
-      state.stateCase?.items.map((item, i) => (
-        <Chance key={i} {...item} />
+      item?.items.map((chance, i) => (
+        <Chance key={i} {...chance} />
       ))
     );
 

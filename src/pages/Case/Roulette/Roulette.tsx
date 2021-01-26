@@ -13,19 +13,19 @@ import {
   ItemsWrap,
   ItemsOverflowWrap,
 } from './styles';
-import { useMedia } from 'react-use';
-import { ThemeContext } from 'styled-components';
-import { Item, Types } from '../reducer';
-import { BaseProps } from '../shared';
+import { CaseContext, Items as ItemsType } from '../shared';
+import { useRoulette } from './useRoulette';
 
-const getOdd = (num: number) =>
-  num % 2 !== 0 ? num : num - 1;
-
-const getCasesGenerator = (
+type Generate = (
   count: number,
-  items: Item[] = [
+  items?: ItemsType,
+) => ItemsType;
+
+const generate: Generate = (
+  count,
+  items = [
     {
-      id: 1,
+      id: '1',
       title: 'loader',
       value: '123',
       lines: 'black',
@@ -33,81 +33,80 @@ const getCasesGenerator = (
       loader: true,
     },
   ],
-) => () =>
-  new Array(count).fill(null).map(() => _.sample(items));
+) =>
+  new Array(count)
+    .fill(null)
+    .map(() => _.sample(items)) as ItemsType;
 
-const Roulette: React.FC<BaseProps> = ({
-  state,
-  dispatch,
-}) => {
-  const windowWidth = window.innerWidth;
+const Roulette: React.FC = () => {
+  const LINE_COUNT_MODIFIER = 3;
 
-  const [width, setWidth] = useState<number>(windowWidth);
   const itemsWrapRef = useRef<null | HTMLDivElement>(null);
-
-  const theme = useContext(ThemeContext);
-  const isMobile = useMedia(
-    `(max-width: ${theme.breakpoints.mobile})`,
+  const { status, setStatus, item } = useContext(
+    CaseContext,
   );
+  const {
+    maxWidth,
+    animate,
+    count,
+    CARD_MARGIN_RIGHT,
+    CARD_WIDTH,
+  } = useRoulette(
+    itemsWrapRef,
+    status,
+    LINE_COUNT_MODIFIER,
+  );
+  const [isFirst, setIsFirst] = useState(true);
+  const [line, setLine] = useState<ItemsType>([]);
 
   useEffect(() => {
-    const hanlder = () => {
-      setWidth(
-        itemsWrapRef.current
-          ? itemsWrapRef.current.clientWidth
-          : windowWidth,
-      );
-    };
+    const oneRandom = () =>
+      setLine(generate(count, item?.items));
 
-    hanlder();
-    window.addEventListener('resize', hanlder);
+    const fullLine = () =>
+      isFirst
+        ? generate(count * LINE_COUNT_MODIFIER, item?.items)
+        : setLine([
+            ...line,
+            ...generate(
+              count * LINE_COUNT_MODIFIER - 1,
+              item?.items,
+            ),
+          ]);
 
-    return () =>
-      window.removeEventListener('resize', hanlder);
-  }, [window]);
+    const oneLast = () =>
+      setLine(line.slice(line.length - count));
 
-  const cardMarginRight = isMobile ? 5 : 10;
-  const cardWidth = isMobile ? 56 : 110;
+    switch (status) {
+      case 'loading':
+        oneRandom();
+        break;
+      case 'start':
+        fullLine();
+        setStatus('started');
+        break;
+      case 'wait':
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+        isFirst ? oneRandom() : oneLast();
+        break;
+      case 'ended':
+        oneLast();
+        setIsFirst(false);
+        break;
+      default:
+        break;
+    }
+  }, [status, item]);
 
-  const count = getOdd(
-    Math.floor(width / (cardMarginRight + cardWidth)),
-  );
+  const items = line.map(({ icon, loader }, i) => (
+    <BuyCard
+      key={i}
+      width={CARD_WIDTH}
+      icon={loader ? 'loader' : icon}
+    />
+  ));
 
-  const maxWidth =
-    (cardMarginRight + cardWidth) * count - cardMarginRight;
-
-  const transitionEndHandler = () =>
-    dispatch({ type: Types.ended });
-
-  const animate =
-    state.status === 'start' || state.status === 'started'
-      ? {
-          marginLeft: -(
-            count *
-            2 *
-            (cardWidth + cardMarginRight)
-          ),
-          transition: '5s',
-        }
-      : null;
-
-  const generator = getCasesGenerator(
-    count,
-    state.stateCase?.items,
-  );
-  const items = new Array(count)
-    .fill(null)
-    .map(() => generator())
-    .reduce<Item[]>(
-      (result, current) => [
-        ...result,
-        ...(current as Item[]),
-      ],
-      [],
-    )
-    .map(({ icon, loader }, i) => (
-      <BuyCard key={i} icon={loader ? 'loader' : icon} />
-    ));
+  const transitionEndHandler = () => setStatus('ended');
 
   return (
     <Wrap>
@@ -117,6 +116,7 @@ const Roulette: React.FC<BaseProps> = ({
         <div ref={itemsWrapRef}>
           <ItemsOverflowWrap maxWidth={maxWidth}>
             <Items
+              cardMarginRight={CARD_MARGIN_RIGHT}
               animate={animate}
               onTransitionEnd={transitionEndHandler}
             >
