@@ -87,11 +87,16 @@ export const ItemsWrap = styled.div`
   }
 `;
 
+export const OverflowWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+`;
+
 export const ItemsOverflowWrap = styled.div<{
   maxWidth?: null | number;
 }>`
-  margin: 0 auto;
-
+  overflow: hidden;
   ${(p) => p.maxWidth && `max-width: ${p.maxWidth}px;`}
 `;
 
@@ -105,13 +110,12 @@ export const Items = styled.div<{
   cardMarginRight: number;
 }>`
   display: flex;
-  overflow: hidden;
 
   ${(p) =>
     p.animate &&
     `
     margin-left: ${p.animate.marginLeft}px;
-    transition: ${p.animate.transition};
+    transition: margin-left ${p.animate.transition};
   `}
 
   > *:not(:last-child) {

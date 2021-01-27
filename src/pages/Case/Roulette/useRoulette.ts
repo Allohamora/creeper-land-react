@@ -42,23 +42,24 @@ export const useRoulette = (
 
   const CARD_MARGIN_RIGHT = isMobile ? 5 : 10;
   const CARD_WIDTH = isMobile ? 56 : 110;
+  const CARD = CARD_WIDTH + CARD_MARGIN_RIGHT;
 
-  const count = getCount(
-    Math.floor(width / (CARD_MARGIN_RIGHT + CARD_WIDTH)),
-  );
+  const rawCount = getCount(Math.floor(width / CARD));
 
-  const maxWidth =
-    (CARD_MARGIN_RIGHT + CARD_WIDTH) * count -
-    CARD_MARGIN_RIGHT;
+  const count = rawCount < 0 ? 1 : rawCount;
+
+  const maxWidth = CARD * count - CARD_MARGIN_RIGHT;
 
   /** margin animate */
   const [animate, setAnimate] = useState<Animate>(null);
 
   useEffect(() => {
     if (status === 'start' || status === 'started') {
-      const card = CARD_WIDTH + CARD_MARGIN_RIGHT;
-      const line = card * count - CARD_MARGIN_RIGHT;
-      const marginLeft = -(line * LINE_COUNT_MODIFIER);
+      const line = CARD * count;
+      const marginLeft = -(
+        line * LINE_COUNT_MODIFIER -
+        CARD
+      );
 
       return setAnimate({
         marginLeft,
@@ -75,5 +76,6 @@ export const useRoulette = (
     animate,
     CARD_MARGIN_RIGHT,
     CARD_WIDTH,
+    CARD,
   };
 };

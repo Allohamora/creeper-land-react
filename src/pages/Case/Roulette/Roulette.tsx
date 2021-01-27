@@ -12,6 +12,7 @@ import {
   Delimiter,
   ItemsWrap,
   ItemsOverflowWrap,
+  OverflowWrap,
 } from './styles';
 import { CaseContext, Items as ItemsType } from '../shared';
 import { useRoulette } from './useRoulette';
@@ -39,10 +40,11 @@ const generate: Generate = (
     .map(() => _.sample(items)) as ItemsType;
 
 const Roulette: React.FC = () => {
-  const LINE_COUNT_MODIFIER = 3;
+  // min === 2
+  const LINE_COUNT_MODIFIER = 23;
 
   const itemsWrapRef = useRef<null | HTMLDivElement>(null);
-  const { status, setStatus, item } = useContext(
+  const { status, setStatus, item, result } = useContext(
     CaseContext,
   );
   const {
@@ -63,16 +65,25 @@ const Roulette: React.FC = () => {
     const oneRandom = () =>
       setLine(generate(count, item?.items));
 
-    const fullLine = () =>
-      isFirst
-        ? generate(count * LINE_COUNT_MODIFIER, item?.items)
-        : setLine([
-            ...line,
-            ...generate(
-              count * LINE_COUNT_MODIFIER - 1,
-              item?.items,
-            ),
-          ]);
+    const fullLine = () => {
+      if (!item?.items) return;
+
+      const resultItem = item.items.find(
+        ({ id }) => id === result,
+      );
+      if (!resultItem) return;
+
+      const items = generate(
+        count * LINE_COUNT_MODIFIER - 1,
+        item.items,
+      );
+      const resultIndex =
+        items.length - 1 - Math.floor(count / 2);
+
+      items[resultIndex] = resultItem;
+
+      setLine([...line, ...items]);
+    };
 
     const oneLast = () =>
       setLine(line.slice(line.length - count));
@@ -85,10 +96,12 @@ const Roulette: React.FC = () => {
         fullLine();
         setStatus('started');
         break;
-      case 'wait':
-        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-        isFirst ? oneRandom() : oneLast();
+      case 'wait': {
+        const handler = isFirst ? oneRandom : oneLast;
+
+        handler();
         break;
+      }
       case 'ended':
         oneLast();
         setIsFirst(false);
@@ -114,15 +127,17 @@ const Roulette: React.FC = () => {
 
       <ItemsWrap>
         <div ref={itemsWrapRef}>
-          <ItemsOverflowWrap maxWidth={maxWidth}>
-            <Items
-              cardMarginRight={CARD_MARGIN_RIGHT}
-              animate={animate}
-              onTransitionEnd={transitionEndHandler}
-            >
-              {items}
-            </Items>
-          </ItemsOverflowWrap>
+          <OverflowWrap>
+            <ItemsOverflowWrap maxWidth={maxWidth}>
+              <Items
+                cardMarginRight={CARD_MARGIN_RIGHT}
+                animate={animate}
+                onTransitionEnd={transitionEndHandler}
+              >
+                {items}
+              </Items>
+            </ItemsOverflowWrap>
+          </OverflowWrap>
         </div>
       </ItemsWrap>
     </Wrap>

@@ -26,6 +26,9 @@ const Header: React.FC<HeaderProps> = ({
     );
   }
 
+  const isButtonActive =
+    status === 'wait' || status === 'ended';
+
   const { title, icon, stock } = item ?? {};
 
   return (
@@ -40,7 +43,10 @@ const Header: React.FC<HeaderProps> = ({
           В наличии:
           {` ${stock}`}
         </Typography>
-        <Button onClick={onButtonClick}>
+        <Button
+          onClick={onButtonClick}
+          disabled={!isButtonActive}
+        >
           Крутить кейс
         </Button>
       </Wrap>

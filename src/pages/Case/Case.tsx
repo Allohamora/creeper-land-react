@@ -24,10 +24,10 @@ const Case: React.FC = () => {
     setStatus('loading');
 
     (() => {
+      // fetch mock
       setTimeout(() => {
+        setItem(caseMock as CaseType);
         setStatus('wait');
-
-        setItem(caseMock as Case);
       }, 3000);
     })();
   }, [params]);
