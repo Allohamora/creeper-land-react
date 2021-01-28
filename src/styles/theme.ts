@@ -75,6 +75,7 @@ const zIndexes = {
   menu: 10,
   lines: 1,
   header: 2,
+  card__content: 1,
 };
 
 export type ZIndex = keyof typeof zIndexes;

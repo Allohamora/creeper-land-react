@@ -1,7 +1,6 @@
 import { createContext } from 'react';
-import { IconType } from 'components/Card/icons';
-import { PaletteColor } from 'styles/theme';
-import { HTMLMediaControls } from 'react-use/lib/util/createHTMLMediaHook';
+import { Animate } from './Roulette/styles';
+import { Case, Items } from 'services/caseService';
 
 export type Status =
   | 'loading'
@@ -10,47 +9,56 @@ export type Status =
   | 'started'
   | 'ended';
 
-export interface Item {
-  id: string;
-  title: string;
-  icon: IconType;
-  loader?: boolean;
-  value: string;
-  lines: PaletteColor;
-}
-
-export type Items = Item[];
-
-export interface Case {
-  title: string;
-  icon: IconType;
-  stock: number;
-  items: Items;
-}
-
 export type Result = null | 'string';
 
-interface Context {
+export interface Sizes {
+  roulette: {
+    cardFullWidth: number;
+    cardMarginRight: number;
+    cardWidth: number;
+
+    containerHorizontalPadding: number;
+  };
+}
+
+export interface ContextProperties {
+  count: number;
+  modifier: number;
+
+  animate: Animate;
+  isFirst: boolean;
+
   status: Status;
   result: Result;
   item: Case | null;
-  controls: HTMLMediaControls;
-  setResult: (result: null) => void;
-  setStatus: (status: Status) => void;
+  line: Items;
+
+  sizes: Sizes;
 }
 
+export type Context = ContextProperties;
+
 export const CaseContext = createContext<Context>({
+  count: 9,
+  modifier: 17,
+
+  animate: null,
+  isFirst: true,
+
   status: 'loading',
   result: null,
   item: null,
-  controls: {
-    play: async () => {},
-    pause: () => {},
-    mute: () => {},
-    unmute: () => {},
-    volume: () => {},
-    seek: () => {},
+  line: [],
+
+  sizes: {
+    roulette: {
+      cardFullWidth: 120,
+      cardMarginRight: 10,
+      cardWidth: 110,
+
+      containerHorizontalPadding: 44,
+    },
   },
-  setResult: () => {},
-  setStatus: () => {},
 });
+
+export { Case, Items };

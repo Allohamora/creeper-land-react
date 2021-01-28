@@ -46,7 +46,7 @@ export const Lines = styled(LinesRaw)<LinesProps>`
 
 export const Content = styled.div`
   position: relative;
-  z-index: ${zIndex('header')};
+  z-index: ${zIndex('card__content')};
 
   display: flex;
   flex-flow: column wrap;

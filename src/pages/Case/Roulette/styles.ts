@@ -78,12 +78,14 @@ export const Delimiter = styled.div`
   }
 `;
 
-export const ItemsWrap = styled.div`
-  padding: 52px 44px;
+export const ItemsWrap = styled.div<{
+  horizontalPadding: number;
+}>`
+  padding: 52px ${(p) => p.horizontalPadding}px;
   overflow: hidden;
 
   ${media.max('mobile')} {
-    padding: 33px 25px;
+    padding: 33px ${(p) => p.horizontalPadding}px;
   }
 `;
 
