@@ -41,12 +41,16 @@ const generate: Generate = (
 
 const Roulette: React.FC = () => {
   // min === 2
-  const LINE_COUNT_MODIFIER = 23;
+  const LINE_COUNT_MODIFIER = 18;
 
   const itemsWrapRef = useRef<null | HTMLDivElement>(null);
-  const { status, setStatus, item, result } = useContext(
-    CaseContext,
-  );
+  const {
+    status,
+    setStatus,
+    item,
+    result,
+    controls,
+  } = useContext(CaseContext);
   const {
     maxWidth,
     animate,
@@ -94,6 +98,8 @@ const Roulette: React.FC = () => {
         break;
       case 'start':
         fullLine();
+        controls.seek(0);
+        controls.play();
         setStatus('started');
         break;
       case 'wait': {
@@ -119,7 +125,10 @@ const Roulette: React.FC = () => {
     />
   ));
 
-  const transitionEndHandler = () => setStatus('ended');
+  const transitionEndHandler = () => {
+    setStatus('ended');
+    controls.pause();
+  };
 
   return (
     <Wrap>

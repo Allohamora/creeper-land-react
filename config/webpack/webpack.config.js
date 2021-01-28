@@ -113,7 +113,7 @@ module.exports = {
         }
       },
       {
-        test: /\.(apng|eot|otf|ttf|woff|woff2|cur|ani|pdf)(\?.*)?$/,
+        test: /\.(apng|eot|otf|ttf|woff|woff2|cur|ani|pdf|mp3)(\?.*)?$/,
         type: 'asset/resource',
         generator: {
           filename: isProduction ? `${outputResourcesDir}/[hash][ext][query]` : `${outputResourcesDir}/[name][ext][query]`

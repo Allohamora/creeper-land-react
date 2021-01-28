@@ -1,6 +1,7 @@
 import { createContext } from 'react';
 import { IconType } from 'components/Card/icons';
 import { PaletteColor } from 'styles/theme';
+import { HTMLMediaControls } from 'react-use/lib/util/createHTMLMediaHook';
 
 export type Status =
   | 'loading'
@@ -33,6 +34,7 @@ interface Context {
   status: Status;
   result: Result;
   item: Case | null;
+  controls: HTMLMediaControls;
   setResult: (result: null) => void;
   setStatus: (status: Status) => void;
 }
@@ -41,6 +43,14 @@ export const CaseContext = createContext<Context>({
   status: 'loading',
   result: null,
   item: null,
+  controls: {
+    play: async () => {},
+    pause: () => {},
+    mute: () => {},
+    unmute: () => {},
+    volume: () => {},
+    seek: () => {},
+  },
   setResult: () => {},
   setStatus: () => {},
 });

@@ -5,6 +5,7 @@ import Header from './Header';
 import Roulette from './Roulette';
 import caseMock from 'mock/case.json';
 import _ from 'lodash';
+import rollAudio from 'assets/audio/roll.mp3';
 import { useParams } from 'react-router-dom';
 import {
   Case as CaseType,
@@ -12,6 +13,7 @@ import {
   Result,
   CaseContext,
 } from './shared';
+import { useAudio } from 'react-use';
 
 const Case: React.FC = () => {
   const params = useParams();
@@ -19,6 +21,11 @@ const Case: React.FC = () => {
   const [status, setStatus] = useState<Status>('loading');
   const [result, setResult] = useState<Result>(null);
   const [item, setItem] = useState<CaseType | null>(null);
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [audio, state, controls] = useAudio({
+    src: rollAudio,
+  });
 
   useEffect(() => {
     setStatus('loading');
@@ -41,8 +48,16 @@ const Case: React.FC = () => {
 
   return (
     <CaseContext.Provider
-      value={{ status, result, item, setResult, setStatus }}
+      value={{
+        status,
+        result,
+        item,
+        controls,
+        setResult,
+        setStatus,
+      }}
     >
+      {audio}
       <Header onButtonClick={buttonClickHandler} />
       <Roulette />
       <Content />
