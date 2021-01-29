@@ -38,7 +38,7 @@ export interface ContextProperties {
 
 export type Context = ContextProperties;
 
-export const CaseContext = createContext<Context>({
+export const contextMock: Context = {
   count: 9,
   modifier: 17,
 
@@ -59,6 +59,10 @@ export const CaseContext = createContext<Context>({
       containerHorizontalPadding: 44,
     },
   },
-});
+};
+
+export const CaseContext = createContext<Context>(
+  contextMock,
+);
 
 export { Case, Items };

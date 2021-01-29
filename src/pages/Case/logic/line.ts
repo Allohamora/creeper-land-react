@@ -1,22 +1,27 @@
 import _ from 'lodash';
-import { ContextProperties, Items, Status } from './shared';
+import {
+  ContextProperties,
+  Items,
+  Status,
+} from '../shared';
 
 // generate line
-
 type Generate = (count: number, items?: Items) => Items;
 
-const generate: Generate = (
+export const loadingItems: Items = [
+  {
+    id: '1',
+    title: 'loader',
+    value: '123',
+    lines: 'black',
+    icon: 'enderman',
+    loader: true,
+  },
+];
+
+export const generate: Generate = (
   count,
-  items = [
-    {
-      id: '1',
-      title: 'loader',
-      value: '123',
-      lines: 'black',
-      icon: 'enderman',
-      loader: true,
-    },
-  ],
+  items = loadingItems,
 ) =>
   new Array(count)
     .fill(null)
@@ -24,18 +29,12 @@ const generate: Generate = (
 
 // handlers
 
-type Handler = (context: ContextProperties) => Items;
-
-const oneRandom: Handler = ({ count, item }) =>
-  generate(count, item?.items);
-
-const fullLine: Handler = ({
-  count,
+const withResult = ({
   item,
   result,
-  line,
+  count,
   modifier,
-}) => {
+}: ContextProperties): Items => {
   if (!item?.items) return [];
 
   const resultItem = item.items.find(
@@ -50,7 +49,18 @@ const fullLine: Handler = ({
 
   items[resultIndex] = resultItem;
 
-  return [...line, ...items];
+  return items;
+};
+
+type Handler = (context: ContextProperties) => Items;
+
+const oneRandom: Handler = ({ count, item }) =>
+  generate(count, item?.items);
+
+const startHandler: Handler = (context) => {
+  const generated = withResult(context);
+
+  return [...context.line, ...generated];
 };
 
 const oneLast: Handler = ({ line, count }) =>
@@ -62,7 +72,16 @@ const waitHandler: Handler = (context) => {
   return handler(context);
 };
 
-const startedHandler: Handler = ({ line }) => line;
+const startedHandler: Handler = (context) => {
+  const generated = withResult(context);
+  const result = [
+    ...context.line.slice(0, context.count),
+    ...generated,
+  ];
+
+  if (result.length !== context.line.length) return result;
+  return context.line;
+};
 
 type RenderStrategy = {
   [k in Status]: Handler;
@@ -70,7 +89,7 @@ type RenderStrategy = {
 
 const renderStrategy: RenderStrategy = {
   loading: oneRandom,
-  start: fullLine,
+  start: startHandler,
   started: startedHandler,
   wait: waitHandler,
   ended: oneLast,
@@ -85,24 +104,4 @@ export const renderLine = (
   const handler = strategy[status];
 
   return handler(context);
-};
-
-export const startStatusHandler = (
-  status: Status,
-  setStatus: (status: Status) => void,
-) => {
-  if (status === 'start') {
-    setStatus('started');
-  }
-};
-
-export const isFirstHandler = (
-  context: ContextProperties,
-  setIsFirst: (isFirst: boolean) => void,
-): void => {
-  const { isFirst, status } = context;
-
-  if (!isFirst || status !== 'ended') return;
-
-  setIsFirst(false);
 };

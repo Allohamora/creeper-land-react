@@ -1,5 +1,5 @@
-import { Sizes, Status } from './shared';
-import { Animate } from './Roulette/styles';
+import { Sizes, Status } from '../shared';
+import { Animate } from '../Roulette/styles';
 
 const oddCount = (num: number) =>
   num % 2 !== 0 ? num : num - 1;

@@ -23,18 +23,18 @@ import {
 } from './shared';
 import { useAudio, useMedia } from 'react-use';
 import { ThemeContext } from 'styled-components';
-import { getAnimate, getCount } from './size';
+import { getAnimate, getCount } from './logic/size';
+import { renderLine } from './logic/line';
 import {
-  renderLine,
   isFirstHandler,
   startStatusHandler,
-} from './line';
-import { renderRollSong } from './song';
+} from './logic/handlers';
+import { renderRollSong } from './logic/song';
 
-const MODIFIER = 18;
+const MODIFIER = 10;
 
 const Case: React.FC = () => {
-  const params = useParams();
+  const params = useParams<{ id: string }>();
 
   const [status, setStatus] = useState<Status>('loading');
   const [result, setResult] = useState<Result>(null);
@@ -91,13 +91,13 @@ const Case: React.FC = () => {
     setLine(renderLine(context));
     startStatusHandler(status, setStatus);
     renderRollSong(status, controls);
-  }, [status]);
+  }, [status, window.innerWidth]);
 
   useEffect(() => {
     setStatus('loading');
 
     (async () => {
-      const caseItem = await caseService.getById();
+      const caseItem = await caseService.getById(params.id);
 
       setItem(caseItem);
       setStatus('wait');

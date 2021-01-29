@@ -25,8 +25,9 @@ interface CaseService {
 }
 
 class MockCaseService implements CaseService {
-  getById = async () =>
+  getById = async (id: string) =>
     new Promise<Case>((res) => {
+      console.log(id);
       setTimeout(res, 3000, caseMock);
     });
 }

@@ -9,7 +9,7 @@ import {
   OverflowWrap,
 } from './styles';
 import { CaseContext } from '../shared';
-import { getMaxWidth } from '../size';
+import { getMaxWidth } from '../logic/size';
 
 interface RouletteProps {
   onTransitionEnd: () => void;

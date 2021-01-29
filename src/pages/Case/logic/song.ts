@@ -1,5 +1,5 @@
 import { HTMLMediaControls } from 'react-use/lib/util/createHTMLMediaHook';
-import { Status } from './shared';
+import { Status } from '../shared';
 
 export const renderRollSong = (
   status: Status,
