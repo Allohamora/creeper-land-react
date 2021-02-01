@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import BuyCard from 'components/Card/Buy';
 import {
   Items,
@@ -8,34 +8,54 @@ import {
   ItemsOverflowWrap,
   OverflowWrap,
 } from './styles';
-import { CaseContext } from '../shared';
-import { getMaxWidth } from '../logic/size';
+import { Sizes, Status } from '../shared';
+import { Items as ItemsType } from 'services/caseService';
+import { Animate } from '../services/animate';
+import { getLineMaxWidthByCount } from '../services/maxWidth';
+import { IconType } from 'components/Card/icons';
 
 interface RouletteProps {
   onTransitionEnd: () => void;
+  blocks: ItemsType;
+  sizes: Sizes;
+  animate: Animate;
+  cardCountInBlock: number;
+  status: Status;
 }
 
 const Roulette: React.FC<RouletteProps> = ({
   onTransitionEnd,
+  sizes,
+  blocks,
+  animate,
+  cardCountInBlock,
+  status,
 }) => {
-  const { line, sizes, animate, count } = useContext(
-    CaseContext,
-  );
+  const { roulette } = sizes;
+
   const {
-    roulette: {
-      cardWidth,
-      cardMarginRight,
-      containerHorizontalPadding,
-    },
-  } = sizes;
+    cardWidth,
+    cardMarginRight,
+    containerHorizontalPadding,
+  } = roulette;
 
-  const maxWidth = getMaxWidth(count, sizes);
+  const maxWidth = getLineMaxWidthByCount(
+    cardCountInBlock,
+    roulette,
+  );
 
-  const items = line.map(({ icon, loader }, i) => (
+  const getIcon = (icon: IconType, loader?: boolean) => {
+    if (status === 'loading') return 'loader';
+    if (loader) return 'loader';
+
+    return icon;
+  };
+
+  const items = blocks.map(({ icon, loader }, i) => (
     <BuyCard
       key={i}
       width={cardWidth}
-      icon={loader ? 'loader' : icon}
+      icon={getIcon(icon, loader)}
     />
   ));
 

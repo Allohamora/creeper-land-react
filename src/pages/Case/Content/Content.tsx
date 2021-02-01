@@ -1,13 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Chance from 'components/Card/Chance';
 import Container from 'components/Container';
 import Loader from 'components/Loader';
 import { Wrap, Title, Cases } from './styles';
-import { CaseContext } from '../shared';
+import { Status, Item } from '../shared';
 
-const Content: React.FC = () => {
-  const { status, item } = useContext(CaseContext);
+interface ContentProps {
+  status: Status;
+  item: Item;
+}
 
+const Content: React.FC<ContentProps> = ({
+  status,
+  item,
+}) => {
   const content =
     status === 'loading' ? (
       <Loader color="black" />

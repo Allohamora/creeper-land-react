@@ -1,20 +1,22 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Typography from 'components/Typography';
 import HeaderUi from 'sections/Header';
 import Loader from 'components/Loader';
 import { icons, IconType } from 'components/Card/icons';
 import { Wrap, Icon, Button, Title } from './styles';
-import { CaseContext } from '../shared';
+import { Status, Item } from '../shared';
 
 interface HeaderProps {
   onButtonClick: () => void;
+  status: Status;
+  item: Item;
 }
 
 const Header: React.FC<HeaderProps> = ({
   onButtonClick,
+  status,
+  item,
 }) => {
-  const { status, item } = useContext(CaseContext);
-
   if (status === 'loading') {
     return (
       <HeaderUi lines="2">

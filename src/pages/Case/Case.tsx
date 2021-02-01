@@ -13,34 +13,33 @@ import rollAudio from 'assets/audio/roll.mp3';
 import caseService from 'services/caseService';
 import { useParams } from 'react-router-dom';
 import {
-  Case as CaseType,
   Status,
-  Result,
-  CaseContext,
-  Context,
+  PrizeId,
   Sizes,
   Items,
+  Item as CaseItem,
 } from './shared';
 import { useAudio, useMedia } from 'react-use';
 import { ThemeContext } from 'styled-components';
-import { getAnimate, getCount } from './logic/size';
-import { renderLine } from './logic/line';
+import { getCardsCountInBlock } from './services/count';
+import { renderBlocks } from './services/block';
 import {
   isFirstHandler,
-  startStatusHandler,
-} from './logic/handlers';
-import { renderRollSong } from './logic/song';
+  startedStatusHandler,
+  songHandler,
+} from './services/handlers';
+import { getAnimateByStatus } from './services/animate';
 
-const MODIFIER = 10;
+const BLOCKS_COUNT = 10;
 
 const Case: React.FC = () => {
   const params = useParams<{ id: string }>();
 
   const [status, setStatus] = useState<Status>('loading');
-  const [result, setResult] = useState<Result>(null);
-  const [item, setItem] = useState<CaseType | null>(null);
+  const [prizeId, setPrizeId] = useState<PrizeId>(null);
+  const [item, setItem] = useState<CaseItem>(null);
   const [isFirst, setIsFirst] = useState(true);
-  const [line, setLine] = useState<Items>([]);
+  const [blocks, setBlocks] = useState<Items>([]);
 
   const theme = useContext(ThemeContext);
   const isMobile = useMedia(
@@ -67,31 +66,41 @@ const Case: React.FC = () => {
     },
   };
 
-  const count = getCount(sizes);
-  const modifier = MODIFIER;
-
-  const context: Context = {
-    count,
-    modifier,
-
-    animate: getAnimate(sizes, count, modifier, status),
-    isFirst,
-
-    status,
-    result,
-    item,
-    line,
-
+  const cardCountInBlock = getCardsCountInBlock(
+    sizes.roulette,
+    isMobile,
+  );
+  const blocksCount = BLOCKS_COUNT;
+  const animate = getAnimateByStatus(
     sizes,
-  };
+    cardCountInBlock,
+    blocksCount,
+    status,
+  );
 
   // render, useLayoutEffect because need sync update after render
   useLayoutEffect(() => {
-    isFirstHandler(context, setIsFirst);
-    setLine(renderLine(context));
-    startStatusHandler(status, setStatus);
-    renderRollSong(status, controls);
-  }, [status, window.innerWidth]);
+    const render = () => {
+      const renderBlocksContext = {
+        items: item ? item.items : null,
+        prizeId,
+        cardCountInBlock,
+        blocksCount,
+        blocks,
+        isFirst,
+      };
+      isFirstHandler(status, isFirst, setIsFirst);
+      setBlocks(renderBlocks(status, renderBlocksContext));
+      startedStatusHandler(status, setStatus);
+      songHandler(status, controls);
+    };
+
+    render();
+    window.addEventListener('resize', render);
+
+    return () =>
+      window.removeEventListener('resize', render);
+  }, [status, cardCountInBlock]);
 
   useEffect(() => {
     setStatus('loading');
@@ -108,19 +117,36 @@ const Case: React.FC = () => {
     if (!item) return;
 
     setStatus('start');
-    setResult(_.sample(item.items)?.id as Result);
+    // TODO: add prize logic request
+    setPrizeId(_.sample(item.items)?.id as PrizeId);
   };
 
-  const transitionEndHandler = () => setStatus('ended');
+  const transitionEndHandler = () => {
+    setStatus('ended');
+    setBlocks(
+      blocks.slice(blocks.length - cardCountInBlock),
+    );
+  };
 
   return (
-    <CaseContext.Provider value={context}>
+    <>
       {audio}
-      <Header onButtonClick={buttonClickHandler} />
-      <Roulette onTransitionEnd={transitionEndHandler} />
-      <Content />
+      <Header
+        status={status}
+        item={item}
+        onButtonClick={buttonClickHandler}
+      />
+      <Roulette
+        status={status}
+        cardCountInBlock={cardCountInBlock}
+        blocks={blocks}
+        sizes={sizes}
+        animate={animate}
+        onTransitionEnd={transitionEndHandler}
+      />
+      <Content item={item} status={status} />
       <Footer />
-    </CaseContext.Provider>
+    </>
   );
 };
 

@@ -27,7 +27,8 @@ interface CaseService {
 class MockCaseService implements CaseService {
   getById = async (id: string) =>
     new Promise<Case>((res) => {
-      console.log(id);
+      // eslint-disable-next-line no-console
+      console.log(`case id: ${id}`);
       setTimeout(res, 3000, caseMock);
     });
 }

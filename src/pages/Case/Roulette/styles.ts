@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import bg from 'assets/img/roulette__bg.png';
 import { color, media } from 'styles/helpers';
+import { Animate } from '../services/animate';
 
 export const Wrap = styled.div`
   position: relative;
@@ -101,11 +102,6 @@ export const ItemsOverflowWrap = styled.div<{
   overflow: hidden;
   ${(p) => p.maxWidth && `max-width: ${p.maxWidth}px;`}
 `;
-
-export type Animate = null | {
-  marginLeft: number;
-  transition: string;
-};
 
 export const Items = styled.div<{
   animate: Animate;
