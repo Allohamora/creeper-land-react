@@ -16,7 +16,6 @@ export type Items = Item[];
 export interface Case {
   title: string;
   icon: IconType;
-  stock: number;
   items: Items;
 }
 

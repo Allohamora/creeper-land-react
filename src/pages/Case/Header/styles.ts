@@ -8,7 +8,7 @@ export const Wrap = styled.div<{ loader?: boolean }>`
   flex-flow: column wrap;
   align-items: center;
 
-  min-height: 383px;
+  min-height: 405px;
   padding-top: 55px;
 
   ${(p) =>

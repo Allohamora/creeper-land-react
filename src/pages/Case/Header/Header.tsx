@@ -7,15 +7,19 @@ import { Wrap, Icon, Button, Title } from './styles';
 import { Status, Item } from '../shared';
 
 interface HeaderProps {
-  onButtonClick: () => void;
+  onRollButtonClick: () => void;
+  onBuyButtonClick: () => void;
   status: Status;
   item: Item;
+  rolls: null | string;
 }
 
 const Header: React.FC<HeaderProps> = ({
-  onButtonClick,
+  onRollButtonClick,
+  onBuyButtonClick,
   status,
   item,
+  rolls,
 }) => {
   if (status === 'loading') {
     return (
@@ -31,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({
   const isButtonActive =
     status === 'wait' || status === 'ended';
 
-  const { title, icon, stock } = item ?? {};
+  const { title, icon } = item ?? {};
 
   return (
     <HeaderUi lines="2">
@@ -41,16 +45,26 @@ const Header: React.FC<HeaderProps> = ({
           {` ${title}`}
         </Title>
         <Icon {...icons[icon as IconType]} />
-        <Typography variant="p1" weight="500" color="lime">
-          В наличии:
-          {` ${stock}`}
-        </Typography>
-        <Button
-          onClick={onButtonClick}
-          disabled={!isButtonActive}
-        >
-          Крутить кейс
-        </Button>
+        {rolls ? (
+          <>
+            <Typography
+              variant="p1"
+              weight="500"
+              color="lime"
+            >
+              В наличии:
+              {` ${rolls}`}
+            </Typography>
+            <Button
+              onClick={onRollButtonClick}
+              disabled={!isButtonActive}
+            >
+              Крутить кейс
+            </Button>
+          </>
+        ) : (
+          <Button onClick={onBuyButtonClick}>Купить</Button>
+        )}
       </Wrap>
     </HeaderUi>
   );

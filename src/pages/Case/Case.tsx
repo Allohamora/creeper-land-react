@@ -12,7 +12,7 @@ import _ from 'lodash';
 import rollAudio from 'assets/audio/roll.mp3';
 import caseService from 'services/caseService';
 import WinModal from 'components/Modal/Win';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import {
   Status,
   Prize,
@@ -30,11 +30,20 @@ import {
   songHandler,
 } from './services/handlers';
 import { getAnimateByStatus } from './services/animate';
+import {
+  removeOneRollFromLocation,
+  setRollsToLocation,
+} from './services/location';
 
 const BLOCKS_COUNT = 10;
 
 const Case: React.FC = () => {
   const params = useParams<{ id: string }>();
+
+  const history = useHistory();
+  const { location } = history;
+  const queryParams = new URLSearchParams(location.search);
+  const rolls = queryParams.get('rolls');
 
   const [status, setStatus] = useState<Status>('loading');
   const [prize, setPrize] = useState<Prize>(null);
@@ -113,14 +122,19 @@ const Case: React.FC = () => {
       setItem(caseItem);
       setStatus('wait');
     })();
-  }, [params]);
+  }, [params.id]);
 
-  const buttonClickHandler = () => {
+  const rollButtonClickHandler = () => {
     if (!item) return;
 
     setStatus('start');
     // TODO: add prize logic request
     setPrize(_.sample(item.items) as Prize);
+  };
+
+  const buyButtonClickHandler = () => {
+    // TODO add buy logic
+    history.push(setRollsToLocation(location, 5));
   };
 
   const transitionEndHandler = () => {
@@ -129,6 +143,8 @@ const Case: React.FC = () => {
       blocks.slice(blocks.length - cardCountInBlock),
     );
     setShow(true);
+
+    history.replace(removeOneRollFromLocation(location));
   };
 
   const modalCloseHandler = () => {
@@ -141,7 +157,9 @@ const Case: React.FC = () => {
       <Header
         status={status}
         item={item}
-        onButtonClick={buttonClickHandler}
+        onRollButtonClick={rollButtonClickHandler}
+        onBuyButtonClick={buyButtonClickHandler}
+        rolls={rolls}
       />
       <Roulette
         status={status}
