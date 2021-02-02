@@ -6,7 +6,7 @@ import { ReactComponent as Discord } from 'assets/svg/discord.svg';
 import { ReactComponent as Vk } from 'assets/svg/vk.svg';
 import { Div } from 'types/props';
 import { IconsType, LinksType } from './shared';
-import { Button, Wrap } from './styles';
+import { Wrap } from './styles';
 
 const links: LinksType = [
   {
@@ -48,8 +48,6 @@ const Navbar: React.FC<NavbarProps> = ({
   const openMenu = () => setShow(true);
   const closeMenu = () => setShow(false);
 
-  const userState = <Button>Войти</Button>;
-
   return (
     <>
       <Wrap footer={footer} {...rest}>
@@ -60,7 +58,6 @@ const Navbar: React.FC<NavbarProps> = ({
           openModal={openMenu}
           links={links}
           icons={icons}
-          userState={userState}
         />
       </Wrap>
 
@@ -70,7 +67,6 @@ const Navbar: React.FC<NavbarProps> = ({
           closeMenu={closeMenu}
           links={links}
           icons={icons}
-          userState={userState}
         />
       )}
     </>

@@ -20,7 +20,6 @@ interface ModalProps {
   closeMenu: ToggleModal;
   links: LinksType;
   icons: IconsType;
-  userState: JSX.Element;
 }
 
 const Menu: React.FC<ModalProps> = ({
@@ -28,13 +27,11 @@ const Menu: React.FC<ModalProps> = ({
   closeMenu,
   links,
   icons,
-  userState,
 }) => (
   <StyledMenu show={show} onClose={closeMenu}>
     <Top>
       <ListTitle>Меню</ListTitle>
       <NavLinks links={links} modal />
-      {userState}
     </Top>
 
     <Bottom>

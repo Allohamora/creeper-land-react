@@ -10,7 +10,6 @@ interface ContentProps {
   links: LinksType;
   icons: IconsType;
   openModal: ToggleModal;
-  userState: JSX.Element;
   footer?: boolean;
   className?: string;
 }
@@ -19,7 +18,6 @@ const Content: React.FC<ContentProps> = ({
   links,
   icons,
   openModal,
-  userState,
   footer,
   className,
 }) => (
@@ -27,7 +25,6 @@ const Content: React.FC<ContentProps> = ({
     <Nav>
       <Links links={links} />
       <Icons icons={icons} />
-      {userState}
     </Nav>
 
     <Hidden>

@@ -1,4 +1,3 @@
-import ButtonComponent from 'components/Button/Outlined';
 import styled, { css } from 'styled-components';
 import { media } from 'styles/helpers';
 import { Wrap as Content } from './Content/styles';
@@ -20,8 +19,4 @@ export const Wrap = styled.div<{ footer?: boolean }>`
         }
       }
     `}
-`;
-
-export const Button = styled(ButtonComponent)`
-  margin-left: 54px;
 `;
