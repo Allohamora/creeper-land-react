@@ -1,4 +1,8 @@
-import { Case, Items } from 'services/caseService';
+import {
+  Case,
+  Items,
+  Item as CaseItem,
+} from 'services/caseService';
 import { RouletteSizes } from './services/count';
 
 export type Status =
@@ -8,7 +12,7 @@ export type Status =
   | 'started'
   | 'ended';
 
-export type PrizeId = null | string;
+export type Prize = null | CaseItem;
 
 export type Item = Case | null;
 

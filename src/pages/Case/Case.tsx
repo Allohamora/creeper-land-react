@@ -11,10 +11,11 @@ import Roulette from './Roulette';
 import _ from 'lodash';
 import rollAudio from 'assets/audio/roll.mp3';
 import caseService from 'services/caseService';
+import WinModal from 'components/Modal/Win';
 import { useParams } from 'react-router-dom';
 import {
   Status,
-  PrizeId,
+  Prize,
   Sizes,
   Items,
   Item as CaseItem,
@@ -36,10 +37,11 @@ const Case: React.FC = () => {
   const params = useParams<{ id: string }>();
 
   const [status, setStatus] = useState<Status>('loading');
-  const [prizeId, setPrizeId] = useState<PrizeId>(null);
+  const [prize, setPrize] = useState<Prize>(null);
   const [item, setItem] = useState<CaseItem>(null);
   const [isFirst, setIsFirst] = useState(true);
   const [blocks, setBlocks] = useState<Items>([]);
+  const [show, setShow] = useState(false);
 
   const theme = useContext(ThemeContext);
   const isMobile = useMedia(
@@ -83,7 +85,7 @@ const Case: React.FC = () => {
     const render = () => {
       const renderBlocksContext = {
         items: item ? item.items : null,
-        prizeId,
+        prize,
         cardCountInBlock,
         blocksCount,
         blocks,
@@ -118,7 +120,7 @@ const Case: React.FC = () => {
 
     setStatus('start');
     // TODO: add prize logic request
-    setPrizeId(_.sample(item.items)?.id as PrizeId);
+    setPrize(_.sample(item.items) as Prize);
   };
 
   const transitionEndHandler = () => {
@@ -126,6 +128,11 @@ const Case: React.FC = () => {
     setBlocks(
       blocks.slice(blocks.length - cardCountInBlock),
     );
+    setShow(true);
+  };
+
+  const modalCloseHandler = () => {
+    setShow(false);
   };
 
   return (
@@ -146,6 +153,15 @@ const Case: React.FC = () => {
       />
       <Content item={item} status={status} />
       <Footer />
+      {prize && (
+        <WinModal
+          color={prize.lines}
+          description={prize.title}
+          card={prize}
+          show={show}
+          onClose={modalCloseHandler}
+        />
+      )}
     </>
   );
 };

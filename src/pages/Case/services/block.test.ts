@@ -21,7 +21,7 @@ const baseContext: Context = {
 
   blocks: [],
 
-  prizeId: '2',
+  prize: { ...loadingItems[0], id: '2' },
   cardCountInBlock: 5,
   blocksCount: 5,
 };
@@ -95,13 +95,16 @@ describe('getBlockWithPrize', () => {
   });
 
   it('if items === null => return empty array', () => {
-    const innerContext = { ...context, items: [] };
+    const innerContext: Context = { ...context, items: [] };
 
     expect(getBlockWithPrize(innerContext)).toHaveLength(0);
   });
 
-  it('if result not found => return empty array', () => {
-    const innerContext = { ...context, prizeId: '5' };
+  it('if prize === null => return empty array', () => {
+    const innerContext: Context = {
+      ...context,
+      prize: null,
+    };
 
     expect(getBlockWithPrize(innerContext)).toHaveLength(0);
   });
@@ -122,7 +125,7 @@ describe('getBlocksWithPrize', () => {
 
     expect(result).toHaveLength(length);
     expect(typeof result[0]).toBe('object');
-    expect(result[resultIndex].id).toBe(context.prizeId);
+    expect(result[resultIndex]).toEqual(context.prize);
   });
 });
 

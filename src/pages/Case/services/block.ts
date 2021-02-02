@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { Items, Status, PrizeId } from '../shared';
+import { Items, Status, Prize } from '../shared';
 
 // generate
 type Generate = (
@@ -29,7 +29,7 @@ export const generate: Generate = (length, items) => {
 // base
 export interface Context {
   items: Items | null;
-  prizeId: PrizeId;
+  prize: Prize;
   cardCountInBlock: number;
   blocksCount: number;
   blocks: Items;
@@ -40,19 +40,15 @@ type BlockHandler = (context: Context) => Items;
 
 export const getBlockWithPrize: BlockHandler = ({
   items,
-  prizeId,
+  prize,
   cardCountInBlock,
 }) => {
-  if (!items) return [];
-
-  const prizeItem = items.find(({ id }) => id === prizeId);
-
-  if (!prizeItem) return [];
+  if (!items || !prize || !items.length) return [];
 
   const generatedBlock = generate(cardCountInBlock, items);
 
   const centerIndex = Math.floor(cardCountInBlock / 2);
-  generatedBlock[centerIndex] = prizeItem;
+  generatedBlock[centerIndex] = prize;
 
   return generatedBlock;
 };
