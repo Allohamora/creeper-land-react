@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { icons, IconType } from 'components/Card/icons';
 import {
   Backdrop,
@@ -26,6 +26,10 @@ export interface BuyProps {
   price: string;
   show: boolean;
   onClose: () => void;
+  onSuccess?: (body: {
+    promo: string | null;
+    nickname: string;
+  }) => void;
 }
 
 const Buy: React.FC<BuyProps> = ({
@@ -36,7 +40,43 @@ const Buy: React.FC<BuyProps> = ({
   price,
   show,
   onClose,
+  onSuccess,
 }) => {
+  const [nickname, setNickname] = useState<string>('');
+  const [promo, setPromo] = useState<string>('');
+
+  useEffect(() => {
+    setNickname('');
+    setPromo('');
+  }, [show]);
+
+  const onNicknameChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setNickname(e.target.value);
+  };
+
+  const onPromoChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+  ) => {
+    setPromo(e.target.value);
+  };
+
+  const submitHandler = (
+    e: React.FormEvent<HTMLFormElement>,
+  ) => {
+    e.preventDefault();
+
+    if (!nickname.length) return;
+
+    if (onSuccess) {
+      onSuccess({
+        nickname,
+        promo: promo.length > 0 ? promo : null,
+      });
+    }
+  };
+
   return (
     <>
       <Backdrop show={show} onClick={onClose} />
@@ -56,16 +96,25 @@ const Buy: React.FC<BuyProps> = ({
             }}
           />
         </Content>
-        <BottomForm>
+        <BottomForm onSubmit={submitHandler}>
           <Inputs>
             <LabelElement>
               <Label>Ваш ник:</Label>
-              <Input placeholder="Ваш ник:" required />
+              <Input
+                placeholder="Ваш ник:"
+                required
+                onChange={onNicknameChange}
+                value={nickname}
+              />
             </LabelElement>
 
             <LabelElement>
               <Label>Промокод:</Label>
-              <Input placeholder="Промокод:" />
+              <Input
+                placeholder="Промокод:"
+                onChange={onPromoChange}
+                value={promo}
+              />
             </LabelElement>
           </Inputs>
 

@@ -7,8 +7,9 @@ const Shop: React.FC<CommonCardProps> = ({
   title,
   icon,
   value,
+  ...props
 }) => (
-  <Wrap>
+  <Wrap {...props}>
     <Title>{title}</Title>
     <Icon {...icons[icon]} />
     <Value>{value}</Value>
