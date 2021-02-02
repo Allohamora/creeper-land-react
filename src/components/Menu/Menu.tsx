@@ -1,7 +1,11 @@
 import React from 'react';
-import Backdrop from '../Backdrop';
 import { ReactComponent as XIcon } from 'assets/svg/x.svg';
-import { Content, Inner, XButton } from './styles';
+import {
+  Content,
+  Inner,
+  XButton,
+  Backdrop,
+} from './styles';
 
 export interface ModalProps {
   onClose?: () => void;

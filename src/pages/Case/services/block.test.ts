@@ -91,7 +91,7 @@ describe('getBlockWithPrize', () => {
     const result = getBlockWithPrize(context);
     const items = context.items as Items;
 
-    expect(result[3]).toEqual(items[1]);
+    expect(result[2]).toEqual(items[1]);
   });
 
   it('if items === null => return empty array', () => {
