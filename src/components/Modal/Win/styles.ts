@@ -1,29 +1,15 @@
 import Typography from 'components/Typography';
 import ContainedButton from 'components/Button/Contained';
 import styled, { css } from 'styled-components';
-import {
-  color,
-  media,
-  opacity,
-  rem,
-  transition,
-  zIndex,
-} from 'styles/helpers';
-import { ReactComponent as XButton } from 'assets/svg/x.svg';
-import { Show } from 'types/modal';
+import { color, media, rem } from 'styles/helpers';
 import { PaletteColor } from 'styles/theme';
+import { TopBackdrop, X, TopWrap } from '../styles';
 
 interface Color {
   color: PaletteColor;
 }
 
-export const Wrap = styled.div<Show>`
-  position: absolute;
-  top: 0;
-  left: 50%;
-
-  z-index: -1;
-
+export const Wrap = styled(TopWrap)`
   width: 552px;
   height: 545px;
 
@@ -31,38 +17,10 @@ export const Wrap = styled.div<Show>`
 
   background-color: ${color('gray')};
 
-  border-radius: 5px;
-
-  transform: translateX(-50%);
-
-  opacity: 0;
-
-  transition: ${transition('primary')};
-
-  ${(p) =>
-    p.show &&
-    css`
-      top: 129px;
-      opacity: 1;
-      z-index: ${zIndex('menu')};
-    `}
-
   ${media.max('mobile')} {
-    height: 100%;
-    width: 100%;
-
-    transform: translateX(-50%);
-
     padding: 60px 19px 100px;
 
     background-color: ${color('black')};
-    border-radius: 0;
-
-    ${(p) =>
-      p.show &&
-      css`
-        top: 0;
-      `}
   }
 `;
 
@@ -137,33 +95,12 @@ export const Button = styled(ContainedButton)`
   }
 `;
 
-export const X = styled(XButton)`
+export const XButton = styled(X)`
   position: absolute;
   top: 34px;
   right: 29px;
-
-  cursor: pointer;
-
-  path {
-    transition: ${transition('primary')};
-  }
-
-  &:hover path {
-    fill: ${color('lime')};
-  }
 `;
 
-export const Backdrop = styled.div<Show>`
-  position: fixed;
-  top: 100%;
-  left: 0;
-  z-index: ${zIndex('backdrop')};
-
-  width: 100%;
-  height: 100%;
-
+export const Backdrop = styled(TopBackdrop)`
   background-color: ${color('black')};
-  opacity: ${opacity('secondary')};
-
-  ${(p) => p.show && 'top: 0;'}
 `;

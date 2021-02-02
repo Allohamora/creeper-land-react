@@ -9,7 +9,7 @@ import {
   CardWrap,
   Value,
   Button,
-  X,
+  XButton,
   Backdrop,
 } from './styles';
 
@@ -39,7 +39,7 @@ const Win: React.FC<WinProps> = ({
       <Backdrop show={show} onClick={onClose} />
 
       <Wrap show={show} className={className}>
-        <X onClick={onClose} />
+        <XButton onClick={onClose} />
 
         <Content color={color}>
           <Congratulations>ВЫ ВЫИГРАЛИ!</Congratulations>

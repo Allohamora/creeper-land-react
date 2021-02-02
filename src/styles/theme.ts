@@ -10,6 +10,9 @@ const palette = {
   black: '#2e2e2e',
 
   gray: '#454545',
+  gray_2: '#797a7b',
+
+  lightGray: '#b5b6b7',
 
   purple: '#d941ff',
   purple_2: '#d54ff6',
@@ -27,6 +30,7 @@ const palette = {
   $latestBuysCardBg: 'rgba(57, 57, 57, 0.5)',
   $rouletteCardBg: ' rgba(255, 255, 255, 0.1)',
   $aboutShadow: 'rgba(0, 0, 0, 0.25)',
+  $buyBackdrop: 'rgba(27, 27, 27, 0.5)',
 };
 
 export type PaletteColor = keyof typeof palette;
