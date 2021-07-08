@@ -17,8 +17,9 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     margin: 0;
-  
+
     color: ${color('white')};
+  
     font-weight: normal;
     font-size: 16px;
     /* stylelint-disable-next-line */
