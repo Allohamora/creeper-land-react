@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 import Home from 'views/Home';
 
-export const getStaticProps: GetStaticProps = () => ({
+export const getStaticProps: GetStaticProps<{}> = async () => ({
   props: {}
 });
 

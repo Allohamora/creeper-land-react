@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "lint:css": "stylelint"
+    "lint:css": "stylelint",
+    "test": "jest"
   },
   "dependencies": {
     "next": "11.0.1",
@@ -17,10 +18,13 @@
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
+    "@testing-library/react": "^12.0.0",
+    "@types/jest": "^26.0.24",
     "@types/react": "17.0.13",
     "@types/styled-components": "^5.1.11",
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
+    "babel-jest": "^27.0.6",
     "eslint": "7.30.0",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-next": "11.0.1",
@@ -30,6 +34,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
+    "jest": "^27.0.6",
     "prettier": "2.3.2",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",

@@ -6,9 +6,9 @@ const Container = styled.div`
 `;
 
 const Home: React.FC = () => {
- return (
-  <Container >Home</Container>
- );
+  return (
+    <Container>Home</Container>
+  );
 };
 
 export default Home;
