@@ -29,20 +29,17 @@ export const media = {
 /* eslint-enable @typescript-eslint/explicit-module-boundary-types */
 
 // i don't know how to create good typing for getter factory function 19.01.21
-export const breakpoint = (key: Breakpoint) => (
-  p: StyledProps,
-) => p.theme.breakpoints[key];
+export const breakpoint = (key: Breakpoint) => (p: StyledProps) =>
+  p.theme.breakpoints[key];
 
-export const transition = (key: Transition) => (
-  p: StyledProps,
-) => p.theme.transtions[key];
+export const transition = (key: Transition) => (p: StyledProps) =>
+  p.theme.transtions[key];
 
 export const font = (key: Font) => (p: StyledProps) =>
   p.theme.fonts[key];
 
-export const color = (key: PaletteColor) => (
-  p: StyledProps,
-) => p.theme.palette[key];
+export const color = (key: PaletteColor) => (p: StyledProps) =>
+  p.theme.palette[key];
 
 export const opacity = (key: Opacity) => (p: StyledProps) =>
   p.theme.opacities[key];
@@ -68,9 +65,7 @@ export const fontSize = ({
   ln,
   mfs,
   mln,
-}: FontSize): FlattenInterpolation<
-  ThemeProps<DefaultTheme>
-> => css`
+}: FontSize): FlattenInterpolation<ThemeProps<DefaultTheme>> => css`
   font-size: ${rem(fs)};
   line-height: ${rem(ln)};
 
