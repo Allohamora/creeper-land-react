@@ -6,9 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "jest",
     "lint": "eslint",
     "lint:css": "stylelint",
-    "test": "jest",
+    "lint:fix": "npm run lint src -- --fix && npm run lint:css src -- --fix",
     "prepare": "husky install"
   },
   "dependencies": {
