@@ -43,7 +43,7 @@
   ],
   "rules": {
     // typescript
-    "@typescript-eslint/explicit-module-boundary-types": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
 
     // import
     "import/no-extraneous-dependencies": "warn",
