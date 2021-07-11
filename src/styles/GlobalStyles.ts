@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
-import { color, font } from 'styles/helpers';
+import { color, font, value } from 'styles/helpers';
 
 const GlobalStyles = createGlobalStyle`
   ${normalize}
@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   html {
-    font-size: ${(p) => p.theme.ROOT_FS}px;
+    font-size: ${value('ROOT_FS')}px;
   }
 
   body {
