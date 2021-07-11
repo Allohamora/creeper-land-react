@@ -96,4 +96,6 @@ const theme = {
   zIndexes,
 };
 
+export type Theme = typeof theme;
+
 export default theme;

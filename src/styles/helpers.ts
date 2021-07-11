@@ -9,6 +9,7 @@ import {
   Font,
   Opacity,
   PaletteColor,
+  Theme,
   Transition,
   ZIndex,
 } from './theme';
@@ -27,6 +28,9 @@ export const media = {
 // ---
 
 // i don't know how to create good typing for getter factory function 19.01.21
+export const value = (key: keyof Theme) => (p: StyledProps) =>
+  p.theme[key];
+
 export const breakpoint = (key: Breakpoint) => (p: StyledProps) =>
   p.theme.breakpoints[key];
 
