@@ -52,8 +52,6 @@ interface FontSize {
   ln: number;
   mfs: number;
   mln: number;
-
-  rem?: boolean;
 }
 
 export const fontSize = ({
