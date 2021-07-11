@@ -26,8 +26,6 @@ export const media = {
 
 // ---
 
-/* eslint-enable @typescript-eslint/explicit-module-boundary-types */
-
 // i don't know how to create good typing for getter factory function 19.01.21
 export const breakpoint = (key: Breakpoint) => (p: StyledProps) =>
   p.theme.breakpoints[key];
@@ -46,8 +44,6 @@ export const opacity = (key: Opacity) => (p: StyledProps) =>
 
 export const zIndex = (key: ZIndex) => (p: StyledProps) =>
   p.theme.zIndexes[key];
-
-/* eslint-enable @typescript-eslint/explicit-module-boundary-types */
 
 // ---
 
