@@ -56,6 +56,9 @@ const App = ({ Component, pageProps }: AppProps) => (
 
       {/** fonts */}
       <link href="/fonts/rubik/rubik.css" rel="stylesheet" />
+
+      {/** extra-css */}
+      <link href="/css/normalize.min.css" rel="stylesheet" />
     </Head>
 
     <ThemeProvider theme={theme}>

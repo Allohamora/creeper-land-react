@@ -1,10 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
-import { normalize } from 'styled-normalize';
 import { color, font, value } from 'styles/helpers';
 
 const GlobalStyles = createGlobalStyle`
-  ${normalize}
-
   *,
   *::after,
   *::before {
