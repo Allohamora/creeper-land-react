@@ -1,7 +1,7 @@
-import IconButton from 'components/IconButton';
 import styled from 'styled-components';
+import { IconButton } from 'components/IconButton';
 import { color, opacity, transition, zIndex } from 'styles/helpers';
-import { Show } from 'types/modal';
+import { Show } from 'components/Modal/types';
 
 export const Content = styled.div`
   display: block;
