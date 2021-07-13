@@ -1,8 +1,6 @@
-import theme from 'styles/theme';
-import GlobalStyles from 'styles/GlobalStyles';
 import Head from 'next/head';
+import AppProvider from '../../old/src/App/AppProvider';
 import type { AppProps } from 'next/app';
-import { ThemeProvider } from 'styled-components';
 
 const App = ({ Component, pageProps }: AppProps) => (
   <>
@@ -61,11 +59,9 @@ const App = ({ Component, pageProps }: AppProps) => (
       <link href="/css/normalize.min.css" rel="stylesheet" />
     </Head>
 
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-
+    <AppProvider>
       <Component {...pageProps} />
-    </ThemeProvider>
+    </AppProvider>
   </>
 );
 
