@@ -1,3 +1,4 @@
+import XButton from 'assets/icons/x.svg';
 import styled, { css } from 'styled-components';
 import { Show } from './types';
 import {
@@ -7,7 +8,6 @@ import {
   opacity,
   media,
 } from 'styles/helpers';
-import { ReactComponent as XButton } from 'assets/icons/x.svg';
 
 export const TopWrap = styled.div<Show>`
   position: absolute;

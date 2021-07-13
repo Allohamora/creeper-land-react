@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as VRaw } from 'assets/icons/V.svg';
+import VRaw from 'assets/icons/V.svg';
 import { color, media, transition } from 'styles/helpers';
 
 export const Wrap = styled.div`

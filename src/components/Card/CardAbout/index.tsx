@@ -1,7 +1,7 @@
-import { ReactComponent as Gamepad } from 'assets/svg/gamepad.svg';
-import { ReactComponent as People } from 'assets/svg/people.svg';
-import { ReactComponent as King } from 'assets/svg/king.svg';
-import { ReactComponent as Server } from 'assets/svg/server.svg';
+import Gamepad from 'assets/svg/gamepad.svg';
+import People from 'assets/svg/people.svg';
+import King from 'assets/svg/king.svg';
+import Server from 'assets/svg/server.svg';
 import { IconWrap, Title, Wrap } from './styles';
 
 const icons = {

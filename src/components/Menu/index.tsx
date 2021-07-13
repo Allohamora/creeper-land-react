@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as XIcon } from 'assets/icons/x.svg';
+import XIcon from 'assets/icons/x.svg';
 import { Content, Inner, XButton, Backdrop } from './styles';
 
 export interface ModalProps {

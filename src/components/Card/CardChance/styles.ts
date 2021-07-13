@@ -1,6 +1,6 @@
-import Typography from 'components/Typography';
+import LinesRaw from 'assets/backgrounds/chance__lines.svg';
 import styled, { css } from 'styled-components';
-import { ReactComponent as LinesRaw } from 'assets/backgrounds/chance__lines.svg';
+import { Typography } from 'components/Typography';
 import { color, media, zIndex, rem } from 'styles/helpers';
 import { PaletteColor } from 'styles/theme';
 

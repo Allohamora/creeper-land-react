@@ -1,6 +1,6 @@
-import Typography from 'components/Typography';
-import ContainedButton from 'components/Button/Contained';
 import styled, { css } from 'styled-components';
+import { Typography } from 'components/Typography';
+import { ButtonContained } from 'components/Button/ButtonContained';
 import { color, media, rem } from 'styles/helpers';
 import { PaletteColor } from 'styles/theme';
 import { TopBackdrop, X, TopWrap } from '../styles';
@@ -79,7 +79,7 @@ export const Value = styled(Typography).attrs({
   }
 `;
 
-export const Button = styled(ContainedButton)`
+export const Button = styled(ButtonContained)`
   margin: 7px auto 0;
   padding: 14px 95px;
 

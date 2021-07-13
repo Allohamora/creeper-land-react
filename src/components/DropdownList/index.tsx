@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Typography } from 'components/Typography';
 import { Wrap, Button, V, List, Items, Item } from './styles';
 
@@ -26,7 +26,7 @@ export const DropdownList: React.FC<DropdownListProps> = ({
 
   const listRef = useRef<HTMLDivElement | null>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!listRef.current) return;
 
     const currentHeight = listRef.current.scrollHeight;

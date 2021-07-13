@@ -1,5 +1,5 @@
+import PeopleRounded from 'assets/icons/people-rounded.svg';
 import styled, { css } from 'styled-components';
-import { ReactComponent as PeopleRounded } from 'assets/icons/people-rounded.svg';
 import { color, media, rem } from 'styles/helpers';
 
 export const Wrap = styled.div`
