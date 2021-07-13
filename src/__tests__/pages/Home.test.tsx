@@ -1,5 +1,5 @@
 import Home, { getStaticProps } from 'pages/index';
-import { render } from '@testing-library/react';
+import { renderInAppContext } from '__tests__/react-test';
 
 test('getStaticProps return correct props', async () => {
   const result = await getStaticProps({});
@@ -8,5 +8,5 @@ test('getStaticProps return correct props', async () => {
 });
 
 test('correct Home render', () => {
-  expect(() => render(<Home />)).not.toThrowError();
+  expect(() => renderInAppContext(<Home />)).not.toThrowError();
 });
