@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Кейс #1",
+    "value": "123 руб.",
+    "icon": "/images/icons/case2.png"
+  },
+  {
+    "title": "Кейс #2",
+    "value": "123 руб.",
+    "icon": "/images/icons/case2.png"
+  },
+  {
+    "title": "Кейс #3",
+    "value": "123 руб.",
+    "icon": "/images/icons/case3.png"
+  },
+  {
+    "title": "Кейс #4",
+    "value": "123 руб.",
+    "icon": "/images/icons/case4.png"
+  },
+  {
+    "title": "Кейс #1",
+    "value": "123 руб.",
+    "icon": "/images/icons/case2.png"
+  },
+  {
+    "title": "Кейс #2",
+    "value": "123 руб.",
+    "icon": "/images/icons/case2.png"
+  },
+  {
+    "title": "Кейс #3",
+    "value": "123 руб.",
+    "icon": "/images/icons/case3.png"
+  },
+  {
+    "title": "Кейс #4",
+    "value": "123 руб.",
+    "icon": "/images/icons/case4.png"
+  }
+]

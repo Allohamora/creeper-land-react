@@ -1,13 +1,13 @@
 import React from 'react';
 import { Wrap, Icon, Text } from './styles';
 
-interface PeopleCardProps {
+interface CardPeopleProps {
   variant?: 'green' | 'white';
   text: string;
   className?: string;
 }
 
-export const PeopleCard: React.FC<PeopleCardProps> = ({
+export const CardPeople: React.FC<CardPeopleProps> = ({
   variant = 'green',
   text,
   className,

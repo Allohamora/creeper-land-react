@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import XIcon from 'assets/icons/x.svg';
 import { Content, Inner, XButton, Backdrop } from './styles';
 
@@ -14,7 +14,9 @@ export const Menu: React.FC<ModalProps> = ({
   className,
   show,
 }) => {
-  document.documentElement.style.overflow = show ? 'hidden' : '';
+  useEffect(() => {
+    document.documentElement.style.overflow = show ? 'hidden' : '';
+  });
 
   return (
     <div className={className}>

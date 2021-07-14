@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { media } from 'styles/helpers';
 import { icon } from 'utils/images';
 
-const Logo = styled.img.attrs({
+export const Logo = styled.img.attrs({
   src: icon('logo.png'),
   alt: 'creeper land',
 })`
@@ -15,5 +15,3 @@ const Logo = styled.img.attrs({
     height: 24px;
   }
 `;
-
-export default Logo;
