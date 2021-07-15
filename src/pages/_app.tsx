@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import AppProvider from '../../old/src/App/AppProvider';
+import { AppProvider } from 'providers/AppProvider';
 import type { AppProps } from 'next/app';
 
 const App = ({ Component, pageProps }: AppProps) => (
